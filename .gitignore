@@ -1,0 +1,11 @@
+node_modules
+dist/
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-denug.log*
+lerna-debug.log*
+
+.Ds_Stroe
+
