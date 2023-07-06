@@ -4,12 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --fix --ext .ts,.tsx,.js,.jsx",
+    "fmt": "prettier --write \"./**/*.{ts,tsx,js,jsx}\"",
+    "preinstall": "npx only-allow pnpm"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "ShineShao <xiaoshaoqq@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.22.8",
+    "@babel/preset-env": "^7.22.7",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "lodash-es": "^4.17.21",
+    "rollup": "^3.26.2",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   }
