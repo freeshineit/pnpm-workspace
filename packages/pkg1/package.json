@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "webpack",
-    "build": "webpack"
+    "build": "npm run clean && webpack",
+    "clean": "rimraf dist"
   },
   "keywords": [],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
