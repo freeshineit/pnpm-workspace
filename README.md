@@ -1,4 +1,8 @@
-## pnpm
+## pnpm workspace
+
+![build](https://github.com/freeshineit/pnpm-workspace/workflows/build/badge.svg)
+
+## scripts
 
 ```bash
 
