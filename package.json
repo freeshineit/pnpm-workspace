@@ -7,11 +7,11 @@
     "dev:pkg1": "pnpm run --filter pkg1 dev",
     "dev:pkg2": "pnpm run --filter pkg1 dev",
     "dev:utils": "pnpm run --filter @common/utils dev",
-    "dev:all": "pnpm run dev",
+    "dev:all": "pnpm run --filter '*' dev",
     "build:pkg1": "pnpm run --filter pkg1 build",
     "build:pkg2": "pnpm run --filter pkg1 build",
     "build:utils": "pnpm run --filter @common/utils build",
-    "build:all": "pnpm run dev",
+    "build:all": "pnpm run --filter '*' build",
     "lint": "eslint . --fix --ext .ts,.tsx,.js,.jsx",
     "fmt": "prettier --write \"./**/*.{ts,tsx,js,jsx}\"",
     "preinstall": "npx only-allow pnpm"

@@ -25,6 +25,9 @@ pnpm run --filter pkg2 dev
 # 子包相互引用
 pnpm add <package A> -r --filter <package B>
 
+# 执行所有子包中的脚本 注意星号
+pnpm run --filter '*' build
+
 # 发布npm包
 
 
