@@ -1,3 +1,4 @@
 packages:
-  - "packages/*"
-  - "common/*"
+  - 'packages/*'
+  - 'common/*'
+  - '!**/test/**'

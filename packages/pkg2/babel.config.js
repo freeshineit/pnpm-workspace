@@ -1,5 +1,5 @@
-const common = require("../../config/bable.common")
+import common from '../../config/bable.common';
 
 module.exports = {
-    ...common,
-}
+  ...common,
+};

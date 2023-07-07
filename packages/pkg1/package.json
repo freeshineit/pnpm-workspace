@@ -4,9 +4,10 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack",
+    "build": "webpack"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "ShineShao <xiaoshaoqq@gmail.com>",
+  "license": "MIT"
 }

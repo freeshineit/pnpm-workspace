@@ -25,4 +25,7 @@ pnpm run --filter pkg2 dev
 # 子包相互引用
 pnpm add <package A> -r --filter <package B>
 
+# 发布npm包
+
+
 ```

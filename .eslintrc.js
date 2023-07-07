@@ -11,6 +11,5 @@ module.exports = {
     // '@typescript-eslint/explicit-function-return-type': 'off',
     // '@typescript-eslint/member-delimiter-style': 'off'
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-extraneous-class': 'off',
   },
 };

@@ -1,12 +1,13 @@
 {
-  "name": "utils",
+  "name": "@common/utils",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "rollup --config rollup.config.js",
+    "build": "rollup --config rollup.config.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "ShineShao <xiaoshaoqq@gmail.com>",
+  "license": "MIT"
 }

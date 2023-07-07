@@ -4,11 +4,11 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "rollup --config rollup.config.js"
+    "dev": "rollup --config rollup.config.js",
+    "build": "rollup --config rollup.config.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-  }
+  "author": "ShineShao <xiaoshaoqq@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
 }
