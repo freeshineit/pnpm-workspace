@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // Convert CommonJS modules to ES6
 const commonjs = require('@rollup/plugin-commonjs');
 // babel
