@@ -6,6 +6,6 @@ npm-debug.log*
 yarn-debug.log*
 pnpm-denug.log*
 lerna-debug.log*
-
+.dumi
 .Ds_Stroe
 
