@@ -2,4 +2,5 @@ packages:
   - 'packages/*'
   - 'common/*'
   - 'site'
+  - 'site-react'
   - '!**/test/**'

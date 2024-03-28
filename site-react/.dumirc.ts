@@ -1,10 +1,11 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
+  outputPath: 'docs-dist',
   themeConfig: {
-    name: '',
+    name: 'site-react',
   },
   alias: {
-    '@skax/pkg1': '../packages/pkg1/src',
+    pkg1: require.resolve('../packages/pkg1/src'),
   },
 });
