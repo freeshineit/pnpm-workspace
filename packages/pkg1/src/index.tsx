@@ -1,8 +1,5 @@
-import React, { type FC } from 'react';
+import { React } from 'react';
 
-const PKG1: FC<{ title: string }> = (props) => {
-  console.log('12341234');
-  return <h4>{props.title}</h4>;
-};
+const Foo = () => <div>12341234</div>;
 
-export default PKG1;
+export default Foo;

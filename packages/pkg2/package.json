@@ -4,12 +4,17 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "rollup --config rollup.config.js",
+    "dev": "rollup --config rollup.config.js --watch",
     "build": "npm run clean && rollup --config rollup.config.js",
     "clean": "rimraf dist"
   },
   "keywords": [],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "devDependencies": {
+    "@rollup/plugin-swc": "^0.3.0",
+    "@swc/core": "^1.4.11",
+    "rollup-plugin-serve": "^2.0.3",
+    "lodash-es": "^4.17.21"
+  }
 }

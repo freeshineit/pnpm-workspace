@@ -1,6 +1,17 @@
-# 
+# site
 
-A static site base on [dumi](https://d.umijs.org).
+[![NPM version](https://img.shields.io/npm/v/site.svg?style=flat)](https://npmjs.org/package/site)
+[![NPM downloads](http://img.shields.io/npm/dm/site.svg?style=flat)](https://npmjs.org/package/site)
+
+A react library developed with dumi
+
+## Usage
+
+TODO
+
+## Options
+
+TODO
 
 ## Development
 
@@ -8,11 +19,20 @@ A static site base on [dumi](https://d.umijs.org).
 # install dependencies
 $ pnpm install
 
-# start dev server
+# develop library by docs demo
 $ pnpm start
 
-# build docs
+# build library source code
 $ pnpm run build
+
+# build library source code in watch mode
+$ pnpm run build:watch
+
+# build docs
+$ pnpm run docs:build
+
+# check your project for potential problems
+$ pnpm run doctor
 ```
 
 ## LICENSE

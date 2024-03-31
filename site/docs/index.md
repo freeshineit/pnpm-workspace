@@ -1,8 +1,7 @@
 ---
-title: A static site based on dumi
 hero:
-  title: Site
-  description: A static site based on dumi
+  title: library
+  description: A react library developed with dumi
   actions:
     - text: Hello
       link: /
@@ -20,4 +19,4 @@ features:
     description: Put ! description here
 ---
 
-
+site

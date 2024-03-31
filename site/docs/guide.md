@@ -1,7 +1,17 @@
-This is a guide example.
+# Foo
 
+This is an example component.
 
-```ts
-import {pkg1} from '@skax/pkg1'
-pkg1()
+```tsx
+import Store from 'store';
+const store = new Store()
+
+const Foo =() => <div>8888</div>
+
+export default Foo
+```
+
+```tsx
+import PKG1 from 'pkg1';
+export default () => <PKG1 title="Hello dumi!" />
 ```
