@@ -15,7 +15,7 @@
     "build:utils": "pnpm run --filter @common/utils build",
     "build:all": "pnpm run --filter '*' build",
     "build:site": "pnpm run --filter site build",
-    "lint": "eslint . --fix --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint packages/*/src/* common/*/src/* site/src/* --fix --ext .ts,.tsx,.js,.jsx",
     "fmt": "prettier --write \"./**/*.{ts,tsx,js,jsx}\"",
     "preinstall": "npx only-allow pnpm"
   },
@@ -32,7 +32,7 @@
     "@swc/core": "^1.4.11",
     "@types/lodash-es": "^4.17.12",
     "eslint": "^8.57.0",
-    "eslint-config-xx": "^1.9.0",
+    "eslint-config-xx": "^1.10.0-beta.2",
     "husky": "^8.0.3",
     "lodash-es": "^4.17.21",
     "prettier": "^3.2.5",

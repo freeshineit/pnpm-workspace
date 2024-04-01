@@ -22,6 +22,7 @@
   "include": [
     "packages",
     "common",
+    "site",
     "config",
     "scripts",
     "__tests__",
