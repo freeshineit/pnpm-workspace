@@ -32,8 +32,6 @@ module.exports = {
     },
   ],
   plugins: [
-    resolve(),
-    commonjs({ extensions: ['.js', '.ts'] }),
     swc({
       // https://swc.rs/docs/configuration/swcrc
       swc: {
@@ -41,8 +39,10 @@ module.exports = {
           target: 'es5',
         },
       },
-      include: ['src/**/*.{ts,js}'],
+      include: ['**/src/**/*.{ts,js}'],
     }),
+    resolve(),
+    commonjs({ extensions: ['.js', '.ts'] }),
     isDev
       ? serve({
           port: 3000,

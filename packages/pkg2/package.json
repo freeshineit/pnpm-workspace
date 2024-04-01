@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "rollup --config rollup.config.js --watch",
-    "build": "npm run clean && rollup --config rollup.config.js",
+    "build": "npm run clean && cross-env NODE_ENV=production rollup --config rollup.config.js",
     "clean": "rimraf dist"
   },
   "keywords": [],

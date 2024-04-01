@@ -1,6 +1,10 @@
+export interface StoreOptions {
+  id: string;
+}
+
 class Store {
-  options: any;
-  constructor(options: any) {
+  options: StoreOptions;
+  constructor(options: StoreOptions) {
     this.options = options;
   }
 

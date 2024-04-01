@@ -25,4 +25,4 @@ jobs:
           version: 8
       - run: pnpm install
       - run: pnpm run lint
-      - run: pnpm run build:all
+      - run: pnpm run build
