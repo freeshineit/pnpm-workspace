@@ -39,8 +39,8 @@ importers:
         specifier: ^8.57.0
         version: 8.57.0
       eslint-config-xx:
-        specifier: ^1.10.0-beta.2
-        version: 1.10.0-beta.2
+        specifier: ^1.10.0
+        version: 1.10.0
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -6875,8 +6875,8 @@ packages:
       eslint-plugin-promise: 6.1.1(eslint@8.57.0)
     dev: true
 
-  /eslint-config-xx@1.10.0-beta.2:
-    resolution: {integrity: sha512-Snr9G15s/Du0W7VlYv0omhVuCHDSHD3xEoCsO4M3hV9JQyymG6GaqAZObahk+JtynWCOPW6mI4sGPiYtkJCSjA==}
+  /eslint-config-xx@1.10.0:
+    resolution: {integrity: sha512-KzmrQH+egQjm4SPPsaoqiNECFzFOBFF5+3OX+A98stgr740Xpf8gKYS0PDAh1Vj4yBJCb9xUysnq1EaLzrjliQ==}
     engines: {node: '>=18'}
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.4.0(@typescript-eslint/parser@7.4.0)(eslint@8.57.0)(typescript@5.3.3)
