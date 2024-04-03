@@ -31,6 +31,7 @@
     "@rollup/plugin-swc": "^0.3.0",
     "@swc/core": "^1.4.11",
     "@types/lodash-es": "^4.17.12",
+    "changeset": "^0.2.6",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-xx": "^1.10.0",
