@@ -32,6 +32,9 @@ importers:
       '@rollup/plugin-swc':
         specifier: ^0.3.0
         version: 0.3.0(@swc/core@1.4.11)(rollup@4.14.0)
+      '@skax/camel':
+        specifier: ^0.2.5
+        version: 0.2.5
       '@swc/core':
         specifier: ^1.4.11
         version: 1.4.11
@@ -2903,6 +2906,12 @@ packages:
 
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
+    dev: true
+
+  /@skax/camel@0.2.5:
+    resolution: {integrity: sha512-XKl4SDC7XgscLsvuNIAN+oVD2pw7hN3q85uq5L1RWwL3DbhxEfbSTkbD9hUzbF5lebyI8APoKH4rs2kIp5764Q==}
+    engines: {node: '>=14'}
+    requiresBuild: true
     dev: true
 
   /@sketch-hq/sketch-file-format-ts@6.5.0:

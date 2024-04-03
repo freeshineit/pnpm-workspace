@@ -10,7 +10,8 @@
   <body>
     <script>
       (function () {
-        Pkg2();
+        const store = new Store({ id: 'app' });
+        store.on('event', () => console.log('store'));
       })();
     </script>
   </body>

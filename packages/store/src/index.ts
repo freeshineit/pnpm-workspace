@@ -1,10 +1,10 @@
 export interface StoreOptions {
-  id: string;
+  id?: string;
 }
 
 class Store {
   options: StoreOptions;
-  constructor(options: StoreOptions) {
+  constructor(options: Partial<StoreOptions> = {}) {
     this.options = options;
   }
 

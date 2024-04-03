@@ -3,6 +3,7 @@ const commonjs = require('@rollup/plugin-commonjs');
 const resolve = require('@rollup/plugin-node-resolve');
 const swc = require('@rollup/plugin-swc');
 const serve = require('rollup-plugin-serve');
+const { upperCamel } = require('@skax/camel');
 const pkg = require('./package.json');
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -13,7 +14,7 @@ module.exports = {
     {
       file: 'dist/index.umd.js',
       format: 'umd',
-      name: pkg.name,
+      name: upperCamel(pkg.name.split('/')[1]),
     },
     {
       exports: 'auto',
