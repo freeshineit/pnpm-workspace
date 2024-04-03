@@ -27,7 +27,8 @@
     "scripts",
     "__tests__",
     ".eslintrc.js",
-    ".prettier.js"
+    ".prettier.js",
+    "commitlint.config.js"
   ],
   "exclude": ["node_modules", "dist", "coverage", "docs", "example"]
 }
