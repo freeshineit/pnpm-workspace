@@ -6,7 +6,7 @@ export default defineConfig({
     name: 'site',
   },
   alias: {
-    store: require.resolve('../packages/store/src'),
-    pkg1: require.resolve('../packages/pkg1/src'),
+    '@ak2021/store': require.resolve('../packages/store/src'),
+    '@ak2021/pkg1': require.resolve('../packages/pkg1/src'),
   },
 });

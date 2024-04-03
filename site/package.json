@@ -39,7 +39,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "stylelint": "^16.3.1",
-    "store": "workspace:*",
-    "pkg1": "workspace:*"
+    "@ak2021/store": "workspace:*",
+    "@ak2021/pkg1": "workspace:*"
   }
 }

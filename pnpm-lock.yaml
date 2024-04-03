@@ -32,6 +32,9 @@ importers:
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
+      changeset:
+        specifier: ^0.2.6
+        version: 0.2.6
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -105,6 +108,12 @@ importers:
 
   site:
     devDependencies:
+      '@ak2021/pkg1':
+        specifier: workspace:*
+        version: link:../packages/pkg1
+      '@ak2021/store':
+        specifier: workspace:*
+        version: link:../packages/store
       '@types/react':
         specifier: ^18.0.0
         version: 18.2.73
@@ -117,18 +126,12 @@ importers:
       father:
         specifier: ^4.4.0
         version: 4.4.0(@babel/core@7.24.3)(styled-components@6.1.8)(webpack@5.91.0)
-      pkg1:
-        specifier: workspace:*
-        version: link:../packages/pkg1
       react:
         specifier: ^18.0.0
         version: 18.2.0
       react-dom:
         specifier: ^18.0.0
         version: 18.2.0(react@18.2.0)
-      store:
-        specifier: workspace:*
-        version: link:../packages/store
       stylelint:
         specifier: ^16.3.1
         version: 16.3.1(typescript@5.3.3)
@@ -5260,6 +5263,13 @@ packages:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+    dev: true
+
+  /changeset@0.2.6:
+    resolution: {integrity: sha512-d21ym9zLPOKMVhIa8ulJo5IV3QR2NNdK6BWuwg48qJA0XSQaMeDjo1UGThcTn7YDmU08j3UpKyFNvb3zplk8mw==}
+    dependencies:
+      udc: 1.0.1
+      underscore: 1.13.6
     dev: true
 
   /character-entities-html4@2.1.0:
@@ -14089,6 +14099,10 @@ packages:
     hasBin: true
     dev: true
 
+  /udc@1.0.1:
+    resolution: {integrity: sha512-jv+D9de1flsum5QkFtBdjyppCQAdz9kTck/0xST5Vx48T9LL2BYnw0Iw77dSKDQ9KZ/PS3qPO1vfXHDpLZlxcQ==}
+    dev: true
+
   /umi@4.1.6(@babel/core@7.24.3)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(rollup@3.29.4)(sass@1.72.0)(stylelint@16.3.1)(typescript@5.3.3)(webpack@5.91.0):
     resolution: {integrity: sha512-MukkUHYrmoAC/WidbtUh24qX5EIupAtPzuUfZ1fWpiowlpwysYIfDPq56WAqQvftO0RPEpF+ZFA142/zWqmN5g==}
     engines: {node: '>=14'}
@@ -14147,6 +14161,10 @@ packages:
       has-bigints: 1.0.2
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
+    dev: true
+
+  /underscore@1.13.6:
+    resolution: {integrity: sha512-+A5Sja4HP1M08MaXya7p5LvjuM7K6q/2EaC0+iovj/wOcMsTzMvDFbasi/oSapiwOlt252IqsKqPjCl7huKS0A==}
     dev: true
 
   /undici-types@5.26.5:
