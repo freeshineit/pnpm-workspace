@@ -8,4 +8,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    port: 3000,
+  },
 };
