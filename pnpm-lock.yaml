@@ -82,7 +82,10 @@ importers:
         version: 5.91.0(@swc/core@1.4.11)(webpack-cli@5.1.4)
       webpack-cli:
         specifier: ^5.1.4
-        version: 5.1.4(webpack@5.91.0)
+        version: 5.1.4(webpack-dev-server@5.0.4)(webpack@5.91.0)
+      webpack-dev-server:
+        specifier: ^5.0.4
+        version: 5.0.4(webpack-cli@5.1.4)(webpack@5.91.0)
 
   common/utils: {}
 
@@ -131,10 +134,10 @@ importers:
         version: 18.2.23
       dumi:
         specifier: ^2.2.17
-        version: 2.2.17(@babel/core@7.24.3)(@types/node@20.12.2)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(rollup@4.14.0)(stylelint@16.3.1)(typescript@5.3.3)(webpack@5.91.0)
+        version: 2.2.17(@babel/core@7.24.3)(@types/node@20.12.2)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(rollup@4.14.0)(stylelint@16.3.1)(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0)
       father:
         specifier: ^4.4.0
-        version: 4.4.0(@babel/core@7.24.3)(@types/node@20.12.2)(styled-components@6.1.8)(webpack@5.91.0)
+        version: 4.4.0(@babel/core@7.24.3)(@types/node@20.12.2)(styled-components@6.1.8)(webpack-dev-server@5.0.4)(webpack@5.91.0)
       react:
         specifier: ^18.0.0
         version: 18.2.0
@@ -4077,7 +4080,7 @@ packages:
       - terser
     dev: true
 
-  /@umijs/bundler-webpack@4.1.6(typescript@5.3.3)(webpack@5.91.0):
+  /@umijs/bundler-webpack@4.1.6(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0):
     resolution: {integrity: sha512-cdedZV+HtJJOLqpgMbLHSIY6FyP774xHvih9hchmFRWKbcaNH859JEsgj5M6Ioi6cXLWvpp6cG0xhN/c0c/MvA==}
     hasBin: true
     dependencies:
@@ -4089,7 +4092,7 @@ packages:
       '@umijs/bundler-utils': 4.1.6
       '@umijs/case-sensitive-paths-webpack-plugin': 1.0.1
       '@umijs/mfsu': 4.1.6
-      '@umijs/react-refresh-webpack-plugin': 0.5.11(react-refresh@0.14.0)(webpack@5.91.0)
+      '@umijs/react-refresh-webpack-plugin': 0.5.11(react-refresh@0.14.0)(webpack-dev-server@5.0.4)(webpack@5.91.0)
       '@umijs/utils': 4.1.6
       cors: 2.8.5
       css-loader: 6.7.1(webpack@5.91.0)
@@ -4280,7 +4283,7 @@ packages:
       tsx: 3.12.2
     dev: true
 
-  /@umijs/preset-umi@4.1.6(@types/node@20.12.2)(@types/react@18.2.73)(rollup@4.14.0)(sass@1.72.0)(typescript@5.3.3)(webpack@5.91.0):
+  /@umijs/preset-umi@4.1.6(@types/node@20.12.2)(@types/react@18.2.73)(rollup@4.14.0)(sass@1.72.0)(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0):
     resolution: {integrity: sha512-pUlRu5x25ZM7jjotriiWKDJPe7DOeCsK4EnsBY3BzoKkd0mxf0MRu0/C+2euwU2hxbdHY98WSSQPE9GG5ctuoA==}
     dependencies:
       '@iconify/utils': 2.1.1
@@ -4290,7 +4293,7 @@ packages:
       '@umijs/bundler-esbuild': 4.1.6
       '@umijs/bundler-utils': 4.1.6
       '@umijs/bundler-vite': 4.1.6(@types/node@20.12.2)(postcss@8.4.38)(rollup@4.14.0)(sass@1.72.0)
-      '@umijs/bundler-webpack': 4.1.6(typescript@5.3.3)(webpack@5.91.0)
+      '@umijs/bundler-webpack': 4.1.6(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0)
       '@umijs/core': 4.1.6
       '@umijs/did-you-know': 1.0.3
       '@umijs/es-module-parser': 0.0.7
@@ -4338,7 +4341,7 @@ packages:
       - webpack-plugin-serve
     dev: true
 
-  /@umijs/react-refresh-webpack-plugin@0.5.11(react-refresh@0.14.0)(webpack@5.91.0):
+  /@umijs/react-refresh-webpack-plugin@0.5.11(react-refresh@0.14.0)(webpack-dev-server@5.0.4)(webpack@5.91.0):
     resolution: {integrity: sha512-RtFvB+/GmjRhpHcqNgnw8iWZpTlxOnmNxi8eDcecxMmxmSgeDj25LV0jr4Q6rOhv3GTIfVGBhkwz+khGT5tfmg==}
     engines: {node: '>= 10.13'}
     peerDependencies:
@@ -4375,6 +4378,7 @@ packages:
       schema-utils: 3.3.0
       source-map: 0.7.4
       webpack: 5.91.0(@swc/core@1.4.11)(webpack-cli@5.1.4)
+      webpack-dev-server: 5.0.4(webpack-cli@5.1.4)(webpack@5.91.0)
     dev: true
 
   /@umijs/renderer-react@4.1.6(react-dom@18.1.0)(react@18.1.0):
@@ -4588,7 +4592,7 @@ packages:
       webpack-cli: 5.x.x
     dependencies:
       webpack: 5.91.0(@swc/core@1.4.11)(webpack-cli@5.1.4)
-      webpack-cli: 5.1.4(webpack@5.91.0)
+      webpack-cli: 5.1.4(webpack-dev-server@5.0.4)(webpack@5.91.0)
     dev: true
 
   /@webpack-cli/info@2.0.2(webpack-cli@5.1.4)(webpack@5.91.0):
@@ -4599,7 +4603,7 @@ packages:
       webpack-cli: 5.x.x
     dependencies:
       webpack: 5.91.0(@swc/core@1.4.11)(webpack-cli@5.1.4)
-      webpack-cli: 5.1.4(webpack@5.91.0)
+      webpack-cli: 5.1.4(webpack-dev-server@5.0.4)(webpack@5.91.0)
     dev: true
 
   /@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack-dev-server@5.0.4)(webpack@5.91.0):
@@ -4616,21 +4620,6 @@ packages:
       webpack: 5.91.0(@swc/core@1.4.11)(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.0.4)(webpack@5.91.0)
       webpack-dev-server: 5.0.4(webpack-cli@5.1.4)(webpack@5.91.0)
-    dev: true
-
-  /@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack@5.91.0):
-    resolution: {integrity: sha512-lqaoKnRYBdo1UgDX8uF24AfGMifWK19TxPmM5FHc2vAGxrJ/qtyUyFBWoY1tISZdelsQ5fBcOusifo5o5wSJxQ==}
-    engines: {node: '>=14.15.0'}
-    peerDependencies:
-      webpack: 5.x.x
-      webpack-cli: 5.x.x
-      webpack-dev-server: '*'
-    peerDependenciesMeta:
-      webpack-dev-server:
-        optional: true
-    dependencies:
-      webpack: 5.91.0(@swc/core@1.4.11)(webpack-cli@5.1.4)
-      webpack-cli: 5.1.4(webpack@5.91.0)
     dev: true
 
   /@xtuc/ieee754@1.2.0:
@@ -6721,7 +6710,7 @@ packages:
     resolution: {integrity: sha512-a/Y5lf0G6gwsEQ9hop/n03CcjmHsGBk384Cz/AEX6mRYrfSpUx/lQvP9HLoXkCzScl9PL1sSmLPnMkgaXDCZLA==}
     dev: true
 
-  /dumi@2.2.17(@babel/core@7.24.3)(@types/node@20.12.2)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(rollup@4.14.0)(stylelint@16.3.1)(typescript@5.3.3)(webpack@5.91.0):
+  /dumi@2.2.17(@babel/core@7.24.3)(@types/node@20.12.2)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(rollup@4.14.0)(stylelint@16.3.1)(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0):
     resolution: {integrity: sha512-oI2OVlkkVORy0ud64YlhrBF+rsAda9rGFxMLrOLepTjC96mLOrgUz/geKkckWA5LemEuFVsaTYE/5HDpAPTkvQ==}
     hasBin: true
     peerDependencies:
@@ -6785,7 +6774,7 @@ packages:
       remark-rehype: 10.1.0
       sass: 1.72.0
       sitemap: 7.1.1
-      umi: 4.1.6(@babel/core@7.24.3)(@types/node@20.12.2)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(rollup@4.14.0)(sass@1.72.0)(stylelint@16.3.1)(typescript@5.3.3)(webpack@5.91.0)
+      umi: 4.1.6(@babel/core@7.24.3)(@types/node@20.12.2)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(rollup@4.14.0)(sass@1.72.0)(stylelint@16.3.1)(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0)
       unified: 10.1.2
       unist-util-visit: 4.1.2
       unist-util-visit-parents: 5.1.3
@@ -7855,14 +7844,14 @@ packages:
       reusify: 1.0.4
     dev: true
 
-  /father@4.4.0(@babel/core@7.24.3)(@types/node@20.12.2)(styled-components@6.1.8)(webpack@5.91.0):
+  /father@4.4.0(@babel/core@7.24.3)(@types/node@20.12.2)(styled-components@6.1.8)(webpack-dev-server@5.0.4)(webpack@5.91.0):
     resolution: {integrity: sha512-7xwjMLmZtPmoCkvA+B+65X0SUplcJD7lxA+ruELObpGsEGOxPgmdrNbZcdmDg1xAHCrNv/mlE6A4z3QxOKF7WA==}
     hasBin: true
     dependencies:
       '@microsoft/api-extractor': 7.39.1(@types/node@20.12.2)
       '@umijs/babel-preset-umi': 4.1.6
       '@umijs/bundler-utils': 4.1.6
-      '@umijs/bundler-webpack': 4.1.6(typescript@5.3.3)(webpack@5.91.0)
+      '@umijs/bundler-webpack': 4.1.6(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0)
       '@umijs/case-sensitive-paths-webpack-plugin': 1.0.1
       '@umijs/core': 4.1.6
       '@umijs/utils': 4.1.6
@@ -14645,17 +14634,17 @@ packages:
     resolution: {integrity: sha512-jv+D9de1flsum5QkFtBdjyppCQAdz9kTck/0xST5Vx48T9LL2BYnw0Iw77dSKDQ9KZ/PS3qPO1vfXHDpLZlxcQ==}
     dev: true
 
-  /umi@4.1.6(@babel/core@7.24.3)(@types/node@20.12.2)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(rollup@4.14.0)(sass@1.72.0)(stylelint@16.3.1)(typescript@5.3.3)(webpack@5.91.0):
+  /umi@4.1.6(@babel/core@7.24.3)(@types/node@20.12.2)(@types/react@18.2.73)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.2.0)(react@18.2.0)(rollup@4.14.0)(sass@1.72.0)(stylelint@16.3.1)(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0):
     resolution: {integrity: sha512-MukkUHYrmoAC/WidbtUh24qX5EIupAtPzuUfZ1fWpiowlpwysYIfDPq56WAqQvftO0RPEpF+ZFA142/zWqmN5g==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       '@babel/runtime': 7.23.6
       '@umijs/bundler-utils': 4.1.6
-      '@umijs/bundler-webpack': 4.1.6(typescript@5.3.3)(webpack@5.91.0)
+      '@umijs/bundler-webpack': 4.1.6(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0)
       '@umijs/core': 4.1.6
       '@umijs/lint': 4.1.6(eslint@8.57.0)(stylelint@16.3.1)(typescript@5.3.3)
-      '@umijs/preset-umi': 4.1.6(@types/node@20.12.2)(@types/react@18.2.73)(rollup@4.14.0)(sass@1.72.0)(typescript@5.3.3)(webpack@5.91.0)
+      '@umijs/preset-umi': 4.1.6(@types/node@20.12.2)(@types/react@18.2.73)(rollup@4.14.0)(sass@1.72.0)(typescript@5.3.3)(webpack-dev-server@5.0.4)(webpack@5.91.0)
       '@umijs/renderer-react': 4.1.6(react-dom@18.2.0)(react@18.2.0)
       '@umijs/server': 4.1.6
       '@umijs/test': 4.1.6(@babel/core@7.24.3)
@@ -15123,39 +15112,6 @@ packages:
       webpack-merge: 5.10.0
     dev: true
 
-  /webpack-cli@5.1.4(webpack@5.91.0):
-    resolution: {integrity: sha512-pIDJHIEI9LR0yxHXQ+Qh95k2EvXpWzZ5l+d+jIo+RdSm9MiHfzazIxwwni/p7+x4eJZuvG1AJwgC4TNQ7NRgsg==}
-    engines: {node: '>=14.15.0'}
-    hasBin: true
-    peerDependencies:
-      '@webpack-cli/generators': '*'
-      webpack: 5.x.x
-      webpack-bundle-analyzer: '*'
-      webpack-dev-server: '*'
-    peerDependenciesMeta:
-      '@webpack-cli/generators':
-        optional: true
-      webpack-bundle-analyzer:
-        optional: true
-      webpack-dev-server:
-        optional: true
-    dependencies:
-      '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4)(webpack@5.91.0)
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4)(webpack@5.91.0)
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4)(webpack@5.91.0)
-      colorette: 2.0.20
-      commander: 10.0.1
-      cross-spawn: 7.0.3
-      envinfo: 7.11.1
-      fastest-levenshtein: 1.0.16
-      import-local: 3.1.0
-      interpret: 3.1.1
-      rechoir: 0.8.0
-      webpack: 5.91.0(@swc/core@1.4.11)(webpack-cli@5.1.4)
-      webpack-merge: 5.10.0
-    dev: true
-
   /webpack-dev-middleware@7.2.0(webpack@5.91.0):
     resolution: {integrity: sha512-VLzmsjJrf+3UVf3QsT3E7xZ9F9bdhUhQFGRxyl6bmYR+W519UWnK6/teZeqAFFjWEtpVs+JqNPCVqB/s7P4tGg==}
     engines: {node: '>= 18.12.0'}
@@ -15272,7 +15228,7 @@ packages:
       tapable: 2.2.1
       terser-webpack-plugin: 5.3.10(@swc/core@1.4.11)(webpack@5.91.0)
       watchpack: 2.4.1
-      webpack-cli: 5.1.4(webpack@5.91.0)
+      webpack-cli: 5.1.4(webpack-dev-server@5.0.4)(webpack@5.91.0)
       webpack-sources: 3.2.3
     transitivePeerDependencies:
       - '@swc/core'
