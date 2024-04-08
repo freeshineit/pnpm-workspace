@@ -4,10 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:pkg1": "pnpm run --filter pkg1 dev",
-    "dev:pkg2": "pnpm run --filter pkg1 dev",
-    "dev:utils": "pnpm run --filter @common/utils dev",
-    "dev:all": "pnpm run --filter '*' dev",
     "dev": "pnpm run --filter site dev",
     "site": "pnpm run --filter site dev",
     "build:pkg1": "pnpm run --filter pkg1 build",

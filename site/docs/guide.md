@@ -6,6 +6,8 @@ This is an example component.
 import Store from '@ak2021/store';
 const store = new Store()
 
+store.on("change",()=>{});
+
 const Foo =() => <div>8888</div>
 
 export default Foo
