@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 **bug 描述(Describe the bug)**
-A clear and concise description of what the bug is.
+对bug是什么的清晰简洁的描述。 (A clear and concise description of what the bug is.)
 
 **复现(To Reproduce)**
 再现步骤(Steps to reproduce the behavior):
@@ -18,21 +18,21 @@ A clear and concise description of what the bug is.
 4. See error
 
 **预期行为(Expected behavior)**
-A clear and concise description of what you expected to happen.
+对你期望发生的事情的清晰简洁的描述。 (A clear and concise description of what you expected to happen.)
 
 **截图(Screenshots)**
-If applicable, add screenshots to help explain your problem.
+如果适用，请添加屏幕截图以帮助解释您的问题。 (If applicable, add screenshots to help explain your problem.)
 
-**PC (please complete the following information):**
+**PC 请填写以下信息 (please complete the following information):**
  - OS: [e.g. iOS]
  - Browser [e.g. chrome, safari]
  - Version [e.g. 22]
 
-** H5 (please complete the following information):**
+**mobile 请填写以下信息 (please complete the following information):**
  - Device: [e.g. iPhone6]
  - OS: [e.g. iOS8.1]
  - Browser [e.g. stock browser, safari]
  - Version [e.g. 22]
 
 **附加上下文(Additional context)**
-Add any other context about the problem here.
+在此处添加有关该问题的任何其他上下文。 (Add any other context about the problem here.)
