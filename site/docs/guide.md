@@ -14,6 +14,6 @@ export default Foo
 ```
 
 ```tsx
-import PKG1 from '@ak2021/pkg1';
+import PKG1 from '@ak2021/with-webpack';
 export default () => <PKG1 title="Hello dumi!" />
 ```

@@ -40,6 +40,6 @@
     "react-dom": "^18.0.0",
     "stylelint": "^16.3.1",
     "@ak2021/store": "workspace:*",
-    "@ak2021/pkg1": "workspace:*"
+    "@ak2021/with-webpack": "workspace:*"
   }
 }
