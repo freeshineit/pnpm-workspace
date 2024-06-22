@@ -10,8 +10,8 @@
       "@@/*": [".dumi/tmp/*"],
       "site": ["src"],
       "site/*": ["src/*", "*"],
-      "@ak2021/store": ["../packages/pkg1/src"],
-      "@ak2021/pkg1": ["../packages/pkg1/src"]
+      "@ak2021/store": ["../packages/store/src"],
+      "@ak2021/with-webpack": ["../packages/with-webpack/src"]
     }
   },
   "include": [".dumirc.ts", "src/**/*", "../packages/*/src/**/*", "../common/*/src/**/*"]

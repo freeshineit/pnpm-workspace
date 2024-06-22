@@ -1,14 +1,20 @@
 {
   "name": "@ak2021/store",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.0",
   "description": "",
   "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "module": "dist/index.mjs",
   "scripts": {
     "dev": "rollup --config rollup.config.js --watch",
     "build": "npm run clean && cross-env NODE_ENV=production rollup --config rollup.config.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "prepublish": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "rollup-plugin-dts": "^6.1.1"
+  }
 }

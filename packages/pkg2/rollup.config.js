@@ -1,54 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const commonjs = require('@rollup/plugin-commonjs');
-const resolve = require('@rollup/plugin-node-resolve');
-const swc = require('@rollup/plugin-swc');
-const serve = require('rollup-plugin-serve');
-const { upperCamel } = require('@skax/camel');
+const generateConfig = require('../../config/rollup.config');
 const pkg = require('./package.json');
 
-const isDev = process.env.NODE_ENV !== 'production';
-
-module.exports = {
-  input: 'src/index.ts',
-  output: [
-    {
-      file: 'dist/index.umd.js',
-      format: 'umd',
-      name: upperCamel(pkg.name.split('/')[1]),
-    },
-    {
-      exports: 'auto',
-      // Node 默认的模块规范, 可通过 Webpack 加载
-      // https://javascript.ruanyifeng.com/nodejs/module.html
-      // https://zh.wikipedia.org/wiki/CommonJS
-      file: 'dist/index.js',
-      format: 'cjs',
-    },
-    {
-      // ES2015 Module 规范,
-      // https://exploringjs.com/es6/ch_modules.html
-      exports: 'auto',
-      file: 'dist/index.esm.js',
-      format: 'esm',
-    },
-  ],
-  plugins: [
-    resolve(),
-    commonjs({ extensions: ['.js', '.ts'] }),
-    swc({
-      // https://swc.rs/docs/configuration/swcrc
-      swc: {
-        jsc: {
-          target: 'es5',
-        },
-      },
-      include: ['src/**/*.{ts,js}'],
-    }),
-    isDev
-      ? serve({
-          port: 3000,
-          contentBase: ['public', 'dist'],
-        })
-      : null,
-  ].filter(Boolean),
-};
+module.exports = generateConfig(pkg);
