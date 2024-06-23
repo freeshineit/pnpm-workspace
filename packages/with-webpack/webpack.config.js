@@ -5,7 +5,7 @@ const environment = process.env.NODE_ENV || 'development';
 
 module.exports = {
   mode: environment,
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
   devtool: environment === 'production' ? false : 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
