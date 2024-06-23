@@ -20,22 +20,15 @@
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.24.3",
-    "@babel/preset-env": "^7.24.3",
     "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-swc": "^0.3.0",
-    "@skax/camel": "^0.2.5",
-    "@swc/core": "^1.4.11",
     "@types/lodash-es": "^4.17.12",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "changeset": "^0.2.6",
     "cross-env": "^7.0.3",
+    "dayjs": "^1.11.11",
     "eslint": "^8.57.0",
     "eslint-config-xx": "^1.10.0",
     "husky": "^9.0.11",
@@ -44,12 +37,11 @@
     "pretty-quick": "^4.0.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.14.0",
-    "rollup-plugin-serve": "^2.0.3",
     "typescript": "5.3.3",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
-    "rollup-plugin-dts": "^6.1.1"
+    "@ak2021/rollup": "workspace:*"
   },
   "engines": {
     "node": ">=18.20"

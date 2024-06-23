@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "packages/*/src/**.{ts,tsx,js,jsx,mjs}",
+    "common/*/src/**.{ts,tsx,js,jsx,mjs}",
+    "site/**.{ts,tsx,js,jsx,mjs}",
+    "config/**.{ts,tsx,js,jsx,mjs}",
+    "scripts/**.{ts,tsx,js,jsx,mjs}",
+    "__tests__",
+    ".eslintrc.js",
+    ".prettier.js",
+    "commitlint.config.js"
+  ],
+  "exclude": ["node_modules", "dist", "coverage", "docs", "examples"]
+}
