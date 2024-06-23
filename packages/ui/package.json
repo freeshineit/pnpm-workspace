@@ -1,0 +1,23 @@
+{
+  "name": "@ak2021/ui",
+  "version": "0.1.0",
+  "main": "./index.ts",
+  "type": "module",
+  "exports": {
+    "./button": {
+      "types": "./components/Button.tsx",
+      "default": "./dist/es/button.js"
+    },
+    "./header": {
+      "types": "./components/Header.tsx",
+      "default": "./dist/es/header.js"
+    }
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rollup --config rollup.config.js --watch",
+    "build": "npm run clean && cross-env NODE_ENV=production rollup --config rollup.config.js",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

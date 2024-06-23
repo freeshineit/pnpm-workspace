@@ -2,7 +2,9 @@
   "name": "@ak2021/with-webpack",
   "version": "0.1.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "src/index.tsx",
+  "types": "src/index.tsx",
+  "module": "src/index.tsx",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve",
     "build": "npm run clean && cross-env NODE_ENV=production webpack",

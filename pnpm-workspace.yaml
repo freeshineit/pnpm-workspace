@@ -1,5 +1,7 @@
 packages:
   - 'packages/*'
+  - '!packages/ui'
   - 'common/*'
   - 'site'
   - '!**/test/**'
+  - '!**/dist/**'

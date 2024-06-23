@@ -10,3 +10,5 @@ lerna-debug.log*
 .dumi
 .Ds_Stroe
 
+rollup.config-*.cjs
+
