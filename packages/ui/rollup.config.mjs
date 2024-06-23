@@ -1,7 +1,5 @@
 import generateConfig from '../../config/rollup.config';
 
-// import swc from '@rollup/plugin-swc';
-
 export default generateConfig([
   {
     input: './components/Button.tsx',

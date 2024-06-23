@@ -52,7 +52,7 @@
     "rollup-plugin-dts": "^6.1.1"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18.20"
   },
   "dependencies": {
     "react": "^18.0.0",
