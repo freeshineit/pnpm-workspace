@@ -9,6 +9,7 @@ pnpm-denug.log*
 lerna-debug.log*
 .dumi
 .Ds_Stroe
+.rollup.cache
 
 rollup.config-*.cjs
 

@@ -1,0 +1,33 @@
+{
+  "name": "@ak2021/rollup",
+  "version": "0.1.0",
+  "main": "src/index.mjs",
+  "type": "module",
+  "scripts": {
+    "dev": "",
+    "build": ""
+  },
+  "keywords": [],
+  "author": "ShineShao <xiaoshaoqq@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-eslint": "^9.0.5",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.7",
+    "@rollup/plugin-swc": "^0.3.0",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@skax/camel": "^0.2.5",
+    "@swc/core": "^1.4.11",
+    "dayjs": "^1.11.11",
+    "rollup": "^4.14.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-serve": "^2.0.3",
+    "typescript": "5.3.3"
+  }
+}
