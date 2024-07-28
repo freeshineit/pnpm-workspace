@@ -11,7 +11,7 @@
     "build:utils": "pnpm run --filter @common/utils build",
     "build": "pnpm run --filter '*' build",
     "build:site": "pnpm run --filter site build",
-    "lint": "eslint packages/*/src/* common/*/src/* site/src/* --fix --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint --fix \"packages/*/src/*.{ts,tsx,js,jsx}\" \"common/*/src/*.{ts,tsx,js,jsx}\" \"site/src/*.{ts,tsx,js,jsx}\"",
     "fmt": "prettier --write \"./**/*.{ts,tsx,js,jsx}\"",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky"
