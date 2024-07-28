@@ -9,5 +9,6 @@ module.exports = {
   rules: {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-extraneous-class': 'off',
+    '@typescript-eslint/unbound-method': 'off',
   },
 };

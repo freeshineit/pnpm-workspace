@@ -2,5 +2,6 @@ packages:
   - 'packages/*'
   - 'common/*'
   - 'site'
+  - 'site2'
   - '!**/test/**'
   - '!**/dist/**'
