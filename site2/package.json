@@ -19,7 +19,7 @@
     "@storybook/web-components": "^8.2.6",
     "@storybook/web-components-vite": "^8.2.6",
     "storybook": "^8.2.6",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.3",
     "vite": "^5.3.4"
   }
 }
