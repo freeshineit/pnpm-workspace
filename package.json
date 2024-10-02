@@ -8,6 +8,7 @@
     "site": "npm run dev",
     "dev:react": "pnpm run --filter with-react start",
     "dev:vue3": "pnpm run --filter with-vue3 dev",
+    "dev:vue2": "pnpm run --filter with-vue2 serve",
     "build:pkg1": "pnpm run --filter pkg1 build",
     "build:pkg2": "pnpm run --filter pkg1 build",
     "build:utils": "pnpm run --filter @common/utils build",
@@ -15,6 +16,7 @@
     "build:site": "pnpm run --filter site-dumi build",
     "build:site:react": "pnpm run --filter with-react build",
     "build:site:vue3": "pnpm run --filter with-vue3 build",
+    "build:site:vue2": "pnpm run --filter with-vue2 build",
     "lint": "eslint --fix \"packages/*/src/*.{ts,tsx,js,jsx}\" \"common/*/src/*.{ts,tsx,js,jsx}\" \"site/*/src/*.{ts,tsx,js,jsx}\"",
     "fmt": "prettier --write \"./**/*.{ts,tsx,js,jsx}\"",
     "preinstall": "npx only-allow pnpm",
@@ -48,7 +50,7 @@
     "@ak2021/rollup": "workspace:*"
   },
   "engines": {
-    "node": ">=16.20"
+    "node": ">=18.3"
   },
   "dependencies": {
     "react": "^18.0.0",
