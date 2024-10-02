@@ -1,7 +1,6 @@
 # site
 
-[![NPM version](https://img.shields.io/npm/v/site.svg?style=flat)](https://npmjs.org/package/site)
-[![NPM downloads](http://img.shields.io/npm/dm/site.svg?style=flat)](https://npmjs.org/package/site)
+[![NPM version](https://img.shields.io/npm/v/site.svg?style=flat)](https://npmjs.org/package/site) [![NPM downloads](http://img.shields.io/npm/dm/site.svg?style=flat)](https://npmjs.org/package/site)
 
 A react library developed with dumi
 
