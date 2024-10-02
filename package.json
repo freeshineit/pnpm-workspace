@@ -2,7 +2,6 @@
   "name": "pnpm-workspace",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "site": "npm run dev",
     "dev": "pnpm run --filter site-dumi dev",
@@ -29,9 +28,6 @@
     "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
-    "@types/lodash-es": "^4.17.12",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
     "changeset": "^0.2.6",
     "cross-env": "^7.0.3",
     "dayjs": "^1.11.11",
@@ -46,14 +42,10 @@
     "typescript": "5.3.3",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4",
-    "@ak2021/rollup": "workspace:*"
+    "webpack-dev-server": "^5.0.4"
   },
   "engines": {
     "node": ">=18.3"
   },
-  "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  }
+  "dependencies": {}
 }
