@@ -1,6 +1,7 @@
 packages:
   - "packages/*"
   - "common/*"
+  - "config/*"
   - "site/*"
   - "!**/test/**"
   - "!**/dist/**"
