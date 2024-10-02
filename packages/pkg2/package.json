@@ -16,6 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "lodash-es": "^4.17.21",
-    "@ak2021/rollup": "workspace:*"
+    "@ak2021/rollup": "workspace:*",
+    "@types/lodash-es": "^4.17.12"
   }
 }

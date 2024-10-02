@@ -13,7 +13,9 @@
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@ak2021/rollup": "workspace:*"
+    "@ak2021/rollup": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "dependencies": {},
   "peerDependencies": {
