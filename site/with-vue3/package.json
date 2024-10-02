@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "test:e2e": "playwright test",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force"
   },
@@ -15,7 +14,6 @@
     "vue": "^3.4.29"
   },
   "devDependencies": {
-    "@playwright/test": "^1.44.1",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",

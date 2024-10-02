@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm run --filter site-dumi dev",
     "site": "npm run dev",
+    "dev": "pnpm run --filter site-dumi dev",
     "dev:react": "pnpm run --filter with-react start",
     "dev:vue3": "pnpm run --filter with-vue3 dev",
     "dev:vue2": "pnpm run --filter with-vue2 serve",
