@@ -2,14 +2,23 @@
 const path = require("path");
 
 const environment = process.env.NODE_ENV || "development";
+const isDev = environment === "development";
 
 module.exports = {
   mode: environment,
   entry: "./src/index.tsx",
-  devtool: environment === "production" ? false : "inline-source-map",
+  devtool: !isDev ? false : "inline-source-map",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
+    library: isDev
+      ? {
+          name: "Foo",
+          type: "umd",
+        }
+      : {
+          type: "module",
+        },
   },
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
@@ -27,6 +36,15 @@ module.exports = {
       { test: /\.([cm]?ts|tsx)$/, loader: "ts-loader" },
     ],
   },
+  externals: {
+    react: "React",
+    "react-dom": "ReactDOM",
+  },
+  experiments: isDev
+    ? {}
+    : {
+        outputModule: true,
+      },
   devServer: {
     static: {
       directory: path.join(__dirname, "public"),

@@ -10,11 +10,11 @@
     "build": "npm run clean && cross-env NODE_ENV=production rollup --config rollup.config.mjs",
     "clean": "rimraf dist"
   },
-  "devDependencies": {},
-  "dependencies": {
+  "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0"
   },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=17"
   }
