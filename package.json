@@ -21,6 +21,7 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky"
   },
+  "files": [],
   "keywords": [],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
