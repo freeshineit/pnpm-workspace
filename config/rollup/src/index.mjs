@@ -21,7 +21,7 @@ const isDev = process.env.NODE_ENV !== "production";
  * @param {string=} pkg.main main
  * @param {version=} pkg.version string
  * @param {string=} pkg.author author
- * @param {object=} pkg.devDependencies devDependencies
+ * @param {object=} pkg.dependencies dependencies
  * @param {("tsc" | "swc")=} pkg.compiler compiler
  * @param {port=} pkg.port port
  * @param {Array} configs config[]
@@ -37,7 +37,13 @@ function generateConfig(pkg, configs) {
 
   const input = pkg.main || "src/index.ts";
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  const externals = Object.keys(pkg?.devDependencies || {});
+  const externals = Object.keys(pkg?.dependencies || {});
+
+  const exportName = upperCamel(
+    pkg?.name?.split("/").length > 1
+      ? pkg?.name?.split("/")[pkg?.name?.split("/").length - 1]
+      : pkg?.name,
+  );
 
   const defaultConfigs = [
     {
@@ -48,7 +54,7 @@ function generateConfig(pkg, configs) {
           format: "umd",
           exports: "named",
           // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-          name: upperCamel(pkg?.name?.split("/")[1]),
+          name: exportName,
           sourcemap: isDev,
           banner,
         },

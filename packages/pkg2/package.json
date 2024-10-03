@@ -14,7 +14,11 @@
   "keywords": [],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@ak2021/rollup": "workspace:*",
+    "@types/lodash-es": "^4.17.12"
   }
 }

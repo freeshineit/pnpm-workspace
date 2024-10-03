@@ -14,5 +14,7 @@
   "keywords": [],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "@ak2021/rollup": "workspace:*"
+  }
 }
