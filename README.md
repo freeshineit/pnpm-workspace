@@ -4,6 +4,8 @@
 
 ## scripts
 
+node >=18.3
+
 ```bash
 
 # 安装依赖
