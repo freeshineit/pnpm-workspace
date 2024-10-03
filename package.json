@@ -49,5 +49,8 @@
     "node": ">=18.3",
     "react": ">=17"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }
