@@ -187,12 +187,6 @@ importers:
         specifier: ^5.0.4
         version: 5.0.4(webpack-cli@5.1.4)(webpack@5.91.0)
 
-  site/dumi:
-    devDependencies:
-      dumi:
-        specifier: ^2.4.12
-        version: 2.4.12(@babel/core@7.25.2)(@types/node@20.16.10)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.3.1)(react@18.3.1)(rollup@4.14.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack-dev-server@5.0.4)(webpack@5.91.0)
-
   site/dumi-mobile:
     devDependencies:
       dumi:
@@ -201,6 +195,12 @@ importers:
       dumi-theme-mobile:
         specifier: ^2.3.5
         version: 2.3.5(dumi@2.4.12)(react-dom@18.3.1)(react@18.3.1)
+
+  site/dumi-pc:
+    devDependencies:
+      dumi:
+        specifier: ^2.4.12
+        version: 2.4.12(@babel/core@7.25.2)(@types/node@20.16.10)(eslint@8.57.0)(prettier@3.2.5)(react-dom@18.3.1)(react@18.3.1)(rollup@4.14.0)(stylelint@14.16.1)(typescript@5.4.5)(webpack-dev-server@5.0.4)(webpack@5.91.0)
 
   site/with-react:
     dependencies:
