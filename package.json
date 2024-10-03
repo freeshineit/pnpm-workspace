@@ -1,6 +1,6 @@
 {
-  "name": "pnpm-workspace",
-  "version": "1.0.0",
+  "name": "@skax/pnpm-workspace",
+  "version": "0.1.0",
   "description": "pnpm workspace",
   "scripts": {
     "site": "npm run dev",
