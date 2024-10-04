@@ -1,51 +1,68 @@
-import TemplateComponent from "../common/template";
+// import BaseComponent from "../base";
 
-interface IButtonProps {
-  type: "primary";
-}
+// interface IButtonProps {
+//   type: "primary";
+// }
 
-class WcButton extends TemplateComponent {
-  // Specify observed attributes so that
-  // attributeChangedCallback will work
-  static get observedAttributes() {
-    return ["color", "size"];
-  }
+// class WcButton extends HTMLElement {
+//   // Specify observed attributes so that
+//   // attributeChangedCallback will work
+//   // static get observedAttributes() {
+//   //   return ["color", "size"];
+//   // }
 
-  constructor(props: IButtonProps) {
+//   constructor() {
+//     super();
+
+//     const divElem = document.createElement("div");
+//     divElem.textContent = this.getAttribute("text");
+
+//     const shadowRoot = this.attachShadow({ mode: "open" });
+//     shadowRoot.appendChild(divElem);
+//   }
+
+//   // connectedCallback() {
+//   //   console.log("Custom square element added to page.");
+//   //   // updateStyle(this);
+//   // }
+
+//   // disconnectedCallback() {
+//   //   console.log("Custom square element removed from page.");
+//   // }
+
+//   // adoptedCallback() {
+//   //   console.log("Custom square element moved to new page.");
+//   // }
+
+//   // attributeChangedCallback(name: string, oldValue: any, newValue: any) {
+//   //   console.log("Custom square element attributes changed.");
+//   //   // updateStyle(this);
+//   // }
+
+//   // render() {
+//   //   return `
+//   //     <button class="wc-button">button</button>
+//   //   `;
+//   // }
+// }
+
+class WcButton extends HTMLElement {
+  constructor() {
     super();
-    this.render();
-  }
 
-  connectedCallback() {
-    console.log("Custom square element added to page.");
-    // updateStyle(this);
-  }
+    const divElem = document.createElement("div");
+    divElem.textContent = this.getAttribute("text");
 
-  disconnectedCallback() {
-    console.log("Custom square element removed from page.");
-  }
-
-  adoptedCallback() {
-    console.log("Custom square element moved to new page.");
-  }
-
-  attributeChangedCallback(name: string, oldValue: any, newValue: any) {
-    console.log("Custom square element attributes changed.");
-    // updateStyle(this);
-  }
-
-  render() {
-    return `
-      <button class="wc-button">button</button>
-    `;
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(divElem);
   }
 }
 
-customElements.define("wcc-button", WcButton);
+customElements.define("wc-button", WcButton);
 
-/** 每个组件 */
+/** 添加标签 */
 export interface HTMLElementTagNameMap {
   "wc-button": WcButton;
 }
 
-export default WcButton;
+// export default WcButton;

@@ -1,14 +1,14 @@
 import "@webcomponents/webcomponentsjs";
 
-class TemplateComponent extends HTMLElement {
+class BaseComponent extends HTMLElement {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor() {
     super();
   }
 
   render() {
-    throw new Error("TemplateComponent Error!");
+    throw new Error("BaseComponent Error!");
   }
 }
 
-export default TemplateComponent;
+export default BaseComponent;
