@@ -4,5 +4,6 @@ node_modules/
 .idea/
 dist/
 docs/
+build/
 coverage/
 pnpm-lock.yaml
