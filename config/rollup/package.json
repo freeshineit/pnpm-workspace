@@ -30,6 +30,11 @@
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-serve": "^2.0.3",
-    "typescript": "5.3.3"
+    "rollup-plugin-postcss": "^4.0.2",
+    "typescript": "5.3.3",
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^6.1.2",
+    "postcss": "^8.4.38",
+    "sass": "^1.75.0"
   }
 }

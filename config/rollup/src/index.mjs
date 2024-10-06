@@ -11,6 +11,9 @@ import eslint from "@rollup/plugin-eslint";
 import replace from "@rollup/plugin-replace";
 import typescript from "@rollup/plugin-typescript";
 import dayjs from "dayjs";
+import postcss from "rollup-plugin-postcss";
+import cssnano from "cssnano";
+import autoprefixer from "autoprefixer";
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -130,6 +133,11 @@ function generateConfig(pkg, configs) {
         replace({
           __VERSION__: `${pkg.version}`,
           preventAssignment: true,
+        }),
+        postcss({
+          plugins: [autoprefixer(), cssnano({ preset: "default" })],
+          sourceMap: isDev,
+          extract: false,
         }),
         isDev && entry.output[0].format === "umd"
           ? serve({
