@@ -29,6 +29,8 @@
     "@changesets/cli": "^2.27.8",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
     "changeset": "^0.2.6",
     "cross-env": "^7.0.3",
     "dayjs": "^1.11.13",
@@ -38,6 +40,8 @@
     "lodash-es": "^4.17.21",
     "prettier": "^3.3.3",
     "pretty-quick": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rimraf": "^5.0.5",
     "rollup": "^4.24.0",
     "typescript": "5.3.3",
@@ -49,7 +53,6 @@
     "node": ">=18.3",
     "react": ">=17"
   },
-  "dependencies": {},
   "publishConfig": {
     "access": "public"
   }
