@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "webpack compile react css less sass",
   "main": "dist/index.js",
-  "types": "src/index.ts",
+  "types": "dist/types/index.d.ts",
   "module": "dist/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve",
@@ -20,8 +20,7 @@
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "dependencies": {
     "react": "^18.3.1",

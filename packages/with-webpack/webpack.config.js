@@ -11,14 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
-    library: isDev
-      ? {
-          name: "Components",
-          type: "umd",
-        }
-      : {
-          type: "module",
-        },
+    library: isDev ? { name: "Components", type: "umd" } : { type: "module" },
   },
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
@@ -112,15 +105,9 @@ module.exports = {
     react: "React",
     "react-dom": "ReactDOM",
   },
-  experiments: isDev
-    ? {}
-    : {
-        outputModule: true,
-      },
+  experiments: isDev ? {} : { outputModule: true },
   devServer: {
-    static: {
-      directory: path.join(__dirname, "public"),
-    },
+    static: { directory: path.join(__dirname, "public") },
     port: 3001,
   },
 };
