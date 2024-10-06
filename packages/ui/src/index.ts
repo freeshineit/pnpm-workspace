@@ -1,5 +1,7 @@
-import { Button } from './components/Button';
-import { Header } from './components/Header';
+import "./components/styles/common.scss";
+
+import { Button } from "./components/Button";
+import { Header } from "./components/Header";
 
 export { Button, Header };
 
