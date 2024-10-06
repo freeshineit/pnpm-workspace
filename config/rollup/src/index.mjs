@@ -64,9 +64,10 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          exports: "auto",
+          // exports: "auto",
           file: "dist/lib/index.js",
           format: "cjs",
+          exports: "named",
           sourcemap: isDev,
           banner,
         },
@@ -76,7 +77,8 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          exports: "auto",
+          // exports: "auto",
+          exports: "named",
           file: "dist/es/index.mjs",
           format: "esm",
           sourcemap: isDev,

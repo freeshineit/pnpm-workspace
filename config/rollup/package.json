@@ -2,6 +2,8 @@
   "name": "@ak2021/rollup",
   "version": "0.1.0",
   "main": "src/index.mjs",
+  "types": "src/index.mjs",
+  "module": "src/index.mjs",
   "type": "module",
   "scripts": {
     "dev": "",
