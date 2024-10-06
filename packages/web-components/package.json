@@ -11,9 +11,13 @@
     "build": "npm run clean && cross-env NODE_ENV=production rollup --config rollup.config.mjs",
     "clean": "rimraf dist"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "webcomponents",
+    "components",
+    "web"
+  ],
+  "author": "ShineShao <xiaoshaoqq@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.8.0"
   },
