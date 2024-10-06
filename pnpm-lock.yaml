@@ -260,6 +260,9 @@ importers:
 
   site/with-react:
     dependencies:
+      '@ak2021/with-webpack':
+        specifier: workspace:*
+        version: link:../../packages/with-webpack
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -267,9 +270,6 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@ak2021/with-webpack':
-        specifier: workspace:*
-        version: link:../../packages/with-webpack
       '@types/node':
         specifier: ^16.18.112
         version: 16.18.112
