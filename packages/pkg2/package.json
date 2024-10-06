@@ -20,5 +20,8 @@
   "devDependencies": {
     "@ak2021/rollup": "workspace:*",
     "@types/lodash-es": "^4.17.12"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

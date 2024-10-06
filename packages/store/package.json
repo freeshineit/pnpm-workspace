@@ -16,5 +16,8 @@
   "license": "MIT",
   "devDependencies": {
     "@ak2021/rollup": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
