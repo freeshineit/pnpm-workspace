@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Button } from "@ak2021/with-webpack";
+// import { Button } from "@ak2021/with-webpack";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         >
           Learn React
         </a>
-        <Button>Button</Button>
+        {/* <Button>Button</Button> */}
       </header>
     </div>
   );
