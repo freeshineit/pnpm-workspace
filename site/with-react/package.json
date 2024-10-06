@@ -5,13 +5,13 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "@ak2021/with-webpack": "workspace:*"
+    "@ak2021/with-webpack": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^16.18.112",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
-    "react-scripts": "5.0.1",
+    "@skax/react-scripts": "1.0.0-beta.1",
     "typescript": "^5.3.3"
   },
   "scripts": {
