@@ -184,12 +184,12 @@ function generateConfig(pkg, configs) {
         ...[entry.plugins || []],
       ].filter(Boolean),
     })),
-    {
-      input: defaultConfigs[0].input,
-      output: [{ file: "dist/types/index.d.ts", format: "es" }],
-      plugins: [dts()],
-      external: [/\.(css|less|scss|sass)$/],
-    },
+    // {
+    //   input: defaultConfigs[0].input,
+    //   output: [{ file: "dist/types/index.d.ts", format: "es" }],
+    //   plugins: [dts()],
+    //   external: [/\.(css|less|scss|sass)$/],
+    // },
     ...(configs || []),
   ];
 }

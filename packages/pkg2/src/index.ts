@@ -1,8 +1,3 @@
-import { chunk } from 'lodash-es';
+import Progress from "./plugins/progress";
 
-function start() {
-  console.log('Pkg2');
-  console.log(chunk(['a', 'b', 'c', 'd'], 2));
-}
-
-export default start;
+export { Progress };

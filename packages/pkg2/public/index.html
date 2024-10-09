@@ -8,9 +8,14 @@
   </head>
 
   <body>
+    <div id="progress"></div>
     <script>
       (function () {
-        Pkg2();
+        new Pkg2.Progress({
+          total: 100,
+          current: 50,
+          getContainer: document.getElementById("progress"),
+        });
       })();
     </script>
   </body>
