@@ -1,18 +1,47 @@
-$progress-height: 10px;
+@use "sass:math";
+
+$progress-height: 4px;
 $progress-padding: 1px;
 
-.vv-progress {
+$progress-holder-height: 18px;
+
+$prefix-cls: vv-progress;
+
+.#{$prefix-cls} {
   height: $progress-height;
   display: flex;
   background-color: #aaa;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color ease 0.5s;
+  transition:
+    background-color ease 0.5s,
+    height ease 0.5s;
   padding-top: $progress-padding;
   box-sizing: border-box;
+  position: relative;
+  width: 100%;
 
-  &:hover:not(#{&}-disabled) {
-    background-color: #777;
+  &-holder {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: $progress-holder-height;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    &:hover {
+      .#{$prefix-cls}:not(#{$prefix-cls}-disabled) {
+        background-color: #777;
+        height: $progress-height + 2px;
+
+        .#{$prefix-cls}-dot {
+          transform: scale(1.5);
+          // width: $progress-height + 8px;
+          // height: $progress-height + 8px;
+          // right: math.div($progress-height + 8px, -2);
+        }
+      }
+    }
   }
 
   #{&}#{&}-disabled {
@@ -26,24 +55,32 @@ $progress-padding: 1px;
   }
 
   &-current {
-    position: relative;
-    height: $progress-height - $progress-padding * 2;
     position: absolute;
     width: 0px;
+    height: 100%;
     background-color: #0099e5;
-    border-radius: 8px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
     transition: width ease 0.5s;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    top: 0;
   }
 
   &-dot {
-    width: $progress-height + 2px;
-    height: $progress-height + 2px;
-    background-color: red;
-    position: absolute;
-    right: 0;
-    top: -($progress-padding + 1px);
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: $progress-height + 4px;
+    height: $progress-height + 4px;
+    transition: transform ease 0.5s;
     border-radius: 50%;
     box-sizing: border-box;
+    right: math.div($progress-height + 4px, -2);
+    font-size: 0;
+    position: absolute;
   }
 }
