@@ -67,7 +67,6 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          // exports: "auto",
           file: "dist/lib/index.js",
           format: "cjs",
           exports: "named",
@@ -80,7 +79,6 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          // exports: "auto",
           exports: "named",
           file: "dist/es/index.mjs",
           format: "esm",
@@ -138,6 +136,14 @@ function generateConfig(pkg, configs) {
           plugins: [autoprefixer(), cssnano({ preset: "default" })],
           sourceMap: isDev,
           extract: false,
+          use: [
+            [
+              "sass",
+              {
+                silenceDeprecations: ["legacy-js-api"],
+              },
+            ],
+          ],
         }),
         isDev && entry.output[0].format === "umd"
           ? serve({
@@ -184,12 +190,14 @@ function generateConfig(pkg, configs) {
         ...[entry.plugins || []],
       ].filter(Boolean),
     })),
-    // {
-    //   input: defaultConfigs[0].input,
-    //   output: [{ file: "dist/types/index.d.ts", format: "es" }],
-    //   plugins: [dts()],
-    //   external: [/\.(css|less|scss|sass)$/],
-    // },
+    // isDev
+    //   ? null
+    //   : {
+    //       input: defaultConfigs[0].input,
+    //       output: [{ file: "dist/types/index.d.ts", format: "es" }],
+    //       plugins: [dts()],
+    //       external: [/\.(css|less|scss|sass)$/],
+    //     },
     ...(configs || []),
   ];
 }

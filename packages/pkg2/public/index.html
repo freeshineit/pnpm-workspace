@@ -15,13 +15,34 @@
   </head>
 
   <body>
+    <video
+      src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+      controls
+      id="video"
+    ></video>
     <div id="progress"></div>
     <script>
       (function () {
-        new Pkg2.Progress({
-          total: 100,
+        const progress = new Pkg2.Progress({
+          duration: 500, //
           current: 50,
           getContainer: document.getElementById("progress"),
+        });
+
+        const $video = document.getElementById("video");
+
+        $video.addEventListener("progress", () => {
+          if (video.buffered.length > 0) {
+            // 获取缓冲的最后一个区间的结束时间
+            const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+            const duration = video.duration;
+            console.log(`视频的总时长：${duration}秒`);
+            console.log(`已加载的部分长度：${bufferedEnd}秒`);
+            console.log(`加载的百分比：${(bufferedEnd / duration) * 100}%`);
+
+            progress.duration = duration;
+            progress.buffered = bufferedEnd;
+          }
         });
       })();
     </script>

@@ -3,9 +3,12 @@ import "./index.scss";
 
 export interface IProgressOptions extends IPluginParameters {
   /** 进度条总长度 */
-  total: number;
+  duration: number;
+  /** 当前时间节点 */
   current: number;
   disabled: boolean;
+  /** 已缓存的时长 */
+  buffered: number;
   onChange?: (current: number) => void;
 }
 
@@ -24,8 +27,8 @@ class Progress implements IPlugin {
   constructor(options: IProgressOptions) {
     this._options = options;
 
-    if (this._options.total === undefined || this._options.total <= 0) {
-      throw new Error("total 不能为空切不能小于等于0");
+    if (this._options.duration === undefined || this._options.duration <= 0) {
+      throw new Error("duration 不能为空切不能小于等于0");
     }
 
     if (typeof this._options.getContainer === "function") {
@@ -42,7 +45,7 @@ class Progress implements IPlugin {
   }
 
   _setPercentage(current: number) {
-    this._percentage = +(current / this._options.total).toFixed(6);
+    this._percentage = +(current / this._options.duration).toFixed(6);
 
     if (this._percentage > 100) {
       this._percentage = 100;
@@ -98,7 +101,7 @@ class Progress implements IPlugin {
       this._options.onChange?.(this._current);
     }
 
-    if (current < 0 || current > this._options.total) {
+    if (current < 0 || current > this._options.duration) {
       // 超出上下限
       this._current = 0;
     } else {
@@ -111,7 +114,11 @@ class Progress implements IPlugin {
   private _render() {
     this._$container = document.createElement("div");
     this._$container.classList.add(`${prefixCls}-holder`);
-    this._$container.innerHTML = `<div class="${prefixCls}"><div class="${prefixCls}-current"><span class="${prefixCls}-dot"></span></div></div>`;
+    this._$container.setAttribute("tabindex", "0");
+    this._$container.innerHTML = `<div class="${prefixCls}">
+    <div class="${prefixCls}-current-buffered"></div>
+    <div class="${prefixCls}-current"><span class="${prefixCls}-dot"></span></div></div>
+    `;
     this._$parentContainer?.appendChild(this._$container);
     return this._$container;
   }
@@ -135,8 +142,8 @@ class Progress implements IPlugin {
       this._$container.addEventListener("mouseover", this._mouseOverEvent);
       this._$container.addEventListener("mouseup", this._mouseUpEvent);
 
-      this._documentKeyDown = this._documentKeyDown.bind(this);
-      document.addEventListener("keydown", this._documentKeyDown, false);
+      this._keyDownEvent = this._keyDownEvent.bind(this);
+      this._$container.addEventListener("keydown", this._keyDownEvent);
 
       // dot
       // prettier-ignore
@@ -153,34 +160,36 @@ class Progress implements IPlugin {
 
   private _blurEvent(e) {
     console.warn("blur", e);
+    e.preventDefault();
   }
 
   private _mouseEnterEvent(e) {
-    this._$container.classList.add(`${prefixCls}-hover`);
     this._hover = true;
+    this._setHover();
     console.log("mouseenter", e);
   }
 
   private _mouseLeaveEvent(e) {
-    this._$container.classList.remove(`${prefixCls}-hover`);
     this._hover = false;
+    this._setHover();
     console.log("mouseleave", e);
   }
 
   private _mouseMoveEvent(e) {
-    this._$container.classList.add(`${prefixCls}-hover`);
     this._hover = true;
+    this._setHover();
     console.log("mousemove", e);
   }
 
   private _mouseOutEvent(e) {
-    this._$container.classList.remove(`${prefixCls}-hover`);
     this._hover = false;
+    this._setHover();
     console.log("mouseout", e);
   }
 
   private _mouseOverEvent(e) {
     this._hover = true;
+    this._setHover();
     console.log("mouseover", e);
   }
 
@@ -188,12 +197,21 @@ class Progress implements IPlugin {
     console.log("mouseover", e);
   }
 
-  private _documentKeyDown(e: KeyboardEvent) {
+  private _keyDownEvent(e: KeyboardEvent) {
+    console.log("------", e.keyCode, e.key, this._hover);
     // prettier-ignore
     if ((e.keyCode === 27 || e.key === "Escape" || e.key === "Esc") && this._hover) {
-      //
-      console.log("------", e.keyCode, e.key);
+      console.log("------", e.keyCode, e.key, this._hover);
+      (this._$container as HTMLDivElement).focus?.()
       e.preventDefault();
+    }
+  }
+
+  private _setHover() {
+    if (this._hover) {
+      this._$container.classList.add(`${prefixCls}-hover`);
+    } else {
+      this._$container.classList.remove(`${prefixCls}-hover`);
     }
   }
 
@@ -208,8 +226,7 @@ class Progress implements IPlugin {
       this._$container.removeEventListener("mouseout", this._mouseOutEvent);
       this._$container.removeEventListener("mouseover", this._mouseOverEvent);
       this._$container.removeEventListener("mouseup", this._mouseUpEvent);
-
-      document.removeEventListener("keydown", this._documentKeyDown);
+      this._$container.removeEventListener("keydown", this._keyDownEvent);
 
       // dot
       // prettier-ignore
