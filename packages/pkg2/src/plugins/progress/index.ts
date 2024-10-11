@@ -208,11 +208,14 @@ class Progress implements IPlugin {
   }
 
   private _setHover() {
-    if (this._hover) {
-      this._$container.classList.add(`${prefixCls}-hover`);
-    } else {
-      this._$container.classList.remove(`${prefixCls}-hover`);
-    }
+    // 防止移动过快 导致 hover 闪动
+    setTimeout(() => {
+      if (this._hover) {
+        this._$container.classList.add(`${prefixCls}-hover`);
+      } else {
+        this._$container.classList.remove(`${prefixCls}-hover`);
+      }
+    }, 10);
   }
 
   private _destroy() {
