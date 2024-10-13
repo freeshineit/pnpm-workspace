@@ -1,3 +1,4 @@
 import Progress from "./plugins/progress";
+import Volume from "./plugins/volume";
 
-export { Progress };
+export { Progress, Volume };

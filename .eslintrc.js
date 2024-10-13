@@ -18,5 +18,6 @@ module.exports = {
     "@typescript-eslint/no-extraneous-class": "off",
     "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/no-unnecessary-type-assertion": "off",
+    "no-debugger": "warn",
   },
 };

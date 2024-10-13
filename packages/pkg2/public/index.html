@@ -21,27 +21,59 @@
       id="video"
     ></video>
     <div id="progress"></div>
+    <div id="volume" style="padding-top: 200px"></div>
     <script>
       (function () {
         const progress = new Pkg2.Progress({
           duration: 500, //
-          current: 50,
+          current: 0,
           getContainer: document.getElementById("progress"),
         });
 
+        const volume = new Pkg2.Volume({
+          getContainer: document.getElementById("volume"),
+        });
+
+        /** @type {HTMLVideoElement} */
         const $video = document.getElementById("video");
+        console.log($video);
+
+        window.addEventListener("load", () => {
+          $video.load();
+        });
 
         $video.addEventListener("progress", () => {
-          if (video.buffered.length > 0) {
+          if ($video.buffered.length > 0) {
+            console.log("video.buffered", $video.buffered);
             // 获取缓冲的最后一个区间的结束时间
-            const bufferedEnd = video.buffered.end(video.buffered.length - 1);
-            const duration = video.duration;
+            const bufferedEnd = $video.buffered.end($video.buffered.length - 1);
+            const duration = $video.duration;
             console.log(`视频的总时长：${duration}秒`);
             console.log(`已加载的部分长度：${bufferedEnd}秒`);
             console.log(`加载的百分比：${(bufferedEnd / duration) * 100}%`);
+            progress.disabled = !(duration > 0);
+            progress.setDuration(duration);
+            progress.setBuffered($video.buffered);
+          }
+        });
 
-            progress.duration = duration;
-            progress.buffered = bufferedEnd;
+        // 监听视频播放时间的更新
+        $video.addEventListener("timeupdate", function () {
+          if ($video.buffered.length > 0) {
+            console.log("video.buffered", $video.buffered);
+            // 获取缓冲的最后一个区间的结束时间
+            const bufferedEnd = $video.buffered.end($video.buffered.length - 1);
+            const duration = $video.duration;
+            console.log(`视频的总时长：${duration}秒`);
+            console.log(`已加载的部分长度：${bufferedEnd}秒`);
+            console.log(`加载的百分比：${(bufferedEnd / duration) * 100}%`);
+            progress.disabled = !(duration > 0);
+            progress.setDuration(duration);
+            progress.setBuffered($video.buffered);
+
+            // 获取视频的当前播放时间
+            progress.current = $video.currentTime;
+            console.log("timeupdate", progress.current);
           }
         });
       })();

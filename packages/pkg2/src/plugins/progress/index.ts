@@ -1,14 +1,8 @@
-import { type IPluginParameters, type IPlugin } from "../interface";
 import "./index.scss";
+import { type IPluginParameters, type IPlugin } from "../interface";
+import { fmtSecondsTime } from "./utils";
 
 export interface IProgressOptions extends IPluginParameters {
-  /** 进度条总长度 */
-  duration: number;
-  /** 当前时间节点 */
-  current: number;
-  disabled: boolean;
-  /** 已缓存的时长 */
-  buffered: number;
   onChange?: (current: number) => void;
 }
 
@@ -17,35 +11,49 @@ const prefixCls = "vv-progress";
 class Progress implements IPlugin {
   private readonly _options: IProgressOptions;
   readonly name: string = "Progress";
+  private _duration = 0;
   private _current = 0;
   private _disabled = false;
   private _percentage = 0;
   private _$container: Element | undefined;
   private readonly _$parentContainer: Element;
   private _hover = false;
+  private _buffered: TimeRanges;
 
   constructor(options: IProgressOptions) {
     this._options = options;
-
-    if (this._options.duration === undefined || this._options.duration <= 0) {
-      throw new Error("duration 不能为空切不能小于等于0");
-    }
 
     if (typeof this._options.getContainer === "function") {
       this._$parentContainer = this._options.getContainer(this._options);
     } else {
       this._$parentContainer = this._options.getContainer;
     }
-    this._render();
-    this._eventListener();
 
-    this.current = this._options.current || 0;
-    this.disabled = this._options.disabled || false;
+    this._render();
+
+    if (this._duration === 0) {
+      this.disabled = true;
+    }
+
+    this._eventListener();
     this._setPercentage(this._current);
   }
 
   _setPercentage(current: number) {
-    this._percentage = +(current / this._options.duration).toFixed(6);
+    // prettier-ignore
+    const $current = this._$container?.querySelector(`.${prefixCls}-current-bar`) as HTMLDivElement;
+
+    if (this._duration <= 0) {
+      this.disabled = true;
+      // prettier-ignore
+      if ($current) {
+        $current.setAttribute("data-percentage", 0 + "");
+        $current.style.cssText += `;width: 0%;`;
+      }
+      return;
+    }
+
+    this._percentage = +(current / this._duration).toFixed(6);
 
     if (this._percentage > 100) {
       this._percentage = 100;
@@ -53,11 +61,9 @@ class Progress implements IPlugin {
     if (this._percentage <= 0) {
       this._percentage = 0;
     }
-
     // prettier-ignore
-    const $current = this._$container?.querySelector(`.${prefixCls}-current`) as HTMLDivElement
     if ($current) {
-      $current.setAttribute("data-percentage", this._percentage + "");
+      $current.setAttribute("data-percentage", this._percentage * 100 + "");
       $current.style.cssText += `;width: ${this._percentage * 100}%;`;
     }
   }
@@ -84,6 +90,32 @@ class Progress implements IPlugin {
     return this._disabled;
   }
 
+  setDuration(duration: number) {
+    if (duration > 0) {
+      this._duration = duration;
+    } else {
+      throw new Error("duration 不能为空且不能小于等于0");
+    }
+  }
+
+  setBuffered(buffered: TimeRanges) {
+    if (buffered.length > 0) {
+      this._buffered = buffered;
+      // prettier-ignore
+      const percentage = +(buffered.end(buffered.length - 1) / this._duration).toFixed(6);
+      // prettier-ignore
+      const $buffered = this._$container?.querySelector(`.${prefixCls}-buffered-bar`) as HTMLDivElement
+      if ($buffered) {
+        $buffered.setAttribute("data-percentage", percentage * 100 + "");
+        $buffered.style.cssText += `;width: ${percentage * 100}%;`;
+      }
+    }
+  }
+
+  get buffered() {
+    return this._buffered;
+  }
+
   /**
    * @description 获取当前进度
    * @memberof Progress
@@ -101,7 +133,7 @@ class Progress implements IPlugin {
       this._options.onChange?.(this._current);
     }
 
-    if (current < 0 || current > this._options.duration) {
+    if (current < 0 || current > this._duration) {
       // 超出上下限
       this._current = 0;
     } else {
@@ -115,9 +147,13 @@ class Progress implements IPlugin {
     this._$container = document.createElement("div");
     this._$container.classList.add(`${prefixCls}-holder`);
     this._$container.setAttribute("tabindex", "0");
-    this._$container.innerHTML = `<div class="${prefixCls}">
-    <div class="${prefixCls}-current-buffered"></div>
-    <div class="${prefixCls}-current"><span class="${prefixCls}-dot"></span></div></div>
+    this._$container.innerHTML = `
+        <div class="${prefixCls}">
+          <div class="${prefixCls}-buffered-bar"></div>
+          <div class="${prefixCls}-current-bar">
+            <span class="${prefixCls}-dot"></span>
+          </div>
+        </div>
     `;
     this._$parentContainer?.appendChild(this._$container);
     return this._$container;
@@ -155,53 +191,72 @@ class Progress implements IPlugin {
   }
 
   private _clickEvent(e) {
-    console.log("click", e);
+    if (this._disabled) {
+      return;
+    }
+
+    this._LOG("click", e);
+    const rect = this._$container.getBoundingClientRect();
+    this._LOG(rect);
+    const clickX = e.clientX - rect.left - 10;
+    let percentage = clickX / (rect.width - 20);
+    if (percentage > 1) {
+      percentage = 1;
+    } else if (percentage < 0) {
+      percentage = 0;
+    }
+    this.current = percentage * this._duration;
+  }
+
+  private _LOG(...msg: any[]) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    // console.warn(...msg);
   }
 
   private _blurEvent(e) {
-    console.warn("blur", e);
+    this._LOG?.("blur", e);
     e.preventDefault();
   }
 
   private _mouseEnterEvent(e) {
     this._hover = true;
     this._setHover();
-    console.log("mouseenter", e);
+    this._LOG("mouseenter", e);
   }
 
   private _mouseLeaveEvent(e) {
     this._hover = false;
     this._setHover();
-    console.log("mouseleave", e);
+    this._LOG("mouseleave", e);
   }
 
   private _mouseMoveEvent(e) {
     this._hover = true;
     this._setHover();
-    console.log("mousemove", e);
+    this._LOG("mousemove", e);
   }
 
   private _mouseOutEvent(e) {
     this._hover = false;
     this._setHover();
-    console.log("mouseout", e);
+    this._LOG("mouseout", e);
   }
 
   private _mouseOverEvent(e) {
     this._hover = true;
     this._setHover();
-    console.log("mouseover", e);
+    this._LOG("mouseover", e);
   }
 
   private _mouseUpEvent(e) {
-    console.log("mouseover", e);
+    this._LOG("mouseover", e);
   }
 
   private _keyDownEvent(e: KeyboardEvent) {
-    console.log("------", e.keyCode, e.key, this._hover);
+    this._LOG("------", e.keyCode, e.key, this._hover);
     // prettier-ignore
     if ((e.keyCode === 27 || e.key === "Escape" || e.key === "Esc") && this._hover) {
-      console.log("------", e.keyCode, e.key, this._hover);
+      this._LOG("------", e.keyCode, e.key, this._hover);
       (this._$container as HTMLDivElement).focus?.()
       e.preventDefault();
     }
