@@ -10,6 +10,7 @@ import copy from "rollup-plugin-copy";
 import eslint from "@rollup/plugin-eslint";
 import replace from "@rollup/plugin-replace";
 import typescript from "@rollup/plugin-typescript";
+import alias from "@rollup/plugin-alias";
 import dayjs from "dayjs";
 import postcss from "rollup-plugin-postcss";
 import cssnano from "cssnano";
@@ -105,6 +106,9 @@ function generateConfig(pkg, configs) {
             "src/**/*.tsx",
           ],
           exclude: ["node_modules/**", "**/__tests__/**"],
+        }),
+        alias({
+          entries: [{ find: "@ak2021/store", replacement: "../store/src" }],
         }),
         pkg.compiler === "tsc"
           ? typescript({

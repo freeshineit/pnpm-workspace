@@ -20,7 +20,6 @@ class Volume {
     } else {
       this._$parentContainer = this._options.getContainer;
     }
-
     this._render();
   }
 

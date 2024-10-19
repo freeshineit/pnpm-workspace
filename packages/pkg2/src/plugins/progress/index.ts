@@ -1,6 +1,5 @@
 import "./index.scss";
 import { type IPluginParameters, type IPlugin } from "../interface";
-import { fmtSecondsTime } from "./utils";
 
 export interface IProgressOptions extends IPluginParameters {
   onChange?: (current: number) => void;
@@ -210,7 +209,7 @@ class Progress implements IPlugin {
 
   private _LOG(...msg: any[]) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    // console.warn(...msg);
+    console.warn(...msg);
   }
 
   private _blurEvent(e) {
