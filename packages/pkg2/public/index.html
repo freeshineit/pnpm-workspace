@@ -11,6 +11,10 @@
         padding: 0;
         margin: 0;
       }
+
+      #popover {
+        background-color: red;
+      }
     </style>
   </head>
 
@@ -22,6 +26,7 @@
     ></video>
     <div id="progress"></div>
     <div id="volume" style="padding-top: 200px"></div>
+    <div id="popover">popover</div>
     <script>
       (function () {
         const progress = new Pkg2.Progress({
@@ -75,6 +80,20 @@
             progress.current = $video.currentTime;
             console.log("timeupdate", progress.current);
           }
+        });
+
+        // Popover
+        const popover = new Pkg2.Popover({
+          getPopupContainer: () => document.getElementById("popover"),
+          title: "title",
+          list: [
+            { label: "item1", value: 1 },
+            { label: "item2", value: 2 },
+            { label: "item3", value: 3 },
+            { label: "item4", value: 4 },
+            { label: "item5", value: 5 },
+            { label: "item6", value: 6 },
+          ],
         });
       })();
     </script>

@@ -20,7 +20,8 @@
   "devDependencies": {
     "@ak2021/rollup": "latest",
     "@ak2021/store": "latest",
-    "@types/lodash-es": "^4.17.12"
+    "@types/lodash-es": "^4.17.12",
+    "classnames": "^2.5.1"
   },
   "publishConfig": {
     "access": "public"

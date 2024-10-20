@@ -169,6 +169,9 @@ importers:
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
 
   packages/store:
     devDependencies:

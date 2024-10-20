@@ -1,0 +1,23 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+my-popover {
+  position: relative;
+}
+
+.popover {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Initially hidden */
+  z-index: 1000;
+}
+
+.popover.show {
+  display: block; /* Show when active */
+}
