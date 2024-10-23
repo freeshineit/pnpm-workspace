@@ -29,6 +29,13 @@
     ".prettier.js",
     "commitlint.config.js"
   ],
-  "exclude": ["node_modules", "dist", "coverage", "docs", "example"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "docs",
+    "example",
+    "site/**/*.{vue}"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -107,7 +107,7 @@ class Popover extends HTMLElement {
         }
       } catch (error) {}
     } else if (name === "open") {
-      this._show();
+      if (!!newValue as unknown as string) this._show();
     }
   }
 }

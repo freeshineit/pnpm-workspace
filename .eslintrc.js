@@ -4,14 +4,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: [
-      "./tsconfig.json",
-      "./packages/pkg2/tsconfig.json",
-      "./packages/store/tsconfig.json",
-      "./packages/ui/tsconfig.json",
-      "./packages/web-components/tsconfig.json",
-      "./packages/with-webpack/tsconfig.json",
-    ],
+    project: true,
   },
   rules: {
     "no-unused-vars": "off",
