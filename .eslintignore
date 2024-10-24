@@ -8,3 +8,5 @@ node_modules
 *.jpeg
 src/**/*.scss
 assets/
+
+site/with-vue3

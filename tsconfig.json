@@ -16,7 +16,9 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "composite": true
+    "composite": true,
+    "baseUrl": ".",
+    "rootDir": "."
   },
   "include": [
     "packages/*/src/**/*.{ts,tsx,js,jsx,mjs}",
@@ -35,7 +37,8 @@
     "coverage",
     "docs",
     "example",
-    "site/**/*.{vue}"
+    "site/**/*.{vue}",
+    "site/with-vue3/src/main.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
