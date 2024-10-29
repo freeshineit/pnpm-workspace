@@ -1,9 +1,9 @@
-import { Button } from './components/Button';
-import { Header } from './components/Header';
+import "./components/styles/common.scss";
 
-export { Button, Header };
+import Button from "./components/Button";
+
+export { Button };
 
 export default {
   Button,
-  Header,
 };

@@ -1,8 +1,5 @@
-import { chunk } from 'lodash-es';
+import Popover from "./common/popover";
+import Progress from "./plugins/progress";
+import Volume from "./plugins/volume";
 
-function start() {
-  console.log('Pkg2');
-  console.log(chunk(['a', 'b', 'c', 'd'], 2));
-}
-
-export default start;
+export { Progress, Volume, Popover };

@@ -1,0 +1,8 @@
+@use "sass:math";
+
+$prefix-cls: vv-playbackrate;
+
+.#{$prefix-cls} {
+  display: inline-flex;
+  background-color: #aaa;
+}

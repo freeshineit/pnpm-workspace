@@ -4,11 +4,13 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: ["tsconfig.json"],
+    project: true,
   },
   rules: {
     "no-unused-vars": "off",
     "@typescript-eslint/no-extraneous-class": "off",
     "@typescript-eslint/unbound-method": "off",
+    "@typescript-eslint/no-unnecessary-type-assertion": "off",
+    "no-debugger": "warn",
   },
 };

@@ -1,7 +1,6 @@
-import WcButton from "./components/button";
+import "./components/button";
+import "./components/popover";
 
-if (customElements) {
+if (!customElements) {
   throw new Error("Browser not supported customElements!");
 }
-
-export { WcButton };

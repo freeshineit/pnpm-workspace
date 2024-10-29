@@ -1,51 +1,35 @@
-import TemplateComponent from "../common/template";
-
-interface IButtonProps {
-  type: "primary";
-}
-
-class WcButton extends TemplateComponent {
-  // Specify observed attributes so that
-  // attributeChangedCallback will work
-  static get observedAttributes() {
-    return ["color", "size"];
-  }
-
-  constructor(props: IButtonProps) {
+class WcButton extends HTMLElement {
+  constructor() {
     super();
-    this.render();
-  }
 
-  connectedCallback() {
-    console.log("Custom square element added to page.");
-    // updateStyle(this);
-  }
+    const btnElem = document.createElement("button");
 
-  disconnectedCallback() {
-    console.log("Custom square element removed from page.");
-  }
+    btnElem.classList.add("vv-button");
+    btnElem.innerHTML = `
+     <style>
+        .vv-button {
+          height: 32px;
+          background-color: #0099e5;
+          outline: none;
+          border: 1px solid #0099e5;
+          cursor: pointer;
+          padding: 4px 5px;
+          color: #fff;
+        }
+     </style>
+    
+    <slot></slot>`;
 
-  adoptedCallback() {
-    console.log("Custom square element moved to new page.");
-  }
-
-  attributeChangedCallback(name: string, oldValue: any, newValue: any) {
-    console.log("Custom square element attributes changed.");
-    // updateStyle(this);
-  }
-
-  render() {
-    return `
-      <button class="wc-button">button</button>
-    `;
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(btnElem);
   }
 }
 
-customElements.define("wcc-button", WcButton);
+customElements.define("wc-button", WcButton);
 
-/** 每个组件 */
+/** 添加标签 */
 export interface HTMLElementTagNameMap {
   "wc-button": WcButton;
 }
 
-export default WcButton;
+// export default WcButton;

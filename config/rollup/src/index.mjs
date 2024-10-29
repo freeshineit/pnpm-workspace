@@ -10,7 +10,11 @@ import copy from "rollup-plugin-copy";
 import eslint from "@rollup/plugin-eslint";
 import replace from "@rollup/plugin-replace";
 import typescript from "@rollup/plugin-typescript";
+import alias from "@rollup/plugin-alias";
 import dayjs from "dayjs";
+import postcss from "rollup-plugin-postcss";
+import cssnano from "cssnano";
+import autoprefixer from "autoprefixer";
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -64,9 +68,9 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          exports: "auto",
           file: "dist/lib/index.js",
           format: "cjs",
+          exports: "named",
           sourcemap: isDev,
           banner,
         },
@@ -76,7 +80,7 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          exports: "auto",
+          exports: "named",
           file: "dist/es/index.mjs",
           format: "esm",
           sourcemap: isDev,
@@ -103,6 +107,9 @@ function generateConfig(pkg, configs) {
           ],
           exclude: ["node_modules/**", "**/__tests__/**"],
         }),
+        alias({
+          entries: [{ find: "@ak2021/store", replacement: "../store/src" }],
+        }),
         pkg.compiler === "tsc"
           ? typescript({
               declaration: false,
@@ -128,6 +135,19 @@ function generateConfig(pkg, configs) {
         replace({
           __VERSION__: `${pkg.version}`,
           preventAssignment: true,
+        }),
+        postcss({
+          plugins: [autoprefixer(), cssnano({ preset: "default" })],
+          sourceMap: isDev,
+          extract: false,
+          use: [
+            [
+              "sass",
+              {
+                silenceDeprecations: ["legacy-js-api"],
+              },
+            ],
+          ],
         }),
         isDev && entry.output[0].format === "umd"
           ? serve({
@@ -174,12 +194,14 @@ function generateConfig(pkg, configs) {
         ...[entry.plugins || []],
       ].filter(Boolean),
     })),
-    {
-      input: defaultConfigs[0].input,
-      output: [{ file: "dist/types/index.d.ts", format: "es" }],
-      plugins: [dts()],
-      external: [/\.(css|less|scss|sass)$/],
-    },
+    // isDev
+    //   ? null
+    //   : {
+    //       input: defaultConfigs[0].input,
+    //       output: [{ file: "dist/types/index.d.ts", format: "es" }],
+    //       plugins: [dts()],
+    //       external: [/\.(css|less|scss|sass)$/],
+    //     },
     ...(configs || []),
   ];
 }

@@ -1,1 +1,11 @@
-## with-webpack
+# with-webpack
+
+## Use
+
+```bash
+pnpm install
+
+pnpm run dev
+
+pnpm run build
+```

@@ -15,19 +15,30 @@
     "strictNullChecks": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "composite": true,
+    "baseUrl": ".",
+    "rootDir": "."
   },
   "include": [
-    "packages",
-    "common",
-    "site",
-    "config",
-    "scripts",
+    "packages/*/src/**/*.{ts,tsx,js,jsx,mjs}",
+    "common/*/src/**/*.{ts,tsx,js,jsx,mjs}",
+    "site/**/*.{ts,tsx,js,jsx,mjs}",
+    "config/**/*.{ts,tsx,js,jsx,mjs}",
+    "scripts/**/*.{ts,tsx,js,jsx,mjs}",
     "__tests__",
     ".eslintrc.js",
     ".prettier.js",
     "commitlint.config.js"
   ],
-  "exclude": ["node_modules", "dist", "coverage", "docs", "example"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "docs",
+    "example",
+    "site/**/*.{vue}",
+    "site/with-vue3/src/main.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web components</title>
+    <script>
+      const list = [
+        {
+          value: 1,
+          label: "1x",
+        },
+        {
+          value: 2,
+          label: "2x",
+        },
+      ];
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      <wc-button>Button</wc-button>
+      <wc-popover
+        content="这是一个 Popover 示例!"
+        list='[
+    {
+      "value": 1,
+      "label": "1x"
+    },
+    {
+      "value": 2,
+      "label": "2x"
+    },
+    {
+      "value": 3,
+      "label": "3x"
+    },
+    {
+      "value": 4,
+      "label": "4xxxxxxxxxxxxxxxxx"
+    }
+  ]'
+        open="1"
+      >
+        <wc-button>点击我</wc-button>
+      </wc-popover>
+    </div>
+    <script src="./umd/index.js"></script>
+  </body>
+</html>

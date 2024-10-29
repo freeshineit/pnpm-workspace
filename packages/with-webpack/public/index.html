@@ -12,16 +12,24 @@
       src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"
       crossorigin
     ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="module" src="./index.js"></script>
   </head>
 
   <body>
     <div id="app">APP</div>
-    <script type="module">
-      ReactDOM.render(
-        window.Foo.Foo({ title: "999" }),
-        document.getElementById("app"),
-      );
+    <script type="text/babel">
+      function App() {
+        return (
+          <div>
+            APP 1313
+            <Components.Button> button </Components.Button>
+            <Components.Button type="primary"> button </Components.Button>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
     </script>
   </body>
 </html>
