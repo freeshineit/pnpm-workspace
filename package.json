@@ -6,6 +6,7 @@
     "site": "npm run dev",
     "dev": "pnpm run --filter site-dumi dev",
     "dev:react": "pnpm run --filter with-react start",
+    "dev:store": "pnpm run --filter @ak2021/store dev",
     "dev:vue3": "pnpm run --filter with-vue3 dev",
     "dev:vue2": "pnpm run --filter with-vue2 serve",
     "build:pkg1": "pnpm run --filter pkg1 build",
