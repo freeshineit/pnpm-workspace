@@ -11,7 +11,7 @@
   "authors": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "dumi": "^2.4.12",
+    "dumi": "^2.4.20",
     "dumi-theme-mobile": "^2.3.5"
   }
 }
