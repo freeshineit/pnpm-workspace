@@ -151,7 +151,7 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
 
-  packages/pkg2:
+  packages/pkg:
     dependencies:
       lodash-es:
         specifier: ^4.17.21
