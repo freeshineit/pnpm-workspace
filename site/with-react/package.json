@@ -11,7 +11,7 @@
     "@types/node": "^16.18.112",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
-    "@skax/react-scripts": "1.0.0-beta.1",
+    "@skax/react-scripts": "5.0.1-beta.3",
     "typescript": "^5.3.3"
   },
   "scripts": {

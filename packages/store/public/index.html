@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pkg2</title>
-    <script src="./umd/index.js"></script>
+    <title>Store</title>
+    <script src="./index.umd.js"></script>
   </head>
 
   <body>
     <script>
       (function () {
-        const store = new Store({ id: 'app' });
-        store.on('event', () => console.log('store'));
+        const store = new Store({ id: "app" });
+        store.on("event", () => console.log("store"));
       })();
     </script>
   </body>

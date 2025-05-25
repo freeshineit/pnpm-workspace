@@ -6,15 +6,13 @@ import swc from "@rollup/plugin-swc";
 import serve from "rollup-plugin-serve";
 import { upperCamel } from "@skax/camel";
 import { dts } from "rollup-plugin-dts";
-import copy from "rollup-plugin-copy";
 import eslint from "@rollup/plugin-eslint";
 import replace from "@rollup/plugin-replace";
-import typescript from "@rollup/plugin-typescript";
-import alias from "@rollup/plugin-alias";
 import dayjs from "dayjs";
 import postcss from "rollup-plugin-postcss";
 import cssnano from "cssnano";
 import autoprefixer from "autoprefixer";
+import fs from "fs";
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -39,36 +37,36 @@ function generateConfig(pkg, configs) {
 * Released under the MIT License.
 */`;
 
-  const input = pkg.main || "src/index.ts";
+  const input = "src/index.ts";
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   const externals = Object.keys(pkg?.dependencies || {});
 
-  const exportName = upperCamel(
-    pkg?.name?.split("/").length > 1
-      ? pkg?.name?.split("/")[pkg?.name?.split("/").length - 1]
-      : pkg?.name,
-  );
+  // prettier-ignore
+  const exportName = upperCamel(pkg?.name?.split("/").length > 1 ? pkg?.name?.split("/")[pkg?.name?.split("/").length - 1] : pkg?.name, '-');
+
+  const hasUmd = fs.existsSync("src/main.ts");
 
   const defaultConfigs = [
+    hasUmd
+      ? {
+          input,
+          output: [
+            {
+              file: "dist/index.umd.js",
+              format: "umd",
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+              name: exportName,
+              sourcemap: isDev,
+              banner,
+            },
+          ],
+        }
+      : null,
     {
       input,
       output: [
         {
-          file: "dist/umd/index.js",
-          format: "umd",
-          exports: "named",
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-          name: exportName,
-          sourcemap: isDev,
-          banner,
-        },
-      ],
-    },
-    {
-      input,
-      output: [
-        {
-          file: "dist/lib/index.js",
+          file: "dist/index.js",
           format: "cjs",
           exports: "named",
           sourcemap: isDev,
@@ -81,19 +79,22 @@ function generateConfig(pkg, configs) {
       output: [
         {
           exports: "named",
-          file: "dist/es/index.mjs",
+          file: "dist/index.mjs",
           format: "esm",
           sourcemap: isDev,
           banner,
         },
       ],
     },
-  ];
+  ].filter(Boolean);
 
   return [
     ...defaultConfigs.map((entry) => ({
       ...entry,
-      external: ["react/jsx-runtime", ...externals],
+      external:
+        entry.output[0].format === "umd"
+          ? []
+          : ["react/jsx-runtime", ...externals],
       plugins: [
         eslint({
           throwOnError: true, // lint 结果有错误将会抛出异常
@@ -107,25 +108,16 @@ function generateConfig(pkg, configs) {
           ],
           exclude: ["node_modules/**", "**/__tests__/**"],
         }),
-        alias({
-          entries: [{ find: "@ak2021/store", replacement: "../store/src" }],
+        swc({
+          // https://swc.rs/docs/configuration/swcrc
+          swc: {
+            jsc: {
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+              target: "es2015",
+            },
+          },
+          include: ["./src/**/*.{ts,js,mjs,tsx,jsx}"],
         }),
-        pkg.compiler === "tsc"
-          ? typescript({
-              declaration: false,
-            })
-          : swc({
-              // https://swc.rs/docs/configuration/swcrc
-              swc: {
-                jsc: {
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-                  target: ["umd", "iife"].includes(entry.output[0].format)
-                    ? "es5"
-                    : "es2015",
-                },
-              },
-              include: ["./src/**/*.{ts,js,mjs,tsx,jsx}"],
-            }),
         resolve({
           // extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.json'],
         }),
@@ -155,53 +147,15 @@ function generateConfig(pkg, configs) {
               contentBase: ["public", "dist"],
             })
           : null,
-        isDev
-          ? null
-          : copy({
-              copyOnce: true,
-              targets: [
-                {
-                  src: ["./CHANGELOG.md", "./README.md", "../../LICENSE"],
-                  dest: "./dist",
-                },
-                {
-                  src: "./package.json",
-                  dest: "./dist",
-                  transform: (contents) => {
-                    try {
-                      const jsonObj = JSON.parse(contents);
-                      delete jsonObj["scripts"];
-                      delete jsonObj["devDependencies"];
-                      jsonObj["main"] = "./lib/index.js";
-                      jsonObj["module"] = "./es/index.mjs";
-                      jsonObj["types"] = "./types/index.d.ts";
-                      jsonObj["files"] = [
-                        "lib",
-                        "es",
-                        "umd",
-                        "types",
-                        "CHANGELOG.md",
-                        "README.md",
-                        "LICENSE",
-                      ];
-                      contents = JSON.stringify(jsonObj);
-                    } catch (error) {}
-                    return contents;
-                  },
-                },
-              ],
-            }),
         ...[entry.plugins || []],
       ].filter(Boolean),
     })),
-    // isDev
-    //   ? null
-    //   : {
-    //       input: defaultConfigs[0].input,
-    //       output: [{ file: "dist/types/index.d.ts", format: "es" }],
-    //       plugins: [dts()],
-    //       external: [/\.(css|less|scss|sass)$/],
-    //     },
+    {
+      input: defaultConfigs[0].input,
+      output: [{ file: "dist/types/index.d.ts", format: "es" }],
+      plugins: [dts()],
+      external: [/\.(css|less|scss|sass)$/],
+    },
     ...(configs || []),
   ];
 }
