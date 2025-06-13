@@ -1,10 +1,10 @@
 {
-  "name": "@ak2021/store",
+  "name": "@package/store",
   "version": "0.1.0-alpha.0",
   "description": "",
-  "main": "./src/index.ts",
-  "types": "/src/index.ts",
-  "module": "/src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/index.mjs",
   "type": "module",
   "scripts": {
     "dev": "rollup --config rollup.config.mjs --watch",
@@ -12,6 +12,9 @@
     "clean": "rimraf dist"
   },
   "keywords": [],
+  "files": [
+    "dist"
+  ],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
   "devDependencies": {

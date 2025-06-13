@@ -69,10 +69,10 @@ const DEFAULT_OPTIONS: PopoverOptions = {
 };
 
 class Popover {
-  container: HTMLElement;
+  container: HTMLElement | undefined;
   private readonly _options: PopoverOptions;
   private readonly _$container = document.body;
-  private _$popover: HTMLDivElement;
+  private _$popover: HTMLDivElement | undefined;
 
   constructor(options: PopoverOptions) {
     this._options = { ...DEFAULT_OPTIONS, ...options };
@@ -89,7 +89,7 @@ class Popover {
     this._$popover = document.createElement("div");
     // prettier-ignore
     const placementCls = cls({
-      [`${prefixCls}-${this._options.placement}`]: PLACEMENT.includes(this._options.placement),
+      [`${prefixCls}-${this._options.placement}`]: PLACEMENT.includes(this._options.placement || ''),
     })
 
     this._$popover.classList.add(prefixCls, placementCls);

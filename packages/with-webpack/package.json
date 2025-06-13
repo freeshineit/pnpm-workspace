@@ -1,5 +1,5 @@
 {
-  "name": "@ak2021/with-webpack",
+  "name": "@package/with-webpack",
   "version": "0.1.0",
   "description": "webpack compile react css less sass",
   "main": "dist/index.js",

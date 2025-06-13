@@ -24,7 +24,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "composite": true,
     "baseUrl": ".",
     "rootDir": "."
   },
@@ -37,7 +36,9 @@
     "__tests__",
     ".eslintrc.js",
     ".prettier.js",
-    "commitlint.config.js"
+    "commitlint.config.js",
+    "src/**/*.{ts,tsx,js,jsx,mjs}",
+    "src/*.{ts,tsx,js,jsx,mjs}"
   ],
   "exclude": [
     "node_modules",

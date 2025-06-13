@@ -10,7 +10,7 @@ import copy from "rollup-plugin-copy";
 import eslint from "@rollup/plugin-eslint";
 import replace from "@rollup/plugin-replace";
 import typescript from "@rollup/plugin-typescript";
-import alias from "@rollup/plugin-alias";
+// import alias from "@rollup/plugin-alias";
 import dayjs from "dayjs";
 import postcss from "rollup-plugin-postcss";
 import cssnano from "cssnano";
@@ -39,7 +39,7 @@ function generateConfig(pkg, configs) {
 * Released under the MIT License.
 */`;
 
-  const input = pkg.main || "src/index.ts";
+  const input = "src/index.ts";
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   const externals = Object.keys(pkg?.dependencies || {});
 
@@ -54,9 +54,8 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          file: "dist/umd/index.js",
+          file: "dist/index.umd.js",
           format: "umd",
-          exports: "named",
           // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           name: exportName,
           sourcemap: isDev,
@@ -68,7 +67,7 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          file: "dist/lib/index.js",
+          file: "dist/index.js",
           format: "cjs",
           exports: "named",
           sourcemap: isDev,
@@ -81,7 +80,7 @@ function generateConfig(pkg, configs) {
       output: [
         {
           exports: "named",
-          file: "dist/es/index.mjs",
+          file: "dist/index.mjs",
           format: "esm",
           sourcemap: isDev,
           banner,
@@ -107,9 +106,9 @@ function generateConfig(pkg, configs) {
           ],
           exclude: ["node_modules/**", "**/__tests__/**"],
         }),
-        alias({
-          entries: [{ find: "@ak2021/store", replacement: "../store/src" }],
-        }),
+        // alias({
+        //   entries: [{ find: "@ak2021/store", replacement: "../store/src" }],
+        // }),
         pkg.compiler === "tsc"
           ? typescript({
               declaration: false,
@@ -149,9 +148,9 @@ function generateConfig(pkg, configs) {
             ],
           ],
         }),
-        isDev && entry.output[0].format === "umd"
+        isDev && entry.output[0].format === "umd" && pkg.port
           ? serve({
-              port: pkg.port || 3000,
+              port: pkg.port,
               contentBase: ["public", "dist"],
             })
           : null,
@@ -161,49 +160,46 @@ function generateConfig(pkg, configs) {
               copyOnce: true,
               targets: [
                 {
-                  src: ["./CHANGELOG.md", "./README.md", "../../LICENSE"],
-                  dest: "./dist",
+                  src: ["../../LICENSE"],
+                  dest: "./",
                 },
-                {
-                  src: "./package.json",
-                  dest: "./dist",
-                  transform: (contents) => {
-                    try {
-                      const jsonObj = JSON.parse(contents);
-                      delete jsonObj["scripts"];
-                      delete jsonObj["devDependencies"];
-                      jsonObj["main"] = "./lib/index.js";
-                      jsonObj["module"] = "./es/index.mjs";
-                      jsonObj["types"] = "./types/index.d.ts";
-                      jsonObj["files"] = [
-                        "lib",
-                        "es",
-                        "umd",
-                        "types",
-                        "CHANGELOG.md",
-                        "README.md",
-                        "LICENSE",
-                      ];
-                      contents = JSON.stringify(jsonObj);
-                    } catch (error) {}
-                    return contents;
-                  },
-                },
+                // {
+                //   src: "./package.json",
+                //   dest: "./dist",
+                //   transform: (contents) => {
+                //     try {
+                //       const jsonObj = JSON.parse(contents);
+                //       delete jsonObj["scripts"];
+                //       delete jsonObj["devDependencies"];
+                //       jsonObj["main"] = "./dist/index.js";
+                //       jsonObj["module"] = "./dist/index.mjs";
+                //       jsonObj["types"] = "./dist/types/index.d.ts";
+                //       jsonObj["files"] = [
+                //         "dist",
+                //         "CHANGELOG.md",
+                //         "README.md",
+                //         "LICENSE",
+                //       ];
+                //       contents = JSON.stringify(jsonObj);
+                //     } catch (error) {}
+                //     return contents;
+                //   },
+                // },
               ],
             }),
-        ...[entry.plugins || []],
+        ...[entry?.plugins || []],
       ].filter(Boolean),
     })),
-    // isDev
-    //   ? null
-    //   : {
-    //       input: defaultConfigs[0].input,
-    //       output: [{ file: "dist/types/index.d.ts", format: "es" }],
-    //       plugins: [dts()],
-    //       external: [/\.(css|less|scss|sass)$/],
-    //     },
+    isDev
+      ? null
+      : {
+          input: defaultConfigs[0].input,
+          output: [{ file: "dist/types/index.d.ts", format: "es" }],
+          plugins: [dts()],
+          external: [/\.(css|less|scss|sass)$/],
+        },
     ...(configs || []),
-  ];
+  ].filter(Boolean);
 }
 
 export default generateConfig;

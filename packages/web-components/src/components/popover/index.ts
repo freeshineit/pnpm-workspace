@@ -103,7 +103,11 @@ class Popover extends HTMLElement {
                   })
                   .join("")}
             </ul>`;
-          this.shadowRoot?.querySelector(".wc-popover")?.innerHTML = listNode;
+          if (this.shadowRoot?.querySelector(".wc-popover")) {
+            (
+              this.shadowRoot.querySelector(".wc-popover") as HTMLElement
+            ).innerHTML = listNode;
+          }
         }
       } catch (error) {}
     } else if (name === "open") {
