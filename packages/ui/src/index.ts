@@ -1,6 +1,6 @@
-import "./components/styles/common.scss";
+import './components/styles/common.scss';
 
-import Button from "./components/Button";
+import Button from './components/Button';
 
 export { Button };
 

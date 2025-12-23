@@ -25,7 +25,7 @@
     "@webcomponents/webcomponentsjs": "^2.8.0"
   },
   "devDependencies": {
-    "@ak2021/rollup": "workspace:*"
+    "@config/rollup": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

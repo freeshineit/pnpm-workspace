@@ -2,9 +2,9 @@ class WcButton extends HTMLElement {
   constructor() {
     super();
 
-    const btnElem = document.createElement("button");
+    const btnElem = document.createElement('button');
 
-    btnElem.classList.add("vv-button");
+    btnElem.classList.add('vv-button');
     btnElem.innerHTML = `
      <style>
         .vv-button {
@@ -20,16 +20,16 @@ class WcButton extends HTMLElement {
     
     <slot></slot>`;
 
-    const shadowRoot = this.attachShadow({ mode: "open" });
+    const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(btnElem);
   }
 }
 
-customElements.define("wc-button", WcButton);
+customElements.define('wc-button', WcButton);
 
 /** 添加标签 */
 export interface HTMLElementTagNameMap {
-  "wc-button": WcButton;
+  'wc-button': WcButton;
 }
 
 // export default WcButton;

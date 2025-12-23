@@ -15,6 +15,6 @@
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@ak2021/rollup": "workspace:*"
+    "@config/rollup": "workspace:*"
   }
 }

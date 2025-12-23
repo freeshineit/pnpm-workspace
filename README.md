@@ -19,7 +19,7 @@ pnpm add webpack -w -D
 # 给子包中安装依赖
 pnpm add <dependent name> -r --filter <package name>
 
-# 给子包pkg2安装lodash-es
+# 给子包pkg2安装 lodash-es
 pnpm add lodash-es -r --filter pkg2
 
 # 执行子包中的脚本

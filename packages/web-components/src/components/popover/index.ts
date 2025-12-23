@@ -1,16 +1,16 @@
-import "./index.scss";
+import './index.scss';
 
 class Popover extends HTMLElement {
   private _$popover: HTMLDivElement | undefined;
-  _list: any[];
+  _list: Array<{ label: string; value: string }> = [];
 
   static get observedAttributes() {
-    return ["list", "open"];
+    return ['list', 'open'];
   }
 
   constructor() {
     super();
-    this.attachShadow({ mode: "open" }); // 使用 Shadow DOM
+    this.attachShadow({ mode: 'open' }); // 使用 Shadow DOM
     this.render();
     this._list = [];
   }
@@ -63,7 +63,7 @@ class Popover extends HTMLElement {
     // ${this.getAttribute("content")}
     // prettier-ignore
     this._$popover = this.shadowRoot?.querySelector(".wc-popover") as HTMLDivElement;
-    window.addEventListener("blur", this._hide.bind(this));
+    window.addEventListener('blur', this._hide.bind(this));
   }
 
   connectedCallback() {
@@ -73,44 +73,44 @@ class Popover extends HTMLElement {
   }
 
   private _toggleShow() {
-    this._$popover?.classList.toggle("wc-show");
+    this._$popover?.classList.toggle('wc-show');
   }
 
   private _hide() {
-    this._$popover?.classList.remove("wc-show");
+    this._$popover?.classList.remove('wc-show');
   }
 
   private _show() {
-    this._$popover?.classList.add("wc-show");
+    this._$popover?.classList.add('wc-show');
   }
 
   disconnectedCallback() {
     // prettier-ignore
     this.shadowRoot?.querySelector("slot")?.removeEventListener("click", this._toggleShow.bind(this));
-    window.removeEventListener("blur", this._hide.bind(this));
+    window.removeEventListener('blur', this._hide.bind(this));
   }
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
     console.log(`属性 ${name} 已变更。`);
-    if (name === "list") {
+    if (name === 'list') {
       try {
         this._list = JSON.parse(newValue) as unknown as any[];
-        if (this.shadowRoot?.querySelector(".wc-popover")) {
+        if (this.shadowRoot?.querySelector('.wc-popover')) {
           const listNode = `<ul>
                 ${this._list
-                  .map((item) => {
+                  .map(item => {
                     return `<li>${item.label}</li>`;
                   })
-                  .join("")}
+                  .join('')}
             </ul>`;
-          if (this.shadowRoot?.querySelector(".wc-popover")) {
-            (
-              this.shadowRoot.querySelector(".wc-popover") as HTMLElement
-            ).innerHTML = listNode;
+          if (this.shadowRoot?.querySelector('.wc-popover')) {
+            (this.shadowRoot.querySelector('.wc-popover') as HTMLElement).innerHTML = listNode;
           }
         }
-      } catch (error) {}
-    } else if (name === "open") {
+      } catch (_error) {
+        //
+      }
+    } else if (name === 'open') {
       if (!!newValue as unknown as string) this._show();
     }
   }
@@ -118,8 +118,8 @@ class Popover extends HTMLElement {
 
 /** 添加标签 */
 export interface HTMLElementTagNameMap {
-  "wc-popover": Popover;
+  'wc-popover': Popover;
 }
 
 // 注册自定义元素
-customElements.define("wc-popover", Popover);
+customElements.define('wc-popover', Popover);
