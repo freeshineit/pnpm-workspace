@@ -1,23 +1,23 @@
-import "./index.scss";
-import type React from "react";
-import cls from "classnames";
+import './index.scss';
+import type React from 'react';
+import cls from 'classnames';
 
 export interface IButtonProps {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  type?: "primary";
+  type?: 'primary';
 }
 
 /**
  */
 const Button = (props: IButtonProps) => {
   const classNames = cls(
-    "wc-btn",
+    'wc-btn',
     {
-      [`wc-btn-${props.type}`]: props.type === "primary",
+      [`wc-btn-${props.type}`]: props.type === 'primary',
     },
-    props.className,
+    props.className
   );
 
   return (

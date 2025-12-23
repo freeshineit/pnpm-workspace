@@ -10,10 +10,13 @@
     "build": "npm run clean && cross-env NODE_ENV=production rollup --config rollup.config.mjs",
     "clean": "rimraf dist"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
-    "@ak2021/rollup": "workspace:*",
+    "@config/rollup": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

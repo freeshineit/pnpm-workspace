@@ -1,10 +1,10 @@
 {
-  "name": "@ak2021/web-components",
+  "name": "@package/web-components",
   "version": "1.0.0",
   "description": "web components",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/index.mjs",
   "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development rollup --config rollup.config.mjs --watch",
@@ -16,13 +16,16 @@
     "components",
     "web"
   ],
+  "files": [
+    "dist"
+  ],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.8.0"
   },
   "devDependencies": {
-    "@ak2021/rollup": "workspace:*"
+    "@config/rollup": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

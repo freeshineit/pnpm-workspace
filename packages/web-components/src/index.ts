@@ -1,6 +1,6 @@
-import "./components/button";
-import "./components/popover";
+import './components/button';
+import './components/popover';
 
 if (!customElements) {
-  throw new Error("Browser not supported customElements!");
+  throw new Error('Browser not supported customElements!');
 }

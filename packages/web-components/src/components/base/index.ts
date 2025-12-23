@@ -1,4 +1,4 @@
-import "@webcomponents/webcomponentsjs";
+import '@webcomponents/webcomponentsjs';
 
 class BaseComponent extends HTMLElement {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
@@ -7,7 +7,7 @@ class BaseComponent extends HTMLElement {
   }
 
   render() {
-    throw new Error("BaseComponent Error!");
+    throw new Error('BaseComponent Error!');
   }
 }
 
