@@ -1,10 +1,10 @@
 {
-  "name": "@package/pkg2",
+  "name": "@ak2021/pkg",
   "version": "0.1.0",
   "description": "",
-  "main": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
-  "module": "./dist/index.mjs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/types/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development rollup --config rollup.config.mjs --watch",

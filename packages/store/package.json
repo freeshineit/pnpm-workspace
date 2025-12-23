@@ -1,10 +1,10 @@
 {
-  "name": "@package/store",
-  "version": "0.1.0-alpha.0",
+  "name": "@ak2021/store",
+  "version": "0.1.0",
   "description": "",
-  "main": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
-  "module": "./dist/index.mjs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/types/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "rollup --config rollup.config.mjs --watch",

@@ -29,13 +29,13 @@
     <div id="popover">popover</div>
     <script>
       (function () {
-        const progress = new Pkg2.Progress({
+        const progress = new Pkg.Progress({
           duration: 500, //
           current: 0,
           getContainer: document.getElementById("progress"),
         });
 
-        const volume = new Pkg2.Volume({
+        const volume = new Pkg.Volume({
           getContainer: document.getElementById("volume"),
         });
 
@@ -83,7 +83,7 @@
         });
 
         // Popover
-        const popover = new Pkg2.Popover({
+        const popover = new Pkg.Popover({
           getPopupContainer: () => document.getElementById("popover"),
           title: "title",
           list: [
