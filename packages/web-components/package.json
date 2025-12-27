@@ -17,7 +17,8 @@
     "web"
   ],
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.map"
   ],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",

@@ -11,14 +11,15 @@
     "clean": "rimraf dist"
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.map"
   ],
   "devDependencies": {
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
-    "@config/rollup": "workspace:*",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "@config/rollup": "workspace:*"
   },
   "dependencies": {
     "classnames": "^2.5.1"
