@@ -1,5 +1,5 @@
 {
-  "name": "@package/web-components",
+  "name": "@ak2021/web-components",
   "version": "1.0.0",
   "description": "web components",
   "main": "./dist/index.js",
