@@ -78,13 +78,13 @@ jobs:
         with:
           fetch-depth: 0 # 重要：确保 Lerna 能识别 Git Tag
 
+      # 设置 Node
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 20
+          registry-url: https://registry.npmjs.org
 
-      - name: Install npm latest
       - run: npm install -g npm@latest
 
       - name: Setup pnpm
