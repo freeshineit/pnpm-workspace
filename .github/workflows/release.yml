@@ -85,12 +85,12 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm install -g npm@latest
-      - name: Install Dependencies
-        run: npm install
+      # - name: Install Dependencies
+      #   run: npm install
 
       - name: Get Changed Packages and Publish
-        # env:
-        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           # 1. 获取变动的包列表 (JSON 格式)
           # 使用 || echo "[]" 防止无变动时 CI 报错停止
