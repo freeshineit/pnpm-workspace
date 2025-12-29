@@ -84,13 +84,18 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Install npm latest
       - run: npm install -g npm@latest
-      # - name: Install Dependencies
-      #   run: npm install
+
+      - name: Setup pnpm
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+      - run: pnpm install
 
       - name: Get Changed Packages and Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           # 1. 获取变动的包列表 (JSON 格式)
           # 使用 || echo "[]" 防止无变动时 CI 报错停止
@@ -119,7 +124,7 @@ jobs:
             # 4. 执行针对性发布
             # 使用 from-package 确保发布的是当前 package.json 里的版本
             npx lerna publish from-package \
-              --scope "$NAME" \
+              --filter "$NAME" \
               --dist-tag "$TAG" \
               --yes
           done
