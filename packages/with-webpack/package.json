@@ -1,6 +1,6 @@
 {
   "name": "@ak2021/with-webpack",
-  "version": "0.2.1",
+  "version": "0.0.1-beta.1",
   "description": "webpack compile react css less sass",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -52,5 +52,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "00456e7dd27d022975d5b8a39bfb8815a73401fe"
 }
