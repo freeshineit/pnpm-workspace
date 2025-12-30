@@ -1,0 +1,132 @@
+# # 整个流程的名字
+# name: Release
+# # 触发时机，在 tag 被 push 操作触发
+# on:
+#   push:
+#     tags:
+#       - 'v*'
+
+# permissions:
+#   id-token: write # Required for OIDC
+#   contents: read
+
+# # 任务，定义个changelog 的任务
+# jobs:
+#   changelog:
+#     name: Release
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       # # 设置 pnpm
+#       # - name: Setup PNPM
+#       #   uses: pnpm/action-setup@v2
+#       #   with:
+#       #     version: 8
+#       # 设置 Node
+#       - name: Setup Node
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 20
+#           registry-url: https://registry.npmjs.org
+
+#       - run: npm install -g npm@latest
+#       # 安装依赖
+#       - name: npm Install dependencies
+#         run: npm install
+
+#       - name: yarn Install dependencies
+#         run: yarn install
+
+#       # 获取 tag 的版本类型（仅支持 正式版、alpha和beta版）
+#       - name: Determine release tag
+#         id: determine_tag
+#         run: |
+#           TAG=$(echo "${GITHUB_REF}" | sed 's/refs\/tags\/\(.*\)/\1/')
+#           if [[ "$TAG" =~ -alpha ]]; then
+#             echo "tag=alpha" >> "$GITHUB_OUTPUT"
+#           elif [[ "$TAG" =~ -beta ]]; then
+#             echo "tag=beta" >> "$GITHUB_OUTPUT"
+#           elif [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+#             echo "tag=latest" >> "$GITHUB_OUTPUT"
+#           else
+#             echo "Unsupported version detected. Terminating."
+#             exit 1
+#           fi
+#       # # 打包
+#       # - name: Build Packages
+#       #   run: pnpm run build
+#       # 发布npm 发布前执行了prepublishOnly
+#       - name: Publish npm
+#         run: pnpm changeset publish --tag ${{ steps.determine_tag.outputs.tag }} --access public
+
+name: NPM Publish
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 重要：确保 Lerna 能识别 Git Tag
+
+      # 设置 Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - run: npm install -g npm@latest
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - name: pnpm Install dependencies
+        run: pnpm install
+
+      - name: Get Changed Packages and Publish
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          # 1. 获取变动的包列表 (JSON 格式)
+          # 使用 || echo "[]" 防止无变动时 CI 报错停止
+          CHANGED_JSON=$(npx lerna changed --json --loglevel=silent || echo "[]")
+
+          echo "Detected changes: $CHANGED_JSON"
+
+          # 2. 解析 JSON 并循环发布
+          # 遍历 JSON 数组中的每一个对象，提取 name 和 version
+          echo "$CHANGED_JSON" | jq -c '.[]' | while read -r pkg; do
+            NAME=$(echo "$pkg" | jq -r '.name')
+            VERSION=$(echo "$pkg" | jq -r '.version')
+            
+            echo "Processing $NAME at version $VERSION..."
+
+            # 3. 判断版本号，决定 tag
+            # 逻辑：如果版本号包含字符（如 1.0.0-beta.1），发布到 beta 标签；否则发布到 latest
+            if [[ "$VERSION" == *"-"* ]]; then
+              TAG="beta"
+            else
+              TAG="latest"
+            fi
+
+            echo "Publishing $NAME@$VERSION with tag [$TAG]"
+            
+            # 4. 执行针对性发布
+            # 使用 from-package 确保发布的是当前 package.json 里的版本
+            npx lerna publish from-package \
+              --filter "$NAME" \
+              --dist-tag "$TAG" \
+              --yes
+          done

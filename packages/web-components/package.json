@@ -1,6 +1,6 @@
 {
-  "name": "@package/web-components",
-  "version": "1.0.0",
+  "name": "@ak2021/web-components",
+  "version": "0.0.1-beta.1",
   "description": "web components",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
@@ -17,7 +17,8 @@
     "web"
   ],
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.map"
   ],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
@@ -29,5 +30,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "00456e7dd27d022975d5b8a39bfb8815a73401fe"
 }

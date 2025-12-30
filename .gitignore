@@ -14,6 +14,4 @@ lerna-debug.log*
 .dumi/tmp
 .dumi/tmp-production
 rollup.config-*.cjs
-common/**/LICENSE
-packages/**/LICENSE
 

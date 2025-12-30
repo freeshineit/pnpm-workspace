@@ -26,7 +26,7 @@
     "config/**/*.{ts,tsx,js,jsx,mjs}",
     "scripts/**/*.{ts,tsx,js,jsx,mjs}",
     "__tests__",
-    "eslint.config.js",
+    "eslint.config.mjs",
     "prettier.config.mjs",
     "commitlint.config.js",
     "src/**/*.{ts,tsx,js,jsx,mjs}",

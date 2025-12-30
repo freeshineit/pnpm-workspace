@@ -1,11 +1,11 @@
 {
-  "name": "with-react",
-  "version": "0.1.0",
+  "name": "@site/with-react",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "@ak2021/with-webpack": "^0.1.0"
+    "@ak2021/with-webpack": "^0.2.0"
   },
   "devDependencies": {
     "@types/node": "^16.18.112",

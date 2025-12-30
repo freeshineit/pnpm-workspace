@@ -1,6 +1,6 @@
 {
   "name": "@ak2021/react-ui",
-  "version": "0.1.0",
+  "version": "0.0.1-beta.1",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -11,12 +11,13 @@
     "clean": "rimraf dist"
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.map"
   ],
   "devDependencies": {
+    "@config/rollup": "workspace:*",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
-    "@config/rollup": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -28,5 +29,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "00456e7dd27d022975d5b8a39bfb8815a73401fe"
 }

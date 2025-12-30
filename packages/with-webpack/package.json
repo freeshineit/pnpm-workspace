@@ -1,6 +1,6 @@
 {
   "name": "@ak2021/with-webpack",
-  "version": "0.1.0",
+  "version": "0.0.1-beta.1",
   "description": "webpack compile react css less sass",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -20,7 +20,8 @@
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.map"
   ],
   "dependencies": {
     "react": "^18.3.1",
@@ -44,12 +45,13 @@
     "sass-loader": "^16.0.2",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0",
-    "typescript": "^5.3.3"
+    "webpack-dev-server": "^5.1.0"
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "00456e7dd27d022975d5b8a39bfb8815a73401fe"
 }
