@@ -54,9 +54,7 @@ jobs:
 
             # 3. 判断版本号，决定 tag
             # 逻辑：如果版本号包含字符（如 1.0.0-beta.1），发布到 beta 标签；否则发布到 latest
-            if [[ "$VERSION" == *"-alpha."* ]]; then
-              TAG="alpha"
-            elseif [[ "$VERSION" == *"-beta."* ]]; then
+            if [[ "$VERSION" == *"-"* ]]; then
               TAG="beta"
             else
               TAG="latest"
