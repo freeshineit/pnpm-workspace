@@ -55,7 +55,18 @@ jobs:
             # 3. 判断版本号，决定 tag
             # 逻辑：如果版本号包含字符（如 1.0.0-beta.1），发布到 beta 标签；否则发布到 latest
             if [[ "$VERSION" == *"-"* ]]; then
-              TAG="beta"
+            # 取出 '-' 后的预发行部分，去掉 build metadata (+...)，再取第一个 dot 之前的标识
+              prerelease="${VERSION#*-}"        # e.g. "alpha.1" 或 "beta.2+exp"
+              prerelease="${prerelease%%+*}"   # remove +buildmeta -> "alpha.1"
+              label="${prerelease%%.*}"        # "alpha" 或 "beta" 或 "rc"
+
+              # 映射预发行 label 到 npm tag（根据需要调整映射）
+              case "$label" in
+                alpha) TAG="alpha" ;;
+                beta)  TAG="beta" ;;
+                rc)    TAG="beta" ;;   # 将 rc 映射到 beta（如需 rc 标签改为 TAG="rc"）
+                *)     TAG="beta" ;;   # 其他未知的预发行标识默认走 beta（可改为其它策略）
+              esac
             else
               TAG="latest"
             fi
