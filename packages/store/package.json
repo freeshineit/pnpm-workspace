@@ -1,6 +1,6 @@
 {
   "name": "@ak2021/store",
-  "version": "1.0.1-beta.1",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -23,7 +23,8 @@
     "@config/rollup": "workspace:*"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "repository": {
     "type": "git",
