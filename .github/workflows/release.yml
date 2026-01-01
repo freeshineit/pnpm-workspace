@@ -35,11 +35,9 @@ jobs:
         run: pnpm install
 
       - name: Get Changed Packages and Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          # write token into the ephemeral ~/.npmrc used for this runner only
-          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
           # optionally ensure always-auth is not set
           npm config delete always-auth || true
           pnpm config delete always-auth || true
