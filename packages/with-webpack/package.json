@@ -53,5 +53,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "00456e7dd27d022975d5b8a39bfb8815a73401fe"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freeshineit/pnpm-workspace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/freeshineit/pnpm-workspace/issues"
+  },
+  "homepage": "https://github.com/freeshineit/pnpm-workspace#readme"
 }
