@@ -125,8 +125,7 @@ jobs:
             
             # 4. 执行针对性发布
             # 使用 from-package 确保发布的是当前 package.json 里的版本
-            npx lerna publish from-package \
-              --filter "$NAME" \
-              --dist-tag "$TAG" \
-              --yes
+            # npx lerna publish from-package --filter "$NAME" --dist-tag "$TAG" --yes
+            pnpm --filter "$NAME" publish --access public --tag "$TAG" --no-git-checks
+            # pnpm --filter @ak2021/with-webpack publish --access public --tag beta --no-git-checks
           done

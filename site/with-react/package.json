@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "@ak2021/with-webpack": "^0.2.0"
+    "@ak2021/with-webpack": "latest"
   },
   "devDependencies": {
     "@types/node": "^16.18.112",
