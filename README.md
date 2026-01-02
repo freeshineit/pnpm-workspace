@@ -34,5 +34,6 @@ pnpm add <package A> -r --filter <package B>
 # 执行所有子包中的脚本 注意星号
 pnpm run --filter '*' build
 
-# 发布npm包
+# 发布npm包, 使用 git tag 进行发布版本
+
 ```

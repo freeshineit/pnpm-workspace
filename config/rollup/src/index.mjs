@@ -137,6 +137,7 @@ function generateConfig(pkg, configs) {
           plugins: [autoprefixer(), cssnano({ preset: 'default' })],
           sourceMap: isDev,
           extract: false,
+          minimize: true,
           use: [
             [
               'sass',
