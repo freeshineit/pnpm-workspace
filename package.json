@@ -4,7 +4,6 @@
   "description": "pnpm workspace",
   "scripts": {
     "dev": "pnpm run --filter '*' dev",
-    "dev:pkg": "pnpm run --filter @ak2021/pkg dev",
     "dev:store": "pnpm run --filter @ak2021/store dev",
     "dev:ui": "pnpm run --filter @ak2021/react-ui dev",
     "dev:components": "pnpm run --filter @ak2021/web-components dev",
@@ -13,7 +12,6 @@
     "dev:vue2": "pnpm run --filter @site/with-vue2 dev",
     "dev:vue3": "pnpm run --filter @site/with-vue3 dev",
     "build": "pnpm run --filter '*' build",
-    "build:pkg": "pnpm run --filter @ak2021/pkg build",
     "build:store": "pnpm run --filter @ak2021/store build",
     "build:ui": "pnpm run --filter @ak2021/react-ui build",
     "build:components": "pnpm run --filter @ak2021/web-components build",
