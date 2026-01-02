@@ -1,6 +1,6 @@
 {
   "name": "@ak2021/with-webpack",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.2-rc.1",
   "description": "webpack compile react css less sass",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -51,7 +51,15 @@
     "webpack-dev-server": "^5.1.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
-  "gitHead": "00456e7dd27d022975d5b8a39bfb8815a73401fe"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freeshineit/pnpm-workspace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/freeshineit/pnpm-workspace/issues"
+  },
+  "homepage": "https://github.com/freeshineit/pnpm-workspace#readme"
 }

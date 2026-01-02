@@ -4,7 +4,6 @@
   "description": "pnpm workspace",
   "scripts": {
     "dev": "pnpm run --filter '*' dev",
-    "dev:pkg": "pnpm run --filter @ak2021/pkg dev",
     "dev:store": "pnpm run --filter @ak2021/store dev",
     "dev:ui": "pnpm run --filter @ak2021/react-ui dev",
     "dev:components": "pnpm run --filter @ak2021/web-components dev",
@@ -13,7 +12,6 @@
     "dev:vue2": "pnpm run --filter @site/with-vue2 dev",
     "dev:vue3": "pnpm run --filter @site/with-vue3 dev",
     "build": "pnpm run --filter '*' build",
-    "build:pkg": "pnpm run --filter @ak2021/pkg build",
     "build:store": "pnpm run --filter @ak2021/store build",
     "build:ui": "pnpm run --filter @ak2021/react-ui build",
     "build:components": "pnpm run --filter @ak2021/web-components build",
@@ -25,9 +23,6 @@
     "fmt": "prettier --write \"./**/*.{ts,tsx,js,jsx,mjs}\"",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
-    "publish-packages": "changeset publish",
     "list": "lerna list",
     "release": "lerna publish"
   },
@@ -40,12 +35,10 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.8",
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-conventional": "^20.2.0",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
-    "changeset": "^0.2.6",
     "cross-env": "^10.1.0",
     "dayjs": "^1.11.13",
     "eslint": "^9.39.2",
@@ -59,7 +52,7 @@
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0",
-    "lerna": "9.0.3"
+    "lerna": "8.2.4"
   },
   "engines": {
     "node": ">=18.3",

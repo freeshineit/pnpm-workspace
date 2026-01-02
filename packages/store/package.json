@@ -1,6 +1,6 @@
 {
   "name": "@ak2021/store",
-  "version": "1.0.1-beta.1",
+  "version": "1.0.2-alpha.2",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -23,6 +23,15 @@
     "@config/rollup": "workspace:*"
   },
   "publishConfig": {
-    "access": "public"
-  }
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freeshineit/pnpm-workspace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/freeshineit/pnpm-workspace/issues"
+  },
+  "homepage": "https://github.com/freeshineit/pnpm-workspace#readme"
 }

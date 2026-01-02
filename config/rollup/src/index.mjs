@@ -7,7 +7,7 @@ import { dts } from 'rollup-plugin-dts';
 import eslint from '@rollup/plugin-eslint';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
-// import alias from "@rollup/plugin-alias";
+import alias from '@rollup/plugin-alias';
 import copy from 'rollup-plugin-copy';
 import dayjs from 'dayjs';
 import postcss from 'rollup-plugin-postcss';
@@ -100,9 +100,15 @@ function generateConfig(pkg, configs) {
           include: ['src/**/*.ts', 'src/**/*.js', 'src/**/*.mjs', 'src/**/*.jsx', 'src/**/*.tsx'],
           exclude: ['node_modules/**', '**/__tests__/**'],
         }),
-        // alias({
-        //   entries: [{ find: "@ak2021/store", replacement: "../store/src" }],
-        // }),
+        // 需要和 tsconfig.json 配置 paths 一致
+        alias({
+          entries: [
+            {
+              find: /^@\/(.*)/,
+              replacement: resolve(process.cwd(), 'src/$1'),
+            },
+          ],
+        }),
         pkg.compiler === 'tsc'
           ? typescript({
               declaration: false,
@@ -187,7 +193,17 @@ function generateConfig(pkg, configs) {
       : {
           input: defaultConfigs[0].input,
           output: [{ file: 'dist/types/index.d.ts', format: 'es' }],
-          plugins: [dts()],
+          plugins: [
+            alias({
+              entries: [
+                {
+                  find: /^@\/(.*)/,
+                  replacement: resolve(process.cwd(), 'src/$1'),
+                },
+              ],
+            }),
+            dts(),
+          ],
           external: [/\.(css|less|scss|sass)$/],
         },
 

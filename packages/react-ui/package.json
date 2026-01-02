@@ -1,6 +1,6 @@
 {
   "name": "@ak2021/react-ui",
-  "version": "0.0.1-beta.1",
+  "version": "0.1.0-beta.2",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -28,7 +28,15 @@
     "react": ">=17"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
-  "gitHead": "00456e7dd27d022975d5b8a39bfb8815a73401fe"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freeshineit/pnpm-workspace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/freeshineit/pnpm-workspace/issues"
+  },
+  "homepage": "https://github.com/freeshineit/pnpm-workspace#readme"
 }
