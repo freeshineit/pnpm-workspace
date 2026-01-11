@@ -1,7 +1,6 @@
 import '@webcomponents/webcomponentsjs';
 
 class BaseComponent extends HTMLElement {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor() {
     super();
   }
