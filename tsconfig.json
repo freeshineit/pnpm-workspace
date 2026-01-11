@@ -35,7 +35,7 @@
     "__tests__",
     "eslint.config.mjs",
     "prettier.config.mjs",
-    "commitlint.config.js",
+    "commitlint.config.mjs",
     "src/**/*.{ts,tsx,js,jsx,mjs}",
     "src/*.{ts,tsx,js,jsx,mjs}"
   ],
