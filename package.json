@@ -50,7 +50,7 @@
     "cross-env": "^10.1.0",
     "dayjs": "^1.11.13",
     "eslint": "^9.39.2",
-    "eslint-config-xx": "^2.0.0",
+    "eslint-config-xx": "^2.1.0",
     "husky": "^9.1.7",
     "prettier": "^3.7.4",
     "pretty-quick": "^4.2.2",

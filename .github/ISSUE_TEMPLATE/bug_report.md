@@ -1,9 +1,9 @@
 ---
 name: Bug report
 about: 创建报告以帮助我们改进( Create a report to help us improve)
-title: ""
-labels: ""
-assignees: ""
+title: ''
+labels: ''
+assignees: ''
 ---
 
 **bug 描述(Describe the bug)**

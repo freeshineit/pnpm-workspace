@@ -17,7 +17,7 @@ const Button = (props: IButtonProps) => {
     {
       [`wc-btn-${props.type}`]: props.type === 'primary',
     },
-    props.className
+    props.className,
   );
 
   return (
