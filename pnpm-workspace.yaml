@@ -1,8 +1,8 @@
 packages:
-  - "packages/*"
-  - "common/*"
-  - "config/*"
-  - "site/*"
-  - "!**/test/**"
-  - "!**/dist/**"
-  - "!**/build/**"
+  - 'packages/*'
+  - 'common/*'
+  - 'config/*'
+  - 'site/*'
+  - '!**/test/**'
+  - '!**/dist/**'
+  - '!**/build/**'
