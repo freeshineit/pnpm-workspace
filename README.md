@@ -88,6 +88,12 @@ pnpm run --filter '*' build
 └── config/           # 配置文件
 ```
 
+## 包说明
+
+包入口文件`src/index.ts`, 默认构建产物 cjs, esm。 当 `src` 下有 `main.ts` 时，才会构建 umd 产物。
+
+备注：如果想更新构建入口请更新 `config/rollup/src/index.mjs` 文件中的配置。
+
 ## 发布
 
 ```bash
