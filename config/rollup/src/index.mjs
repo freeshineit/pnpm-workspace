@@ -136,7 +136,12 @@ function generateConfig(pkg, configs) {
         postcss({
           plugins: [autoprefixer(), cssnano({ preset: 'default' })],
           sourceMap: isDev,
-          extract: false,
+          /**
+           * https://www.npmjs.com/package/rollup-plugin-postcss#extract
+           * extract: true 将 CSS 提取到单独的文件中，默认为 false，即将 CSS 内联到 JavaScript 中。
+           * extract: 'styles.css' 将 CSS 提取到指定的文件中。
+           */
+          extract: true,
           minimize: true,
           use: [
             [
@@ -146,6 +151,12 @@ function generateConfig(pkg, configs) {
               },
             ],
           ],
+          include: ['/**/*.scss', '/**/*.sass'],
+          includePaths: ['style/', 'node_modules/'],
+          // 处理从 node_modules 导入
+          importer(path) {
+            return { file: path[0] === '~' ? path.substr(1) : path };
+          },
         }),
         isDev && entry.output[0].format === 'umd' && pkg.port
           ? serve({
