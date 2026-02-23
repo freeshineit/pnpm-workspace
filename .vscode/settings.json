@@ -8,7 +8,6 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "files.exclude": {
     "**/node_modules": true,
-    "**/dist": true,
     "**/.rollup.cache": true
   },
   "search.exclude": {
