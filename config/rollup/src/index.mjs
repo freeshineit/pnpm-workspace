@@ -39,13 +39,15 @@ function generateConfig(pkg, configs) {
 */`;
 
   const input = 'src/index.ts';
+  const hasUmd = fs.existsSync('src/main.ts');
+
+  // 如果有需要可以设置
+  // const hasStyle = fs.existsSync('style/style.scss');
 
   const externals = Object.keys(pkg?.dependencies || {});
 
   // prettier-ignore
   const exportName = upperCamel(pkg?.name?.split("/").length > 1 ? pkg?.name?.split("/")[pkg?.name?.split("/").length - 1] : pkg?.name, '-');
-
-  const hasUmd = fs.existsSync('src/main.ts');
 
   const defaultConfigs = [
     hasUmd
@@ -55,7 +57,6 @@ function generateConfig(pkg, configs) {
             {
               file: 'dist/index.umd.js',
               format: 'umd',
-
               name: exportName,
               sourcemap: isDev,
               banner,
