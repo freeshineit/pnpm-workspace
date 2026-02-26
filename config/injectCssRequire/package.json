@@ -1,0 +1,17 @@
+{
+  "name": "@config/injectCssRequire",
+  "version": "0.0.0",
+  "main": "src/index.mjs",
+  "types": "src/index.mjs",
+  "module": "src/index.mjs",
+  "type": "module",
+  "scripts": {
+    "dev": "",
+    "build": ""
+  },
+  "keywords": [],
+  "author": "ShineShao <xiaoshaoqq@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

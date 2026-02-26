@@ -1,5 +1,3 @@
-import './index.scss';
-
 class Popover extends HTMLElement {
   private _$popover: HTMLDivElement | undefined;
   _list: Array<{ label: string; value: string }> = [];

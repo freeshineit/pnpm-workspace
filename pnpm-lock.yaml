@@ -70,6 +70,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(webpack-cli@5.1.4)(webpack@5.95.0)
 
+  config/injectCssRequire: {}
+
   config/rollup:
     dependencies:
       '@babel/core':
@@ -78,6 +80,9 @@ importers:
       '@babel/preset-env':
         specifier: ^7.27.2
         version: 7.27.2(@babel/core@7.27.1)
+      '@config/injectCssRequire':
+        specifier: workspace:*
+        version: link:../injectCssRequire
       '@rollup/plugin-alias':
         specifier: ^6.0.0
         version: 6.0.0(rollup@4.54.0)

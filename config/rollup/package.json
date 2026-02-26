@@ -24,6 +24,7 @@
     "@rollup/plugin-swc": "^0.4.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "@rollup/plugin-alias": "^6.0.0",
+    "@config/injectCssRequire": "workspace:*",
     "rollup-plugin-copy": "^3.5.0",
     "@skax/camel": "^0.2.6",
     "@swc/core": "^1.15.7",

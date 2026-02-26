@@ -1,4 +1,3 @@
-import './index.scss';
 import type React from 'react';
 import cls from 'classnames';
 
