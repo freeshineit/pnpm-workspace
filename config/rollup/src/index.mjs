@@ -14,6 +14,7 @@ import postcss from 'rollup-plugin-postcss';
 import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
 import fs from 'fs';
+import { injectCssRequire } from '@config/injectCssRequire';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -39,10 +40,12 @@ function generateConfig(pkg, configs) {
 */`;
 
   const input = 'src/index.ts';
-  const hasUmd = fs.existsSync('src/main.ts');
+  const cssInput = 'src/style.ts';
 
+  // 判断是否需要生成 UMD 格式的包，主要是为了兼容一些老旧的环境，如果没有 src/main.ts 就不生成 UMD 包
+  const hasUmd = fs.existsSync('src/main.ts');
   // 如果有需要可以设置
-  // const hasStyle = fs.existsSync('style/style.scss');
+  const hasStyle = fs.existsSync(cssInput);
 
   const externals = Object.keys(pkg?.dependencies || {});
 
@@ -58,6 +61,7 @@ function generateConfig(pkg, configs) {
               file: 'dist/index.umd.js',
               format: 'umd',
               name: exportName,
+              exports: 'named',
               sourcemap: isDev,
               banner,
             },
@@ -88,6 +92,21 @@ function generateConfig(pkg, configs) {
         },
       ],
     },
+    hasStyle
+      ? {
+          input: cssInput,
+          output: [
+            {
+              file: 'dist/style/css.js',
+              format: 'cjs',
+              // https://www.rollupjs.com/configuration-options/#output-exports
+              // exports: 'named',
+              sourcemap: isDev,
+              banner,
+            },
+          ],
+        }
+      : null,
   ].filter(Boolean);
 
   return [
@@ -169,10 +188,17 @@ function generateConfig(pkg, configs) {
           ? null
           : copy({
               copyOnce: true,
+              flatten: false,
               targets: [
                 {
                   src: ['../../LICENSE'],
                   dest: './',
+                },
+                { src: 'src/**/*.scss', dest: 'dist/style' },
+                {
+                  src: 'src/style.ts',
+                  dest: 'dist/style',
+                  rename: 'index.js',
                 },
                 // {
                 //   src: "./package.json",
@@ -198,6 +224,8 @@ function generateConfig(pkg, configs) {
                 // },
               ],
             }),
+        // css.ts. => css.js 注入内容（require("./css.css");）
+        entry.input === cssInput ? injectCssRequire() : null,
         ...[entry?.plugins || []],
       ].filter(Boolean),
     })),
