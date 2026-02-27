@@ -61,7 +61,6 @@ function generateConfig(pkg, configs) {
               file: 'dist/index.umd.js',
               format: 'umd',
               name: exportName,
-              exports: 'named',
               sourcemap: isDev,
               banner,
             },
@@ -74,7 +73,6 @@ function generateConfig(pkg, configs) {
         {
           file: 'dist/index.js',
           format: 'cjs',
-          exports: 'named',
           sourcemap: isDev,
           banner,
         },
