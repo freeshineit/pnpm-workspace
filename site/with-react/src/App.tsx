@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import { Button } from "@ak2021/with-webpack";
 
 function App() {
   return (

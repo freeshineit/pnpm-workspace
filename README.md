@@ -11,7 +11,7 @@
 - 🔧 TypeScript - 类型安全
 - 🎨 ESLint + Prettier - 代码质量和格式化
 - 🪝 Husky + Commitlint - Git 钩子和提交规范
-- ⚡️ Rollup + Webpack - 构建工具
+- ⚡️ Rollup - 构建工具
 
 ## 环境要求
 
@@ -78,8 +78,7 @@ pnpm run --filter '*' build
 ├── packages/          # 核心包
 │   ├── react-ui/     # React UI 组件库
 │   ├── store/        # 状态管理
-│   ├── web-components/  # Web Components
-│   └── with-webpack/ # Webpack 示例
+│   └── web-components/  # Web Components
 ├── site/             # 示例站点
 │   ├── with-react/   # React 示例
 │   ├── with-vue2/    # Vue 2 示例
