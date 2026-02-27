@@ -46,3 +46,6 @@ packages/docs
 *.tmp
 .cache
 
+playwright-report
+test-results
+

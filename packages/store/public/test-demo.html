@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store Test Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      .test-section {
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .result {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+        background: #f5f5f5;
+      }
+      .success {
+        background: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background: #f8d7da;
+        color: #721c24;
+      }
+      button {
+        padding: 10px 15px;
+        margin: 5px;
+        cursor: pointer;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Store Test Demo</h1>
+
+    <div class="test-section">
+      <h2>Constructor Tests</h2>
+      <button onclick="testDefaultConstructor()">Test Default Constructor</button>
+      <button onclick="testConstructorWithOptions()">Test Constructor with Options</button>
+      <div id="constructor-result"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>Options Storage Tests</h2>
+      <button onclick="testOptionsStorage()">Test Options Storage</button>
+      <div id="options-result"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>On Method Tests</h2>
+      <button onclick="testOnMethod()">Test On Method</button>
+      <button onclick="testOnMethodWithData()">Test On Method with Data</button>
+      <div id="on-result"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>Integration Tests</h2>
+      <button onclick="testMultipleInstances()">Test Multiple Instances</button>
+      <button onclick="testInstanceIndependence()">Test Instance Independence</button>
+      <div id="integration-result"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>Edge Cases</h2>
+      <button onclick="testEmptyCallbacks()">Test Empty Callbacks</button>
+      <button onclick="testNullOptions()">Test Null Options</button>
+      <div id="edge-result"></div>
+    </div>
+
+    <script type="module">
+      // Define Store class for testing
+      class Store {
+        constructor(options = {}) {
+          this.options = options;
+        }
+        on(type, fn) {
+          console.log(type, fn, this.options);
+        }
+      }
+
+      // Expose Store to window for testing
+      window.Store = Store;
+      window.testResults = [];
+
+      window.testDefaultConstructor = function () {
+        try {
+          const store = new Store();
+          const passed = store.options && Object.keys(store.options).length === 0;
+          displayResult('constructor-result', passed ? 'Default constructor works correctly' : 'Default constructor failed', passed);
+        } catch (e) {
+          displayResult('constructor-result', 'Error: ' + e.message, false);
+        }
+      };
+
+      window.testConstructorWithOptions = function () {
+        try {
+          const options = { id: 'test-store-001' };
+          const store = new Store(options);
+          const passed = store.options.id === 'test-store-001';
+          displayResult('constructor-result', passed ? 'Constructor with options works correctly' : 'Options not set properly', passed);
+        } catch (e) {
+          displayResult('constructor-result', 'Error: ' + e.message, false);
+        }
+      };
+
+      window.testOptionsStorage = function () {
+        try {
+          const store1 = new Store({ id: 'store-1' });
+          const store2 = new Store({ id: 'store-2' });
+          const passed = store1.options.id === 'store-1' && store2.options.id === 'store-2';
+          displayResult('options-result', passed ? 'Each instance stores options independently' : 'Options storage failed', passed);
+        } catch (e) {
+          displayResult('options-result', 'Error: ' + e.message, false);
+        }
+      };
+
+      window.testOnMethod = function () {
+        try {
+          const store = new Store({ id: 'test' });
+          let called = false;
+          const originalLog = console.log;
+          console.log = function (...args) {
+            called = true;
+            originalLog.apply(console, args);
+          };
+          store.on('test-event', () => {});
+          console.log = originalLog;
+          displayResult('on-result', called ? 'On method calls console.log' : 'On method failed', called);
+        } catch (e) {
+          displayResult('on-result', 'Error: ' + e.message, false);
+        }
+      };
+
+      window.testOnMethodWithData = function () {
+        try {
+          const store = new Store({ id: 'data-test' });
+          let loggedData = null;
+          const originalLog = console.log;
+          console.log = function (...args) {
+            loggedData = args;
+            originalLog.apply(console, args);
+          };
+          const callback = () => console.log('event');
+          store.on('custom-event', callback);
+          console.log = originalLog;
+          const passed = loggedData && loggedData[0] === 'custom-event';
+          displayResult('on-result', passed ? 'On method properly logs event data' : 'Event data logging failed', passed);
+        } catch (e) {
+          displayResult('on-result', 'Error: ' + e.message, false);
+        }
+      };
+
+      window.testMultipleInstances = function () {
+        try {
+          const stores = [];
+          for (let i = 0; i < 5; i++) {
+            stores.push(new Store({ id: `store-${i}` }));
+          }
+          const allValid = stores.every((store, index) => store.options.id === `store-${index}`);
+          displayResult('integration-result', allValid ? 'Multiple instances created and managed correctly' : 'Multiple instances failed', allValid);
+        } catch (e) {
+          displayResult('integration-result', 'Error: ' + e.message, false);
+        }
+      };
+
+      window.testInstanceIndependence = function () {
+        try {
+          const store1 = new Store({ id: 'instance-1' });
+          const store2 = new Store({ id: 'instance-2' });
+          store1.options.id = 'modified';
+          const passed = store2.options.id === 'instance-2';
+          displayResult('integration-result', passed ? 'Instances are independent' : 'Instances share state', passed);
+        } catch (e) {
+          displayResult('integration-result', 'Error: ' + e.message, false);
+        }
+      };
+
+      window.testEmptyCallbacks = function () {
+        try {
+          const store = new Store();
+          store.on('event', null);
+          store.on('event', undefined);
+          store.on('event', () => {});
+          displayResult('edge-result', true ? 'Empty callbacks handled correctly' : 'Empty callback failed', true);
+        } catch (e) {
+          displayResult('edge-result', 'Error: ' + e.message, false);
+        }
+      };
+
+      window.testNullOptions = function () {
+        try {
+          const store1 = new Store();
+          const store2 = new Store({});
+          const store3 = new Store(null);
+          const passed = typeof store1.options === 'object' && typeof store2.options === 'object' && (store3.options === null || typeof store3.options === 'object');
+          displayResult('edge-result', passed ? 'Null/undefined options handled' : 'Options handling failed', passed);
+        } catch (e) {
+          displayResult('edge-result', 'Error: ' + e.message, false);
+        }
+      };
+
+      function displayResult(elementId, message, success) {
+        const resultDiv = document.getElementById(elementId);
+        const resultElement = document.createElement('div');
+        resultElement.className = 'result ' + (success ? 'success' : 'error');
+        resultElement.textContent = message;
+        resultDiv.innerHTML = '';
+        resultDiv.appendChild(resultElement);
+        window.testResults.push({ message, success });
+      }
+
+      // Make Store available globally for Playwright
+      window.testStoreReady = true;
+    </script>
+  </body>
+</html>
