@@ -7,7 +7,6 @@
     "dev:store": "pnpm run --filter @ak2021/store dev",
     "dev:ui": "pnpm run --filter @ak2021/react-ui dev",
     "dev:components": "pnpm run --filter @ak2021/web-components dev",
-    "dev:webpack": "pnpm run --filter @ak2021/with-webpack dev",
     "dev:react": "pnpm run --filter @site/with-react dev",
     "dev:vue2": "pnpm run --filter @site/with-vue2 dev",
     "dev:vue3": "pnpm run --filter @site/with-vue3 dev",
@@ -17,7 +16,6 @@
     "build:store": "pnpm run --filter @ak2021/store build",
     "build:ui": "pnpm run --filter @ak2021/react-ui build",
     "build:components": "pnpm run --filter @ak2021/web-components build",
-    "build:webpack": "pnpm run --filter @ak2021/with-webpack build",
     "build:react": "pnpm run --filter @site/with-react build",
     "build:vue2": "pnpm run --filter @site/with-vue2 build",
     "build:vue3": "pnpm run --filter @site/with-vue3 build",
@@ -53,9 +51,6 @@
     "rimraf": "^6.1.2",
     "rollup": "^4.59.0",
     "typescript": "5.3.3",
-    "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0",
     "lerna": "8.2.4"
   },
   "engines": {
