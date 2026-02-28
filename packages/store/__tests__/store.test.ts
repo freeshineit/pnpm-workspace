@@ -1,7 +1,12 @@
 import Store from '../src/index';
+import StoreFromMain from '../src/main';
 import '../src/style';
 
 describe('Store', () => {
+  test('exports Store from main', () => {
+    expect(StoreFromMain).toBe(Store);
+  });
+
   test('constructs with default options', () => {
     const store = new Store();
     expect(store.options).toEqual({});
