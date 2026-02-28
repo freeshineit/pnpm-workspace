@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.38.1",
-    "vue": "^2.7.16"
+    "vue": "^2.7.16",
+    "@ak2021/store": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.25.7",
