@@ -24,6 +24,7 @@ export default {
 
     // Handle CSS imports (without CSS modules)
     '\\.(css|less|scss|sass)$': '<rootDir>/__mocks__/styleMock.js',
+
     // Handle static assets
     // https://jestjs.io/docs/webpack#handling-static-assets
     '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg|ttf|woff|woff2)$': '<rootDir>/__mocks__/fileMock.js',
