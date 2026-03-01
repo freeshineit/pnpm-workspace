@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   preset: 'ts-jest',
   roots: ['<rootDir>/packages'],
   testMatch: ['**/__tests__/**/?(*.)+(spec|test).ts'],
@@ -18,7 +18,16 @@ module.exports = {
     ],
   },
   moduleNameMapper: {
+    // Handle CSS imports (with CSS modules)
+    // https://jestjs.io/docs/webpack#mocking-css-modules
+    '^.+\\.module\\.(css|sass|scss|less)$': 'identity-obj-proxy',
+
+    // Handle CSS imports (without CSS modules)
     '\\.(css|less|scss|sass)$': '<rootDir>/__mocks__/styleMock.js',
+
+    // Handle static assets
+    // https://jestjs.io/docs/webpack#handling-static-assets
+    '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg|ttf|woff|woff2)$': '<rootDir>/__mocks__/fileMock.js',
   },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
