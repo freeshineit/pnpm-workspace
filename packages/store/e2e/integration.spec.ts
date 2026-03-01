@@ -52,6 +52,7 @@ test.describe('Store Integration Tests', () => {
 
       let eventCount = 0;
       const originalLog = console.log;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       console.log = function (...args: any[]) {
         eventCount++;
       };

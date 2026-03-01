@@ -47,7 +47,7 @@ function generateConfig(pkg, configs) {
   // 如果有需要可以设置
   const hasStyle = fs.existsSync(cssInput);
 
-  const externals = Object.keys(pkg?.dependencies || {});
+  const externals = Object.keys(pkg?.devDependencies || {});
 
   // prettier-ignore
   const exportName = upperCamel(pkg?.name?.split("/").length > 1 ? pkg?.name?.split("/")[pkg?.name?.split("/").length - 1] : pkg?.name, '-');

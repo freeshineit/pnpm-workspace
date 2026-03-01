@@ -11,7 +11,8 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "vue": "^3.5.10"
+    "vue": "^3.5.10",
+    "@ak2021/store": "workspace:*"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",

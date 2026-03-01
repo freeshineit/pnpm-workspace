@@ -1,4 +1,11 @@
 <script setup lang="ts">
+import Store from '@ak2021/store';
+
+const store = new Store();
+store.on('test', (data: any) => {
+  console.log('test', data);
+});
+
 defineProps<{ msg: string }>();
 </script>
 
@@ -7,8 +14,7 @@ defineProps<{ msg: string }>();
     <h1 class="green">{{ msg }}</h1>
     <h3>
       You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> + <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
   </div>
 </template>
