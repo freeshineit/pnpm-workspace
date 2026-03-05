@@ -184,6 +184,9 @@ importers:
       '@config/rollup':
         specifier: workspace:*
         version: link:../../config/rollup
+      '@skax/picker':
+        specifier: ^1.1.8
+        version: 1.1.8
 
   packages/web-components:
     dependencies:
@@ -4567,6 +4570,10 @@ packages:
     engines: {node: '>=14'}
     requiresBuild: true
     dev: false
+
+  /@skax/picker@1.1.8:
+    resolution: {integrity: sha512-PY8eefUG2KYheTV4VsToL66JDyFWbNrUQcz4sdEUfdFs5A2JWBYL4tNVEIMUq92m03yXaPtkNXh2RcgKO2Czzg==}
+    dev: true
 
   /@skax/react-scripts@5.0.1-beta.3(eslint@9.39.2)(react@18.3.1)(ts-node@10.9.2)(typescript@5.4.5):
     resolution: {integrity: sha512-vxHTCDkn5cCAMK518nc0r7G12ySpbX/O7DEVMLbY8Xdg8WmJC8pJIAykf5OCZHuGSm5tO6VM/hiosHIgBG64bw==}

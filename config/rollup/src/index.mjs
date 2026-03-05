@@ -169,8 +169,8 @@ function generateConfig(pkg, configs) {
               },
             ],
           ],
-          include: ['/**/*.scss', '/**/*.sass'],
-          includePaths: ['style/', 'node_modules/'],
+          include: ['/**/*.scss', '/**/*.sass', '/**/*.css'],
+          includePaths: ['src/', 'node_modules/'],
           // 处理从 node_modules 导入
           importer(path) {
             return { file: path[0] === '~' ? path.substr(1) : path };

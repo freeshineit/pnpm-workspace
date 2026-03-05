@@ -20,6 +20,7 @@
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@skax/picker": "^1.1.8",
     "@config/rollup": "workspace:*"
   },
   "publishConfig": {
