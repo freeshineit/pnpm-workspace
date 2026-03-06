@@ -115,7 +115,7 @@ function generateConfig(pkg, configs) {
         eslint({
           throwOnError: true, // lint 结果有错误将会抛出异常
           // throwOnWarning: true,
-          include: ['src/**/*.ts', 'src/**/*.js', 'src/**/*.mjs', 'src/**/*.jsx', 'src/**/*.tsx'],
+          include: ['src/**/*.ts', 'src/**/*.js', 'src/**/*.cjs', 'src/**/*.mjs', 'src/**/*.jsx', 'src/**/*.tsx'],
           exclude: ['node_modules/**', '**/__tests__/**'],
         }),
         // 需要和 tsconfig.json 配置 paths 一致
@@ -138,14 +138,14 @@ function generateConfig(pkg, configs) {
                   target: 'es5',
                 },
               },
-              include: ['./src/**/*.{ts,js,mjs,tsx,jsx}'],
+              include: ['./src/**/*.{ts,js,cjs,mjs,tsx,jsx}'],
             }),
 
         resolve({
-          // extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.json'],
+          // extensions: ['.js', '.cjs', '.jsx', '.mjs', '.ts', '.tsx', '.json'],
         }),
         commonjs({
-          extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.json'],
+          extensions: ['.js', '.cjs', '.jsx', '.mjs', '.ts', '.tsx', '.json'],
         }),
         replace({
           __VERSION__: `${pkg.version}`,
@@ -169,8 +169,8 @@ function generateConfig(pkg, configs) {
               },
             ],
           ],
-          include: ['/**/*.scss', '/**/*.sass'],
-          includePaths: ['style/', 'node_modules/'],
+          include: ['/**/*.scss', '/**/*.sass', '/**/*.css'],
+          includePaths: ['src/', 'node_modules/'],
           // 处理从 node_modules 导入
           importer(path) {
             return { file: path[0] === '~' ? path.substr(1) : path };
@@ -188,10 +188,6 @@ function generateConfig(pkg, configs) {
               copyOnce: true,
               flatten: false,
               targets: [
-                {
-                  src: ['../../LICENSE'],
-                  dest: './',
-                },
                 { src: 'src/**/*.scss', dest: 'dist/style' },
                 {
                   src: 'src/style.ts',

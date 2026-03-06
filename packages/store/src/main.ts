@@ -1,3 +1,4 @@
-import Store from './index';
+import '@skax/picker/dist/style/index.js';
+import Store from '.';
 
 export default Store;
