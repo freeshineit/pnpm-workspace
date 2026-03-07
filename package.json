@@ -38,7 +38,8 @@
     "test:pw:debug": "playwright test --debug",
     "test:pw:headed": "playwright test --headed",
     "test:pw:ui": "playwright test --ui",
-    "test:pw:report": "playwright show-report"
+    "test:pw:report": "playwright show-report",
+    "docs": "typedoc --options typedoc.config.mjs"
   },
   "files": [],
   "keywords": [],

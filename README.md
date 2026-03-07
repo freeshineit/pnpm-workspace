@@ -44,6 +44,9 @@ pnpm type-check     # TypeScript 类型检查
 # 清理
 pnpm clean:dist     # 清理所有构建产物
 pnpm clean          # 清理所有 node_modules 和构建产物
+
+# 生成文档
+pnpm docs
 ```
 
 ## 包管理

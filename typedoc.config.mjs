@@ -1,8 +1,13 @@
 export default {
-  entryPoints: ['./src/index.ts'],
+  entryPointStrategy: 'packages',
+  entryPoints: ['./packages/react-ui', './packages/store', './packages/web-components'],
+  packageOptions: {
+    entryPoints: ['src/index.ts'],
+    exclude: ['**/__tests__/**/*', '**/e2e/**/*', '**/node_modules/**/*'],
+  },
   out: 'docs',
   plugin: ['typedoc-plugin-rename-defaults', 'typedoc-plugin-mdn-links', 'typedoc-plugin-replace-text'],
-  exclude: ['node_modules', '__tests__/**/*'],
+  exclude: ['node_modules', '__tests__/**/*', 'packages/*/{__tests__,e2e}/**/*'],
   includeVersion: true,
   hideGenerator: true,
   disableSources: false,
