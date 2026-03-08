@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import '@ak2021/react-ui/dist/style/css.css';
@@ -6,11 +6,16 @@ import { Button } from '@ak2021/react-ui';
 import Store from '@ak2021/store';
 
 function App() {
-  const store = new Store({ id: 'app-store' });
+  const storeRef = React.useRef<Store | null>(null);
 
-  store.on('test', (data: any) => {
-    console.log('test', data);
-  });
+  useEffect(() => {
+    if (storeRef.current) return;
+    storeRef.current = new Store({ id: 'app-store' });
+    storeRef.current.on('test', (data: any) => {
+      console.log('test', data);
+    });
+    console.log('store App', storeRef.current);
+  }, []);
 
   return (
     <div className="App">
