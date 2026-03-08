@@ -47,6 +47,8 @@ packages/docs
 *.tmp
 .cache
 
+# Playwright
 playwright-report
 test-results
+test-results.json
 
