@@ -223,25 +223,22 @@ function generateConfig(pkg, configs) {
         ...[entry?.plugins || []],
       ].filter(Boolean),
     })),
-    isDev
-      ? null
-      : {
-          input: defaultConfigs[0].input,
-          output: [{ file: 'dist/types/index.d.ts', format: 'es' }],
-          plugins: [
-            alias({
-              entries: [
-                {
-                  find: /^@\/(.*)/,
-                  replacement: resolve(process.cwd(), 'src/$1'),
-                },
-              ],
-            }),
-            dts(),
+    {
+      input: defaultConfigs[0].input,
+      output: [{ file: 'dist/types/index.d.ts', format: 'es' }],
+      plugins: [
+        alias({
+          entries: [
+            {
+              find: /^@\/(.*)/,
+              replacement: resolve(process.cwd(), 'src/$1'),
+            },
           ],
-          external: [/\.(css|less|scss|sass)$/],
-        },
-
+        }),
+        dts(),
+      ],
+      external: [/\.(css|less|scss|sass)$/],
+    },
     ...(configs || []),
   ].filter(Boolean);
 }
