@@ -7,3 +7,6 @@ docs/
 build/
 coverage/
 pnpm-lock.yaml
+playwright-report
+test-results
+test-results.json
