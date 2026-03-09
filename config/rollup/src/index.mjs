@@ -182,42 +182,40 @@ function generateConfig(pkg, configs) {
               contentBase: ['public', 'dist'],
             })
           : null,
-        isDev
-          ? null
-          : copy({
-              copyOnce: true,
-              flatten: false,
-              targets: [
-                { src: 'src/**/*.scss', dest: 'dist/style' },
-                {
-                  src: 'src/style.ts',
-                  dest: 'dist/style',
-                  rename: 'index.js',
-                },
-                // {
-                //   src: "./package.json",
-                //   dest: "./dist",
-                //   transform: (contents) => {
-                //     try {
-                //       const jsonObj = JSON.parse(contents);
-                //       delete jsonObj["scripts"];
-                //       delete jsonObj["devDependencies"];
-                //       jsonObj["main"] = "./dist/index.js";
-                //       jsonObj["module"] = "./dist/index.mjs";
-                //       jsonObj["types"] = "./dist/types/index.d.ts";
-                //       jsonObj["files"] = [
-                //         "dist",
-                //         "CHANGELOG.md",
-                //         "README.md",
-                //         "LICENSE",
-                //       ];
-                //       contents = JSON.stringify(jsonObj);
-                //     } catch (error) {}
-                //     return contents;
-                //   },
-                // },
-              ],
-            }),
+        copy({
+          copyOnce: true,
+          flatten: false,
+          targets: [
+            { src: 'src/**/*.scss', dest: 'dist/style' },
+            {
+              src: 'src/style.ts',
+              dest: 'dist/style',
+              rename: 'index.js',
+            },
+            // {
+            //   src: "./package.json",
+            //   dest: "./dist",
+            //   transform: (contents) => {
+            //     try {
+            //       const jsonObj = JSON.parse(contents);
+            //       delete jsonObj["scripts"];
+            //       delete jsonObj["devDependencies"];
+            //       jsonObj["main"] = "./dist/index.js";
+            //       jsonObj["module"] = "./dist/index.mjs";
+            //       jsonObj["types"] = "./dist/types/index.d.ts";
+            //       jsonObj["files"] = [
+            //         "dist",
+            //         "CHANGELOG.md",
+            //         "README.md",
+            //         "LICENSE",
+            //       ];
+            //       contents = JSON.stringify(jsonObj);
+            //     } catch (error) {}
+            //     return contents;
+            //   },
+            // },
+          ],
+        }),
         // css.ts. => css.js 注入内容（require("./css.css");）
         entry.input === cssInput ? injectCssRequire() : null,
         ...[entry?.plugins || []],
