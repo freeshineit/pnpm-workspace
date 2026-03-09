@@ -26,4 +26,6 @@ const Button = (props: IButtonProps) => {
   );
 };
 
+Button.displayName = 'Button';
+
 export default Button;
