@@ -1,3 +1,4 @@
+import '@webcomponents/webcomponentsjs';
 import './components/button';
 import './components/popover';
 
