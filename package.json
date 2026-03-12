@@ -1,6 +1,6 @@
 {
   "name": "@skax/pnpm-workspace",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "pnpm workspace",
   "type": "module",
   "scripts": {
