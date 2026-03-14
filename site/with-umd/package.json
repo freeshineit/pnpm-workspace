@@ -1,0 +1,13 @@
+{
+  "name": "@site/with-umd",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "serve -l 8080 -s .",
+    "build": "",
+    "lint": ""
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
