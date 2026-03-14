@@ -16,7 +16,8 @@ import autoprefixer from 'autoprefixer';
 import fs from 'fs';
 import { injectCssRequire } from '@config/injectCssRequire';
 
-const isDev = process.env.NODE_ENV !== 'production';
+const isProduction = process.env.NODE_ENV === 'production';
+const isReact = process.env.REACT_ENV === 'react';
 
 /**
  * @description rollup config function
@@ -61,7 +62,7 @@ function generateConfig(pkg, configs) {
               file: 'dist/index.umd.js',
               format: 'umd',
               name: exportName,
-              sourcemap: isDev,
+              sourcemap: !isProduction,
               banner,
             },
           ],
@@ -73,7 +74,7 @@ function generateConfig(pkg, configs) {
         {
           file: 'dist/index.js',
           format: 'cjs',
-          sourcemap: isDev,
+          sourcemap: !isProduction,
           banner,
         },
       ],
@@ -85,7 +86,7 @@ function generateConfig(pkg, configs) {
           exports: 'named',
           file: 'dist/index.mjs',
           format: 'esm',
-          sourcemap: isDev,
+          sourcemap: !isProduction,
           banner,
         },
       ],
@@ -99,7 +100,7 @@ function generateConfig(pkg, configs) {
               format: 'cjs',
               // https://www.rollupjs.com/configuration-options/#output-exports
               // exports: 'named',
-              sourcemap: isDev,
+              sourcemap: !isProduction,
               banner,
             },
           ],
@@ -110,7 +111,7 @@ function generateConfig(pkg, configs) {
   return [
     ...defaultConfigs.map(entry => ({
       ...entry,
-      external: entry.output[0].format === 'umd' ? [] : ['react/jsx-runtime', ...externals],
+      external: entry.output[0].format === 'umd' && !isReact ? [] : ['react/jsx-runtime', ...externals],
       plugins: [
         eslint({
           throwOnError: true, // lint 结果有错误将会抛出异常
@@ -153,7 +154,7 @@ function generateConfig(pkg, configs) {
         }),
         postcss({
           plugins: [autoprefixer(), cssnano({ preset: 'default' })],
-          sourceMap: isDev,
+          sourceMap: !isProduction,
           /**
            * https://www.npmjs.com/package/rollup-plugin-postcss#extract
            * extract: true 将 CSS 提取到单独的文件中，默认为 false，即将 CSS 内联到 JavaScript 中。
@@ -176,7 +177,7 @@ function generateConfig(pkg, configs) {
             return { file: path[0] === '~' ? path.substr(1) : path };
           },
         }),
-        isDev && entry.output[0].format === 'umd' && pkg.port
+        !isProduction && entry.output[0].format === 'umd' && pkg.port
           ? serve({
               port: pkg.port,
               contentBase: ['public', 'dist'],
