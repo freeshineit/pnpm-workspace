@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from 'classnames';
+import classNames from 'classnames';
 
 export interface IButtonProps {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ export interface IButtonProps {
 /**
  */
 const Button = (props: IButtonProps) => {
-  const classNames = cls(
+  const _classNames = classNames(
     'wc-btn',
     {
       [`wc-btn-${props.type}`]: props.type === 'primary',
@@ -20,7 +20,7 @@ const Button = (props: IButtonProps) => {
   );
 
   return (
-    <button className={classNames} style={props.style}>
+    <button className={_classNames} style={props.style}>
       {props.children}
     </button>
   );

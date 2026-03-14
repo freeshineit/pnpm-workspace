@@ -6,8 +6,8 @@
   "types": "dist/types/index.d.ts",
   "type": "module",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development rollup --config rollup.config.mjs --watch",
-    "build": "npm run clean && cross-env NODE_ENV=production rollup --config rollup.config.mjs",
+    "dev": "cross-env NODE_ENV=development REACT_ENV=react rollup --config rollup.config.mjs --watch",
+    "build": "npm run clean && cross-env NODE_ENV=production REACT_ENV=react rollup --config rollup.config.mjs",
     "clean": "rimraf dist"
   },
   "files": [
