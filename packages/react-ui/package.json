@@ -15,15 +15,14 @@
     "!dist/**/*.map"
   ],
   "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "clsx": "^2.1.1",
     "@config/rollup": "workspace:*",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0"
   },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "classnames": "^2.5.1"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=17"
   },
