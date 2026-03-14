@@ -15,16 +15,14 @@
     "!dist/**/*.map"
   ],
   "devDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "clsx": "^2.1.1",
     "@config/rollup": "workspace:*",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0"
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": ">=17"
+    "react": ">=17",
+    "clsx": "^2.1.1"
   },
   "publishConfig": {
     "access": "public",
