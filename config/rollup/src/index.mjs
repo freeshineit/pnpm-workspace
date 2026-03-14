@@ -64,6 +64,12 @@ function generateConfig(pkg, configs) {
               name: exportName,
               sourcemap: !isProduction,
               banner,
+              globals: isReact
+                ? {
+                    react: 'React',
+                    clsx: 'clsx',
+                  }
+                : {},
             },
           ],
         }
@@ -111,7 +117,7 @@ function generateConfig(pkg, configs) {
   return [
     ...defaultConfigs.map(entry => ({
       ...entry,
-      external: entry.output[0].format === 'umd' && !isReact ? [] : ['react/jsx-runtime', ...externals],
+      external: entry.output[0].format === 'umd' ? ['react/jsx-runtime', 'react', 'clsx'] : ['react/jsx-runtime', 'react', 'clsx', ...externals],
       plugins: [
         eslint({
           throwOnError: true, // lint 结果有错误将会抛出异常
