@@ -92,7 +92,7 @@ class Popover extends HTMLElement {
     console.log(`属性 ${name} 已变更。`);
     if (name === 'list') {
       try {
-        this._list = JSON.parse(newValue) as unknown as any[];
+        this._list = JSON.parse(newValue) as unknown as never[];
         if (this.shadowRoot?.querySelector('.wc-popover')) {
           const listNode = `<ul>
                 ${this._list

@@ -10,7 +10,7 @@ class Store {
     this.options = options;
   }
 
-  on(type: string, fn: any) {
+  on(type: string, fn: unknown) {
     console.log(type, fn, this.options);
   }
 }

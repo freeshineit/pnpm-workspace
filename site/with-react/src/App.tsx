@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     if (storeRef.current) return;
     storeRef.current = new Store({ id: 'app-store' });
-    storeRef.current.on('test', (data: any) => {
+    storeRef.current.on('test', (data: unknown) => {
       console.log('test', data);
     });
     console.log('store App', storeRef.current);
