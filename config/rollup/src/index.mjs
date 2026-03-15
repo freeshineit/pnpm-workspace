@@ -142,7 +142,7 @@ function generateConfig(pkg, configs) {
               // https://swc.rs/docs/configuration/swcrc
               swc: {
                 jsc: {
-                  target: 'es5',
+                  target: isReact ? 'es2018' : 'es5',
                 },
               },
               include: ['./src/**/*.{ts,js,cjs,mjs,tsx,jsx}'],
