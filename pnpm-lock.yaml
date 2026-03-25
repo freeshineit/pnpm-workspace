@@ -48,8 +48,8 @@ importers:
         specifier: ^9.39.4
         version: 9.39.4
       eslint-config-xx:
-        specifier: ^2.1.2
-        version: 2.1.2
+        specifier: ^2.1.3
+        version: 2.1.3
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -3695,11 +3695,6 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
-
-  /@eslint/js@9.39.2:
-    resolution: {integrity: sha512-q1mjIoW1VX4IvSocvM/vbTiveKC4k9eLrajNEuSsmjymSDEbpGddtpfOoN7YGAqBK3NG+uqo8ia4PDTt8buCYA==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    dev: true
 
   /@eslint/js@9.39.4:
     resolution: {integrity: sha512-nE7DEIchvtiFTwBw4Lfbu59PG+kCofhjsKaCWzxTpt4lfRjRMqG6uMBzKXuEcyXhOHoUp9riAm7/aWYGhXZ9cw==}
@@ -10329,11 +10324,11 @@ packages:
       eslint: 9.39.4
     dev: true
 
-  /eslint-config-xx@2.1.2:
-    resolution: {integrity: sha512-plT8qXPM2lO9yKKjyYc8ELCcCEP8LPVEnA1lR1VPdWjkSFIuUxANzCGQGR289eCH+ZYWDUmZ3iKVTxwGk36Kjw==}
-    engines: {eslint: '>=9', node: '>=18'}
+  /eslint-config-xx@2.1.3:
+    resolution: {integrity: sha512-RRs7i5PJyYLrz7byVlheDMe618tSRPikM3ayORpt5RGkyih2F0kOsW5ZhFfVeH+ADLZzqf1hUgo2gcAYmj9jvw==}
+    engines: {node: '>=18'}
     dependencies:
-      '@eslint/js': 9.39.2
+      '@eslint/js': 9.39.4
       '@typescript-eslint/eslint-plugin': 8.50.1(@typescript-eslint/parser@8.50.1)(eslint@9.39.4)(typescript@5.9.3)
       '@typescript-eslint/parser': 8.50.1(eslint@9.39.4)(typescript@5.9.3)
       eslint: 9.39.4
