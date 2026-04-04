@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 export interface IButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
   /** Visual variant of the button */
