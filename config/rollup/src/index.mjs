@@ -115,7 +115,7 @@ function generateConfig(pkg, configs) {
   ].filter(Boolean);
 
   return [
-    ...defaultConfigs.map(entry => ({
+    ...defaultConfigs.map((entry) => ({
       ...entry,
       external: entry.output[0].format === "umd" ? ["react/jsx-runtime", "react", "clsx"] : ["react/jsx-runtime", "react", "clsx", ...externals],
       plugins: [

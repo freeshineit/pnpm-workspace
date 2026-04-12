@@ -48,8 +48,8 @@ importers:
         specifier: ^9.39.4
         version: 9.39.4
       eslint-config-xx:
-        specifier: ^2.2.0
-        version: 2.2.0
+        specifier: ^2.2.3
+        version: 2.2.3
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -10103,8 +10103,8 @@ packages:
       eslint: 9.39.4
     dev: true
 
-  /eslint-config-xx@2.2.0:
-    resolution: {integrity: sha512-wEg1qRgzSXTn7XEhoOcppS2AtEZzXZ8tj3Evk7/Pa6CkBRFETdicWp/JMswFzs26P6oosDUPjOg2IQ0pu/Amzg==}
+  /eslint-config-xx@2.2.3:
+    resolution: {integrity: sha512-PqLLF1bIr/sk8vKukzpKnkV/SPay7/0yIogLQqlvAIyQZ+wYYSTT/LqvNZ2zPDTWKpJ7YyHq//E2f4MgMwomuw==}
     engines: {node: '>=18'}
     dependencies:
       '@eslint/js': 9.39.4
