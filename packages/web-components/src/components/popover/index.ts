@@ -100,7 +100,7 @@ class Popover extends HTMLElement {
         if (this.shadowRoot?.querySelector(".wc-popover")) {
           const listNode = `<ul>
                 ${this._list
-                  .map(item => {
+                  .map((item) => {
                     return `<li>${item.label}</li>`;
                   })
                   .join("")}

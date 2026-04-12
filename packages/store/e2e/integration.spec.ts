@@ -86,7 +86,7 @@ test.describe("Store Integration Tests", () => {
 
       return {
         idPersistent: store.options.id === "reusable-store",
-        allCallsSucceeded: results.every(r => r === true),
+        allCallsSucceeded: results.every((r) => r === true),
       };
     });
 
@@ -218,7 +218,7 @@ test.describe("Store Integration Tests", () => {
       checkpoints.push(store.options.id);
 
       return {
-        allCheckpointsSame: checkpoints.every(id => id === "lifecycle-store"),
+        allCheckpointsSame: checkpoints.every((id) => id === "lifecycle-store"),
         checkpointsCount: checkpoints.length,
         finalId: store.options.id,
       };

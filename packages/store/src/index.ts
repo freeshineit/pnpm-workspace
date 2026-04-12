@@ -26,7 +26,7 @@ class Store {
   }
 
   once<T = unknown>(type: string, fn: EventListener<T>): this {
-    const wrapper: EventListener<T> = data => {
+    const wrapper: EventListener<T> = (data) => {
       fn(data);
       this.off(type, wrapper);
     };
@@ -43,7 +43,7 @@ class Store {
   }
 
   emit<T = unknown>(type: string, data?: T): this {
-    this._events.get(type)?.forEach(listener => listener(data));
+    this._events.get(type)?.forEach((listener) => listener(data));
     return this;
   }
 }

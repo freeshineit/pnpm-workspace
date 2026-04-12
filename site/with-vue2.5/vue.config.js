@@ -16,7 +16,7 @@ module.exports = {
       ],
     },
   },
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
       .rule("mjs")
       .test(/\.mjs$/)

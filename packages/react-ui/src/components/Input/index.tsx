@@ -33,7 +33,7 @@ const Input = React.forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
     className,
   );
 
-  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = e => {
+  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === "Enter" && onPressEnter) {
       onPressEnter(e);
     }
