@@ -1,23 +1,23 @@
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import swc from '@rollup/plugin-swc';
-import serve from 'rollup-plugin-serve';
-import { upperCamel } from '@skax/camel';
-import { dts } from 'rollup-plugin-dts';
-import eslint from '@rollup/plugin-eslint';
-import replace from '@rollup/plugin-replace';
-import typescript from '@rollup/plugin-typescript';
-import alias from '@rollup/plugin-alias';
-import copy from 'rollup-plugin-copy';
-import dayjs from 'dayjs';
-import postcss from 'rollup-plugin-postcss';
-import cssnano from 'cssnano';
-import autoprefixer from 'autoprefixer';
-import fs from 'fs';
-import { injectCssRequire } from '@config/injectCssRequire';
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
+import swc from "@rollup/plugin-swc";
+import serve from "rollup-plugin-serve";
+import { upperCamel } from "@skax/camel";
+import { dts } from "rollup-plugin-dts";
+import eslint from "@rollup/plugin-eslint";
+import replace from "@rollup/plugin-replace";
+import typescript from "@rollup/plugin-typescript";
+import alias from "@rollup/plugin-alias";
+import copy from "rollup-plugin-copy";
+import dayjs from "dayjs";
+import postcss from "rollup-plugin-postcss";
+import cssnano from "cssnano";
+import autoprefixer from "autoprefixer";
+import fs from "fs";
+import { injectCssRequire } from "@config/injectCssRequire";
 
-const isProduction = process.env.NODE_ENV === 'production';
-const isReact = process.env.REACT_ENV === 'react';
+const isProduction = process.env.NODE_ENV === "production";
+const isReact = process.env.REACT_ENV === "react";
 
 /**
  * @description rollup config function
@@ -40,11 +40,11 @@ function generateConfig(pkg, configs) {
 * Released under the MIT License.
 */`;
 
-  const input = 'src/index.ts';
-  const cssInput = 'src/style.ts';
+  const input = "src/index.ts";
+  const cssInput = "src/style.ts";
 
   // 判断是否需要生成 UMD 格式的包，主要是为了兼容一些老旧的环境，如果没有 src/main.ts 就不生成 UMD 包
-  const hasUmd = fs.existsSync('src/main.ts');
+  const hasUmd = fs.existsSync("src/main.ts");
   // 如果有需要可以设置
   const hasStyle = fs.existsSync(cssInput);
 
@@ -59,15 +59,15 @@ function generateConfig(pkg, configs) {
           input,
           output: [
             {
-              file: 'dist/index.umd.js',
-              format: 'umd',
+              file: "dist/index.umd.js",
+              format: "umd",
               name: exportName,
               sourcemap: !isProduction,
               banner,
               globals: isReact
                 ? {
-                    react: 'React',
-                    clsx: 'clsx',
+                    react: "React",
+                    clsx: "clsx",
                   }
                 : {},
             },
@@ -78,8 +78,8 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          file: 'dist/index.js',
-          format: 'cjs',
+          file: "dist/index.js",
+          format: "cjs",
           sourcemap: !isProduction,
           banner,
         },
@@ -89,9 +89,9 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          exports: 'named',
-          file: 'dist/index.mjs',
-          format: 'esm',
+          exports: "named",
+          file: "dist/index.mjs",
+          format: "esm",
           sourcemap: !isProduction,
           banner,
         },
@@ -102,8 +102,8 @@ function generateConfig(pkg, configs) {
           input: cssInput,
           output: [
             {
-              file: 'dist/style/css.js',
-              format: 'cjs',
+              file: "dist/style/css.js",
+              format: "cjs",
               // https://www.rollupjs.com/configuration-options/#output-exports
               // exports: 'named',
               sourcemap: !isProduction,
@@ -115,26 +115,26 @@ function generateConfig(pkg, configs) {
   ].filter(Boolean);
 
   return [
-    ...defaultConfigs.map(entry => ({
+    ...defaultConfigs.map((entry) => ({
       ...entry,
-      external: entry.output[0].format === 'umd' ? ['react/jsx-runtime', 'react', 'clsx'] : ['react/jsx-runtime', 'react', 'clsx', ...externals],
+      external: entry.output[0].format === "umd" ? ["react/jsx-runtime", "react", "clsx"] : ["react/jsx-runtime", "react", "clsx", ...externals],
       plugins: [
         eslint({
           throwOnError: true, // lint 结果有错误将会抛出异常
           // throwOnWarning: true,
-          include: ['src/**/*.ts', 'src/**/*.js', 'src/**/*.cjs', 'src/**/*.mjs', 'src/**/*.jsx', 'src/**/*.tsx'],
-          exclude: ['node_modules/**', '**/__tests__/**'],
+          include: ["src/**/*.ts", "src/**/*.js", "src/**/*.cjs", "src/**/*.mjs", "src/**/*.jsx", "src/**/*.tsx"],
+          exclude: ["node_modules/**", "**/__tests__/**"],
         }),
         // 需要和 tsconfig.json 配置 paths 一致
         alias({
           entries: [
             {
               find: /^@\/(.*)/,
-              replacement: resolve(process.cwd(), 'src/$1'),
+              replacement: resolve(process.cwd(), "src/$1"),
             },
           ],
         }),
-        pkg.compiler === 'tsc'
+        pkg.compiler === "tsc"
           ? typescript({
               declaration: false,
             })
@@ -142,24 +142,24 @@ function generateConfig(pkg, configs) {
               // https://swc.rs/docs/configuration/swcrc
               swc: {
                 jsc: {
-                  target: isReact ? 'es2018' : 'es5',
+                  target: isReact ? "es2018" : "es5",
                 },
               },
-              include: ['./src/**/*.{ts,js,cjs,mjs,tsx,jsx}'],
+              include: ["./src/**/*.{ts,js,cjs,mjs,tsx,jsx}"],
             }),
 
         resolve({
           // extensions: ['.js', '.cjs', '.jsx', '.mjs', '.ts', '.tsx', '.json'],
         }),
         commonjs({
-          extensions: ['.js', '.cjs', '.jsx', '.mjs', '.ts', '.tsx', '.json'],
+          extensions: [".js", ".cjs", ".jsx", ".mjs", ".ts", ".tsx", ".json"],
         }),
         replace({
           __VERSION__: `${pkg.version}`,
           preventAssignment: true,
         }),
         postcss({
-          plugins: [autoprefixer(), cssnano({ preset: 'default' })],
+          plugins: [autoprefixer(), cssnano({ preset: "default" })],
           sourceMap: !isProduction,
           /**
            * https://www.npmjs.com/package/rollup-plugin-postcss#extract
@@ -170,34 +170,34 @@ function generateConfig(pkg, configs) {
           minimize: true,
           use: [
             [
-              'sass',
+              "sass",
               {
-                silenceDeprecations: ['legacy-js-api'],
+                silenceDeprecations: ["legacy-js-api"],
               },
             ],
           ],
-          include: ['/**/*.scss', '/**/*.sass', '/**/*.css'],
-          includePaths: ['src/', 'node_modules/'],
+          include: ["/**/*.scss", "/**/*.sass", "/**/*.css"],
+          includePaths: ["src/", "node_modules/"],
           // 处理从 node_modules 导入
           importer(path) {
-            return { file: path[0] === '~' ? path.substr(1) : path };
+            return { file: path[0] === "~" ? path.substr(1) : path };
           },
         }),
-        !isProduction && entry.output[0].format === 'umd' && pkg.port
+        !isProduction && entry.output[0].format === "umd" && pkg.port
           ? serve({
               port: pkg.port,
-              contentBase: ['public', 'dist'],
+              contentBase: ["public", "dist"],
             })
           : null,
         copy({
           copyOnce: true,
           flatten: false,
           targets: [
-            { src: 'src/**/*.scss', dest: 'dist/style' },
+            { src: "src/**/*.scss", dest: "dist/style" },
             {
-              src: 'src/style.ts',
-              dest: 'dist/style',
-              rename: 'index.js',
+              src: "src/style.ts",
+              dest: "dist/style",
+              rename: "index.js",
             },
             // {
             //   src: "./package.json",
@@ -230,13 +230,13 @@ function generateConfig(pkg, configs) {
     })),
     {
       input: defaultConfigs[0].input,
-      output: [{ file: 'dist/types/index.d.ts', format: 'es' }],
+      output: [{ file: "dist/types/index.d.ts", format: "es" }],
       plugins: [
         alias({
           entries: [
             {
               find: /^@\/(.*)/,
-              replacement: resolve(process.cwd(), 'src/$1'),
+              replacement: resolve(process.cwd(), "src/$1"),
             },
           ],
         }),

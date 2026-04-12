@@ -1,4 +1,4 @@
-import { Button, Input } from '.';
+import { Button, Input } from ".";
 
 export default {
   Button,

@@ -2,7 +2,7 @@ name: NPM Publish
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 permissions:
   id-token: write # Required for OIDC
@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # 重要：确保 Lerna 能识别 Git Tag
 
       # 设置 Node
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
@@ -27,7 +27,7 @@ jobs:
       - run: npm install -g npm@latest
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v5
         with:
           version: 10
 
@@ -53,7 +53,7 @@ jobs:
           echo "$CHANGED_JSON" | jq -c '.[]' | while read -r pkg; do
             NAME=$(echo "$pkg" | jq -r '.name')
             VERSION=$(echo "$pkg" | jq -r '.version')
-            
+
             echo "Processing $NAME at version $VERSION..."
 
             # 3. 判断版本号，决定 tag
@@ -76,7 +76,7 @@ jobs:
             fi
 
             echo "Publishing $NAME@$VERSION with tag [$TAG]"
-            
+
             # 4. 执行针对性发布
             # 使用 from-package 确保发布的是当前 package.json 里的版本
             pnpm --filter "$NAME" publish --access public --tag "$TAG" --no-git-checks

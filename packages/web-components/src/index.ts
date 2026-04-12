@@ -1,7 +1,7 @@
-import '@webcomponents/webcomponentsjs';
-import './components/button';
-import './components/popover';
+import "@webcomponents/webcomponentsjs";
+import "./components/button";
+import "./components/popover";
 
 if (!customElements) {
-  throw new Error('Browser not supported customElements!');
+  throw new Error("Browser not supported customElements!");
 }

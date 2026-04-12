@@ -43,6 +43,9 @@ coverage
 rollup.config-*.cjs
 packages/docs
 
+build
+dist
+
 # Temp files
 *.tmp
 .cache
