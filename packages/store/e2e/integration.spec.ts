@@ -1,15 +1,15 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test.describe('Store Integration Tests', () => {
+test.describe("Store Integration Tests", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(`file://${process.cwd()}/packages/store/public/test-demo.html`);
     await page.waitForFunction(() => (window as any).testStoreReady);
   });
 
-  test('should create multiple independent Store instances', async ({ page }) => {
+  test("should create multiple independent Store instances", async ({ page }) => {
     const result = await page.evaluate(() => {
       const Store = (window as any).Store;
-      const stores = [new Store({ id: 'store-1' }), new Store({ id: 'store-2' }), new Store({ id: 'store-3' })];
+      const stores = [new Store({ id: "store-1" }), new Store({ id: "store-2" }), new Store({ id: "store-3" })];
 
       return {
         store1Id: stores[0].options.id,
@@ -19,36 +19,36 @@ test.describe('Store Integration Tests', () => {
       };
     });
 
-    expect(result.store1Id).toBe('store-1');
-    expect(result.store2Id).toBe('store-2');
-    expect(result.store3Id).toBe('store-3');
+    expect(result.store1Id).toBe("store-1");
+    expect(result.store2Id).toBe("store-2");
+    expect(result.store3Id).toBe("store-3");
     expect(result.allDifferent).toBe(true);
   });
 
-  test('should maintain instance independence', async ({ page }) => {
+  test("should maintain instance independence", async ({ page }) => {
     const result = await page.evaluate(() => {
       const Store = (window as any).Store;
-      const store1 = new Store({ id: 'independent-1' });
-      const store2 = new Store({ id: 'independent-2' });
+      const store1 = new Store({ id: "independent-1" });
+      const store2 = new Store({ id: "independent-2" });
 
-      store1.options.id = 'modified';
+      store1.options.id = "modified";
 
       return {
         store1ModifiedId: store1.options.id,
         store2OriginalId: store2.options.id,
-        store2Unchanged: store2.options.id === 'independent-2',
+        store2Unchanged: store2.options.id === "independent-2",
       };
     });
 
-    expect(result.store1ModifiedId).toBe('modified');
-    expect(result.store2OriginalId).toBe('independent-2');
+    expect(result.store1ModifiedId).toBe("modified");
+    expect(result.store2OriginalId).toBe("independent-2");
     expect(result.store2Unchanged).toBe(true);
   });
 
-  test('should handle on method with multiple event types', async ({ page }) => {
+  test("should handle on method with multiple event types", async ({ page }) => {
     const result = await page.evaluate(() => {
       const Store = (window as any).Store;
-      const store = new Store({ id: 'event-store' });
+      const store = new Store({ id: "event-store" });
 
       let eventCount = 0;
       const originalLog = console.log;
@@ -57,9 +57,9 @@ test.describe('Store Integration Tests', () => {
         eventCount++;
       };
 
-      store.on('load', () => {});
-      store.on('save', () => {});
-      store.on('delete', () => {});
+      store.on("load", () => {});
+      store.on("save", () => {});
+      store.on("delete", () => {});
 
       console.log = originalLog;
 
@@ -73,19 +73,19 @@ test.describe('Store Integration Tests', () => {
     expect(result.eventsCount).toBeGreaterThanOrEqual(3);
   });
 
-  test('should allow reusing Store instances', async ({ page }) => {
+  test("should allow reusing Store instances", async ({ page }) => {
     const result = await page.evaluate(() => {
       const Store = (window as any).Store;
-      const store = new Store({ id: 'reusable-store' });
+      const store = new Store({ id: "reusable-store" });
 
       const results = [];
       for (let i = 0; i < 3; i++) {
-        store.on('event-' + i, () => {});
-        results.push(store.options.id === 'reusable-store');
+        store.on("event-" + i, () => {});
+        results.push(store.options.id === "reusable-store");
       }
 
       return {
-        idPersistent: store.options.id === 'reusable-store',
+        idPersistent: store.options.id === "reusable-store",
         allCallsSucceeded: results.every(r => r === true),
       };
     });
@@ -94,17 +94,17 @@ test.describe('Store Integration Tests', () => {
     expect(result.allCallsSucceeded).toBe(true);
   });
 
-  test('should support chaining Store operations', async ({ page }) => {
+  test("should support chaining Store operations", async ({ page }) => {
     const result = await page.evaluate(() => {
       const Store = (window as any).Store;
-      const store = new Store({ id: 'chain-store' });
+      const store = new Store({ id: "chain-store" });
 
       try {
-        store.on('init', () => {});
+        store.on("init", () => {});
         const id1 = store.options.id;
-        store.on('process', () => {});
+        store.on("process", () => {});
         const id2 = store.options.id;
-        store.on('complete', () => {});
+        store.on("complete", () => {});
         const id3 = store.options.id;
 
         return {
@@ -125,14 +125,14 @@ test.describe('Store Integration Tests', () => {
     expect(result.allOperationsCompleted).toBe(true);
   });
 
-  test('should handle rapid Store creation and usage', async ({ page }) => {
+  test("should handle rapid Store creation and usage", async ({ page }) => {
     const result = await page.evaluate(() => {
       const Store = (window as any).Store;
       const stores = [];
 
       for (let i = 0; i < 10; i++) {
         const store = new Store({ id: `rapid-${i}` });
-        store.on('event', () => {});
+        store.on("event", () => {});
         stores.push(store);
       }
 
@@ -148,21 +148,21 @@ test.describe('Store Integration Tests', () => {
 
     expect(result.storesCreated).toBe(true);
     expect(result.allValid).toBe(true);
-    expect(result.firstStoreId).toBe('rapid-0');
-    expect(result.lastStoreId).toBe('rapid-9');
+    expect(result.firstStoreId).toBe("rapid-0");
+    expect(result.lastStoreId).toBe("rapid-9");
   });
 
-  test('should maintain state consistency across multiple on calls', async ({ page }) => {
+  test("should maintain state consistency across multiple on calls", async ({ page }) => {
     const result = await page.evaluate(() => {
       const Store = (window as any).Store;
-      const store = new Store({ id: 'state-store' });
+      const store = new Store({ id: "state-store" });
 
       const originalId = store.options.id;
-      store.on('event1', () => {});
+      store.on("event1", () => {});
       const idAfterEvent1 = store.options.id;
-      store.on('event2', () => {});
+      store.on("event2", () => {});
       const idAfterEvent2 = store.options.id;
-      store.on('event3', () => {});
+      store.on("event3", () => {});
       const idAfterEvent3 = store.options.id;
 
       return {
@@ -172,20 +172,20 @@ test.describe('Store Integration Tests', () => {
     });
 
     expect(result.idPersistent).toBe(true);
-    expect(result.idValue).toBe('state-store');
+    expect(result.idValue).toBe("state-store");
   });
 
-  test('should handle Store with various callback types', async ({ page }) => {
+  test("should handle Store with various callback types", async ({ page }) => {
     const result = await page.evaluate(() => {
       const Store = (window as any).Store;
-      const store = new Store({ id: 'callback-store' });
+      const store = new Store({ id: "callback-store" });
 
       try {
         function namedCallback() {}
-        store.on('named', namedCallback);
-        store.on('arrow', () => {});
-        store.on('anon', function () {});
-        store.on('null', null as any);
+        store.on("named", namedCallback);
+        store.on("arrow", () => {});
+        store.on("anon", function () {});
+        store.on("null", null as any);
 
         return {
           success: true,
@@ -202,23 +202,23 @@ test.describe('Store Integration Tests', () => {
     expect(result.success).toBe(true);
   });
 
-  test('should preserve options through instance lifecycle', async ({ page }) => {
+  test("should preserve options through instance lifecycle", async ({ page }) => {
     const result = await page.evaluate(() => {
       const Store = (window as any).Store;
-      const options = { id: 'lifecycle-store' };
+      const options = { id: "lifecycle-store" };
       const store = new Store(options);
 
       const checkpoints = [];
       checkpoints.push(store.options.id);
-      store.on('op1', () => {});
+      store.on("op1", () => {});
       checkpoints.push(store.options.id);
-      store.on('op2', () => {});
+      store.on("op2", () => {});
       checkpoints.push(store.options.id);
-      store.on('op3', () => {});
+      store.on("op3", () => {});
       checkpoints.push(store.options.id);
 
       return {
-        allCheckpointsSame: checkpoints.every(id => id === 'lifecycle-store'),
+        allCheckpointsSame: checkpoints.every(id => id === "lifecycle-store"),
         checkpointsCount: checkpoints.length,
         finalId: store.options.id,
       };
@@ -226,6 +226,6 @@ test.describe('Store Integration Tests', () => {
 
     expect(result.allCheckpointsSame).toBe(true);
     expect(result.checkpointsCount).toBe(4);
-    expect(result.finalId).toBe('lifecycle-store');
+    expect(result.finalId).toBe("lifecycle-store");
   });
 });

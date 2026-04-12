@@ -1,8 +1,8 @@
 packages:
-  - 'packages/*'
-  - 'config/*'
-  - 'site/*'
-  - '!site/with-vue2.5'
-  - '!**/test/**'
-  - '!**/dist/**'
-  - '!**/build/**'
+  - "packages/*"
+  - "config/*"
+  - "site/*"
+  - "!site/with-vue2.5"
+  - "!**/test/**"
+  - "!**/dist/**"
+  - "!**/build/**"

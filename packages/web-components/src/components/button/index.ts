@@ -2,9 +2,9 @@ class WcButton extends HTMLElement {
   constructor() {
     super();
 
-    const shadowRoot = this.attachShadow({ mode: 'open' });
+    const shadowRoot = this.attachShadow({ mode: "open" });
 
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
       :host {
         display: inline-block;
@@ -24,10 +24,10 @@ class WcButton extends HTMLElement {
       }
     `;
 
-    const btnElem = document.createElement('button');
-    btnElem.classList.add('vv-button');
+    const btnElem = document.createElement("button");
+    btnElem.classList.add("vv-button");
 
-    const slot = document.createElement('slot');
+    const slot = document.createElement("slot");
     btnElem.appendChild(slot);
 
     shadowRoot.appendChild(style);
@@ -35,11 +35,11 @@ class WcButton extends HTMLElement {
   }
 }
 
-customElements.define('wc-button', WcButton);
+customElements.define("wc-button", WcButton);
 
 /** 添加标签 */
 export interface HTMLElementTagNameMap {
-  'wc-button': WcButton;
+  "wc-button": WcButton;
 }
 
 // export default WcButton;

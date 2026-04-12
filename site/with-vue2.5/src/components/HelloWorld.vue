@@ -55,10 +55,10 @@
 </template>
 
 <script>
-import Store from '@ak2021/store';
+// import Store from '@ak2021/store';
 
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
     msg: String,
   },
@@ -66,10 +66,10 @@ export default {
     return {};
   },
   mounted() {
-    const store = new Store();
-    store.on('test', data => {
-      console.log('test', data);
-    });
+    // const store = new Store();
+    // store.on('test', data => {
+    //   console.log('test', data);
+    // });
   },
 };
 </script>

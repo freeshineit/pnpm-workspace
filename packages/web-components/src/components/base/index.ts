@@ -1,4 +1,4 @@
-import '@webcomponents/webcomponentsjs';
+import "@webcomponents/webcomponentsjs";
 
 class BaseComponent extends HTMLElement {
   constructor() {
@@ -6,7 +6,7 @@ class BaseComponent extends HTMLElement {
   }
 
   render() {
-    throw new Error('BaseComponent Error!');
+    throw new Error("BaseComponent Error!");
   }
 }
 

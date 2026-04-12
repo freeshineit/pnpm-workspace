@@ -1,2 +1,2 @@
-import '@skax/picker/dist/style/index.scss';
-import './common.scss';
+import "@skax/picker/dist/style/index.scss";
+import "./common.scss";

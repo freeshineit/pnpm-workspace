@@ -1,20 +1,20 @@
-import './App.css';
-import '@ak2021/react-ui/dist/style/css.css';
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import { Button } from '@ak2021/react-ui';
-import Store from '@ak2021/store';
+import "./App.css";
+import "@ak2021/react-ui/dist/style/css.css";
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import { Button } from "@ak2021/react-ui";
+import Store from "@ak2021/store";
 
 function App() {
   const storeRef = React.useRef<Store | null>(null);
 
   useEffect(() => {
     if (storeRef.current) return;
-    storeRef.current = new Store({ id: 'app-store' });
-    storeRef.current.on('test', (data: unknown) => {
-      console.log('test', data);
+    storeRef.current = new Store({ id: "app-store" });
+    storeRef.current.on("test", (data: unknown) => {
+      console.log("test", data);
     });
-    console.log('store App', storeRef.current);
+    console.log("store App", storeRef.current);
   }, []);
 
   return (

@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from "react";
+import clsx from "clsx";
 
 export interface IInputProps {
   value?: string;
@@ -7,13 +7,13 @@ export interface IInputProps {
   placeholder?: string;
   disabled?: boolean;
   /** Visual size of the input */
-  size?: 'small' | 'middle' | 'large';
+  size?: "small" | "middle" | "large";
   className?: string;
   style?: React.CSSProperties;
   /** Max character length */
   maxLength?: number;
   /** Input type attribute */
-  type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
+  type?: "text" | "password" | "email" | "number" | "tel" | "url" | "search";
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
@@ -22,19 +22,19 @@ export interface IInputProps {
 }
 
 const Input = React.forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
-  const { value, defaultValue, placeholder, disabled, size, className, style, maxLength, type = 'text', onChange, onFocus, onBlur, onPressEnter, onKeyDown } = props;
+  const { value, defaultValue, placeholder, disabled, size, className, style, maxLength, type = "text", onChange, onFocus, onBlur, onPressEnter, onKeyDown } = props;
 
   const classNames = clsx(
-    'wc-input',
+    "wc-input",
     {
       [`wc-input-${size}`]: !!size,
-      'wc-input-disabled': disabled,
+      "wc-input-disabled": disabled,
     },
     className,
   );
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = e => {
-    if (e.key === 'Enter' && onPressEnter) {
+    if (e.key === "Enter" && onPressEnter) {
       onPressEnter(e);
     }
     onKeyDown?.(e);
@@ -61,6 +61,6 @@ const Input = React.forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
   );
 });
 
-Input.displayName = 'Input';
+Input.displayName = "Input";
 
 export default Input;

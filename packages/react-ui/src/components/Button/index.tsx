@@ -1,31 +1,31 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from "react";
+import clsx from "clsx";
 
 export interface IButtonProps {
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
   /** Visual variant of the button */
-  type?: 'primary';
+  type?: "primary";
   /** Size of the button */
-  size?: 'small' | 'middle' | 'large';
+  size?: "small" | "middle" | "large";
   /** Whether the button is disabled */
   disabled?: boolean;
   /** HTML button type attribute */
-  htmlType?: 'button' | 'submit' | 'reset';
+  htmlType?: "button" | "submit" | "reset";
   /** Click handler */
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = (props: IButtonProps) => {
-  const { type, size, disabled, htmlType = 'button', onClick, className, style, children } = props;
+  const { type, size, disabled, htmlType = "button", onClick, className, style, children } = props;
 
   const classNames = clsx(
-    'wc-btn',
+    "wc-btn",
     {
       [`wc-btn-${type}`]: !!type,
       [`wc-btn-${size}`]: !!size,
-      'wc-btn-disabled': disabled,
+      "wc-btn-disabled": disabled,
     },
     className,
   );
@@ -37,6 +37,6 @@ const Button = (props: IButtonProps) => {
   );
 };
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
 export default Button;

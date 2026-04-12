@@ -4,24 +4,24 @@ module.exports = {
   // 文档：https://cli.vuejs.org/zh/guide/webpack.html
   configureWebpack: {
     resolve: {
-      extensions: ['.js', '.vue', '.json', '.mjs'],
+      extensions: [".js", ".vue", ".json", ".mjs"],
     },
     module: {
       rules: [
         {
           test: /\.mjs$/,
           include: /node_modules/,
-          type: 'javascript/auto',
+          type: "javascript/auto",
         },
       ],
     },
   },
   chainWebpack: config => {
     config.module
-      .rule('mjs')
+      .rule("mjs")
       .test(/\.mjs$/)
       .include.add(/node_modules/)
       .end()
-      .type('javascript/auto');
+      .type("javascript/auto");
   },
 };
