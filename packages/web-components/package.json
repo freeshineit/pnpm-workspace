@@ -13,7 +13,8 @@
     },
     "./dist/style/css.css": "./dist/style/css.css",
     "./dist/style/css.js": "./dist/style/css.js",
-    "./dist/style/index.js": "./dist/style/index.js"
+    "./dist/style/index.js": "./dist/style/index.js",
+    "./dist/style": "./dist/style/index.js"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development rollup --config rollup.config.mjs --watch",

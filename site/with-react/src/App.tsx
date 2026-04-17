@@ -1,5 +1,5 @@
 import "./App.css";
-import "@ak2021/react-ui/dist/style/css.css";
+import "@ak2021/react-ui/dist/style";
 import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import { Button } from "@ak2021/react-ui";
