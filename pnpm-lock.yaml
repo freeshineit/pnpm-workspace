@@ -247,6 +247,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      sass:
+        specifier: ^1.99.0
+        version: 1.99.0
       typescript:
         specifier: ^5.3.3
         version: 5.4.5
@@ -5467,8 +5470,8 @@ packages:
       react-refresh: 0.14.2
       resolve: 1.22.8
       resolve-url-loader: 4.0.0
-      sass: 1.97.1
-      sass-loader: 14.2.1(sass@1.97.1)(webpack@5.95.0)
+      sass: 1.99.0
+      sass-loader: 14.2.1(sass@1.99.0)(webpack@5.95.0)
       semver: 7.6.3
       source-map-loader: 5.0.0(webpack@5.95.0)
       style-loader: 3.3.4(webpack@5.95.0)
@@ -11741,6 +11744,11 @@ packages:
 
   /immutable@5.1.2:
     resolution: {integrity: sha512-qHKXW1q6liAk1Oys6umoaZbDRqjcjgSrbnrifHsfsttza7zcvRAsL7mMV6xWcyhwQy7Xj5v4hhbr6b+iDYwlmQ==}
+    dev: false
+
+  /immutable@5.1.5:
+    resolution: {integrity: sha512-t7xcm2siw+hlUM68I+UEOK+z84RzmN59as9DZ7P1l0994DKUWV7UXBMQZVxaoMSRQ+PBZbHCOoBt7a2wxOMt+A==}
+    dev: true
 
   /import-cwd@3.0.0:
     resolution: {integrity: sha512-4pnzH16plW+hgvRECbDWpQl3cqtvSofHWh44met7ESfZ8UZOWWddm8hEyDTqREJ9RbYHY8gi8DqmaelApoOGMg==}
@@ -16864,7 +16872,7 @@ packages:
     resolution: {integrity: sha512-ZRwKbh/eQ6w9vmTjkuG0Ioi3HBwPFce0O+v//ve+aOq1oeCy7jMV2qzzAlpsNuqpqCBjjriM1lbtZbF/Q8jVyA==}
     dev: true
 
-  /sass-loader@14.2.1(sass@1.97.1)(webpack@5.95.0):
+  /sass-loader@14.2.1(sass@1.99.0)(webpack@5.95.0):
     resolution: {integrity: sha512-G0VcnMYU18a4N7VoNDegg2OuMjYtxnqzQWARVWCIVSZwJeiL9kg8QMsuIZOplsJgTzZLF6jGxI3AClj8I9nRdQ==}
     engines: {node: '>= 18.12.0'}
     peerDependencies:
@@ -16886,7 +16894,7 @@ packages:
         optional: true
     dependencies:
       neo-async: 2.6.2
-      sass: 1.97.1
+      sass: 1.99.0
       webpack: 5.95.0
     dev: true
 
@@ -16900,6 +16908,19 @@ packages:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.1
+    dev: false
+
+  /sass@1.99.0:
+    resolution: {integrity: sha512-kgW13M54DUB7IsIRM5LvJkNlpH+WhMpooUcaWGFARkF1Tc82v9mIWkCbCYf+MBvpIUBSeSOTilpZjEPr2VYE6Q==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 4.0.1
+      immutable: 5.1.5
+      source-map-js: 1.2.1
+    optionalDependencies:
+      '@parcel/watcher': 2.5.1
+    dev: true
 
   /sax@1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}

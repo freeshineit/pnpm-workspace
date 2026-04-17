@@ -80,6 +80,7 @@ function generateConfig(pkg, configs) {
         {
           file: "dist/index.js",
           format: "cjs",
+          exports: "named", // 添加这一行
           sourcemap: !isProduction,
           banner,
         },

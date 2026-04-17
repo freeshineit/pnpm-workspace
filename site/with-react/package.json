@@ -13,7 +13,8 @@
     "@skax/react-scripts": "5.0.1-beta.3",
     "typescript": "^5.3.3",
     "@ak2021/store": "workspace:*",
-    "@ak2021/react-ui": "workspace:*"
+    "@ak2021/react-ui": "workspace:*",
+    "sass": "^1.99.0"
   },
   "scripts": {
     "start": "react-scripts start",
