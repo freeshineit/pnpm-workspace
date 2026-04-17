@@ -1,6 +1,3 @@
-import "@skax/picker/dist/style/index.js";
-import "./style";
-
 export interface StoreOptions {
   id?: string;
 }
