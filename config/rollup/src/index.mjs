@@ -78,7 +78,7 @@ function generateConfig(pkg, configs) {
       input,
       output: [
         {
-          file: "dist/index.js",
+          file: "dist/index.cjs",
           format: "cjs",
           exports: "named", // 添加这一行
           sourcemap: !isProduction,

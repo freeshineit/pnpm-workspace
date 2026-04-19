@@ -1,16 +1,16 @@
 {
   "name": "@ak2021/web-components",
-  "version": "0.0.2",
+  "version": "0.0.3-beta.5",
   "description": "web components",
-  "main": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "type": "module",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.cjs"
     },
     "./dist/style/css.css": "./dist/style/css.css",
     "./dist/style/css.js": "./dist/style/css.js",

@@ -1,16 +1,16 @@
 {
   "name": "@ak2021/store",
-  "version": "1.0.2-alpha.2",
+  "version": "1.0.2-beta.5",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",
-  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.cjs"
     },
     "./dist/style/css.css": "./dist/style/css.css",
     "./dist/style/css.js": "./dist/style/css.js",
