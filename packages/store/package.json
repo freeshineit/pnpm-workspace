@@ -1,6 +1,6 @@
 {
   "name": "@ak2021/store",
-  "version": "1.0.2-beta.2",
+  "version": "1.0.2-beta.3",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -10,7 +10,8 @@
     ".": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.cjs"
     },
     "./dist/style/css.css": "./dist/style/css.css",
     "./dist/style/css.js": "./dist/style/css.js",

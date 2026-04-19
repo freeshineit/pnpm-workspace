@@ -2,6 +2,18 @@
 # yarn lockfile v1
 
 
+"@ak2021/store@1.0.2-beta.2":
+  version "1.0.2-beta.2"
+  resolved "https://registry.yarnpkg.com/@ak2021/store/-/store-1.0.2-beta.2.tgz#074a694243a5ffcd8eb8dceee19680d79a95d91a"
+  integrity sha512-dhDRt0iLYYZ0mNij0acYLuRwnAeWPBHtTRKYLuBi57X98KglzLWvb0cudzWCBDCccOcHajU3ml3Wy6/EU6L8qQ==
+
+"@ak2021/web-components@0.0.3-beta.2":
+  version "0.0.3-beta.2"
+  resolved "https://registry.yarnpkg.com/@ak2021/web-components/-/web-components-0.0.3-beta.2.tgz#1cd2ab6698d8418f77898e600ad62bb97b4f96de"
+  integrity sha512-2YWwZhT0pr7NwwTjO/vOBYOecTWDr/RtWJlR+LU7/X6gIGarHEkTQZ2yggX+b0S6TwCIXXlvLvjakHyvAOpnRQ==
+  dependencies:
+    "@webcomponents/webcomponentsjs" "^2.8.0"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.28.6", "@babel/code-frame@^7.29.0":
   version "7.29.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.29.0.tgz#7cd7a59f15b3cc0dcd803038f7792712a7d0b15c"
@@ -1162,6 +1174,11 @@
     "@webassemblyjs/ast" "1.9.0"
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
+
+"@webcomponents/webcomponentsjs@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.8.0.tgz#ab21f027594fa827c1889e8b646da7be27c7908a"
+  integrity sha512-loGD63sacRzOzSJgQnB9ZAhaQGkN7wl2Zuw7tsphI5Isa0irijrRo6EnJii/GgjGefIFO8AIO7UivzRhFaEk9w==
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
