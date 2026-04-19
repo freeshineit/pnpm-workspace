@@ -10,8 +10,8 @@
   "dependencies": {
     "vue": "^2.5.17",
     "vue-router": "^3.6.5",
-    "@ak2021/store": "1.0.2-beta.2",
-    "@ak2021/web-components": "0.0.3-beta.2"
+    "@ak2021/store": "1.0.2-beta.4",
+    "@ak2021/web-components": "0.0.3-beta.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",

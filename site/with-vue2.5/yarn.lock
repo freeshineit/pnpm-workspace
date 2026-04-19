@@ -2,15 +2,15 @@
 # yarn lockfile v1
 
 
-"@ak2021/store@1.0.2-beta.2":
-  version "1.0.2-beta.2"
-  resolved "https://registry.yarnpkg.com/@ak2021/store/-/store-1.0.2-beta.2.tgz#074a694243a5ffcd8eb8dceee19680d79a95d91a"
-  integrity sha512-dhDRt0iLYYZ0mNij0acYLuRwnAeWPBHtTRKYLuBi57X98KglzLWvb0cudzWCBDCccOcHajU3ml3Wy6/EU6L8qQ==
+"@ak2021/store@1.0.2-beta.4":
+  version "1.0.2-beta.4"
+  resolved "https://registry.yarnpkg.com/@ak2021/store/-/store-1.0.2-beta.4.tgz#c6605006f5437cc13a66cf353d768ea4618297fe"
+  integrity sha512-Nuz+VUr4C+34magInZDU84ybJWvy/LBdniWF/wdJcOcuyAkkzfTl4ATPmTvAoJLZqYewbOU/SP4evEfvVSiHjA==
 
-"@ak2021/web-components@0.0.3-beta.2":
-  version "0.0.3-beta.2"
-  resolved "https://registry.yarnpkg.com/@ak2021/web-components/-/web-components-0.0.3-beta.2.tgz#1cd2ab6698d8418f77898e600ad62bb97b4f96de"
-  integrity sha512-2YWwZhT0pr7NwwTjO/vOBYOecTWDr/RtWJlR+LU7/X6gIGarHEkTQZ2yggX+b0S6TwCIXXlvLvjakHyvAOpnRQ==
+"@ak2021/web-components@0.0.3-beta.3":
+  version "0.0.3-beta.3"
+  resolved "https://registry.yarnpkg.com/@ak2021/web-components/-/web-components-0.0.3-beta.3.tgz#a45145792c88223c86d9013aa8f3199528eeba78"
+  integrity sha512-/wLI32bZfqv/IU1StciEy1GwZbg7XmYdBT3sJkBaIqTaFwD9ZfQgIpnQUzLfRrdecV8dOZ+a6M8iLLSVmuvibA==
   dependencies:
     "@webcomponents/webcomponentsjs" "^2.8.0"
 
