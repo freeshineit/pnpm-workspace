@@ -222,6 +222,18 @@ importers:
 
   site/with-react:
     dependencies:
+      '@ak2021/react-ui':
+        specifier: ^0.1.0-beta.7
+        version: link:../../packages/react-ui
+      '@ak2021/store':
+        specifier: ^1.0.2-beta.5
+        version: link:../../packages/store
+      '@ak2021/web-components':
+        specifier: ^0.0.3-beta.5
+        version: link:../../packages/web-components
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -229,12 +241,6 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@ak2021/react-ui':
-        specifier: workspace:*
-        version: link:../../packages/react-ui
-      '@ak2021/store':
-        specifier: workspace:*
-        version: link:../../packages/store
       '@skax/react-scripts':
         specifier: 5.0.1-beta.3
         version: 5.0.1-beta.3(eslint@9.39.4)(react@18.3.1)(ts-node@10.9.2)(typescript@5.4.5)
@@ -263,8 +269,11 @@ importers:
   site/with-vue2.7:
     dependencies:
       '@ak2021/store':
-        specifier: workspace:*
+        specifier: ^1.0.2-beta.5
         version: link:../../packages/store
+      '@ak2021/web-components':
+        specifier: ^0.0.3-beta.5
+        version: link:../../packages/web-components
       core-js:
         specifier: ^3.38.1
         version: 3.38.1
@@ -288,8 +297,11 @@ importers:
   site/with-vue3:
     dependencies:
       '@ak2021/store':
-        specifier: workspace:*
+        specifier: ^1.0.2-beta.5
         version: link:../../packages/store
+      '@ak2021/web-components':
+        specifier: ^0.0.3-beta.5
+        version: link:../../packages/web-components
       vue:
         specifier: ^3.5.10
         version: 3.5.11(typescript@5.3.3)
