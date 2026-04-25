@@ -1,4 +1,4 @@
-import generateConfig from "@config/rollup";
+import generateConfig from "@skax/rollup-config";
 import fs from "fs";
 
 const pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"));

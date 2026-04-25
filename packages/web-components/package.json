@@ -36,9 +36,7 @@
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.8.0"
   },
-  "devDependencies": {
-    "@config/rollup": "workspace:*"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

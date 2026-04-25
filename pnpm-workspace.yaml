@@ -1,6 +1,5 @@
 packages:
   - "packages/*"
-  - "config/*"
   - "site/*"
   - "!site/with-vue2.5"
   - "!**/test/**"
