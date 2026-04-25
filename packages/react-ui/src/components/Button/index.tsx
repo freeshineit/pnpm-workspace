@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import Picker from "@skax/picker";
 
 export interface IButtonProps {
   children?: React.ReactNode;
@@ -20,6 +21,19 @@ export interface IButtonProps {
 const Button = (props: IButtonProps) => {
   const { type, size, disabled, htmlType = "button", onClick, className, style, children } = props;
 
+  const pickerRef = React.useRef<Picker | null>(null);
+  const btnRef = React.useRef<HTMLButtonElement | null>(null);
+
+  React.useEffect(() => {
+    if (!pickerRef.current) {
+      pickerRef.current = new Picker(btnRef.current as HTMLButtonElement, {
+        trigger: "hover",
+        content: "<div style='padding: 12px; background-color: #FFF'>Button is disabled </div>",
+        placement: "bottom",
+      });
+    }
+  }, []);
+
   const classNames = clsx(
     "wc-btn",
     {
@@ -31,7 +45,7 @@ const Button = (props: IButtonProps) => {
   );
 
   return (
-    <button className={classNames} style={style} disabled={disabled} type={htmlType} onClick={disabled ? undefined : onClick} aria-disabled={disabled}>
+    <button ref={btnRef} className={classNames} style={style} disabled={disabled} type={htmlType} onClick={disabled ? undefined : onClick} aria-disabled={disabled}>
       {children}
     </button>
   );
