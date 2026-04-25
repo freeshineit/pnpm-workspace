@@ -30,9 +30,10 @@
   ],
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@skax/picker": "^1.1.8"
   },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
