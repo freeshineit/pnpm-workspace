@@ -41,6 +41,9 @@ function App() {
         </a>
         <Button>Button</Button>
         <wc-button type="primary">Web Component Button</wc-button>
+        <wc-picker trigger="hover" content='<div style="padding: 12px; background: #fff;">Picker Content</div>' placement="bottom">
+          <wc-button>Web Component Picker</wc-button>
+        </wc-picker>
         <wc-popover ref={popoverRef}>
           <wc-button>Web Component Popover</wc-button>
         </wc-popover>

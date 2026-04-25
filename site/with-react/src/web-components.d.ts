@@ -9,6 +9,10 @@ interface WcPopoverElement extends HTMLElement {
   open?: string | boolean;
 }
 
+interface WcPickerElement extends HTMLElement {
+  open?: string | boolean;
+}
+
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -19,6 +23,12 @@ declare global {
       "wc-popover": CustomElementProps<WcPopoverElement> & {
         list?: string;
         open?: string | boolean;
+      };
+      "wc-picker": CustomElementProps<WcPickerElement> & {
+        open?: string | boolean;
+        trigger?: "click" | "hover";
+        content?: string;
+        placement?: "top" | "bottom" | "tl" | "tr" | "bl" | "br";
       };
     }
   }

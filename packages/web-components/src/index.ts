@@ -1,5 +1,6 @@
 import "@webcomponents/webcomponentsjs";
 import "./components/button";
+import "./components/picker";
 import "./components/popover";
 
 if (!customElements) {
