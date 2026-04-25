@@ -6,15 +6,22 @@
     <title>web components</title>
     <link rel="stylesheet" href="./style/css.css" />
     <script src="./index.umd.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
     <script>
       const list = [
         {
           value: 1,
-          label: '1x',
+          label: "1x",
         },
         {
           value: 2,
-          label: '2x',
+          label: "2x",
         },
       ];
     </script>
@@ -23,6 +30,7 @@
   <body>
     <div id="app">
       <wc-button>Button</wc-button>
+      <wc-picker trigger="click" content='<div style="padding: 12px; background: #fff;">Picker Content</div>' placement="bottom"> <button>打开 Picker</button></wc-picker>
       <wc-popover
         content="这是一个 Popover 示例!"
         list='[
@@ -47,6 +55,5 @@
         <wc-button>点击我</wc-button>
       </wc-popover>
     </div>
-    <script src="./index.umd.js"></script>
   </body>
 </html>

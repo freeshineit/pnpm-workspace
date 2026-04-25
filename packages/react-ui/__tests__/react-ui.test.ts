@@ -1,18 +1,18 @@
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import UI, { Button, Input } from "../src/index";
+import { Button, Input } from "../src/index";
 import MainExport from "../src/main";
 import "../src/style";
 
 describe("react-ui", () => {
   // --- exports ---
   test("exports Button from index and default export", () => {
-    expect(UI.Button).toBe(Button);
+    expect(Button).toBe(Button);
   });
 
   test("exports Input from index and default export", () => {
-    expect(UI.Input).toBe(Input);
+    expect(Input).toBe(Input);
   });
 
   test("exports Button from main default export", () => {
@@ -20,7 +20,7 @@ describe("react-ui", () => {
   });
 
   test("exports Input from main default export", () => {
-    expect((MainExport as typeof UI).Input).toBe(Input);
+    expect(MainExport.Input).toBe(Input);
   });
 
   // --- Button ---

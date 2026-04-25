@@ -31,7 +31,7 @@
   "author": "ShineShao <xiaoshaoqq@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@skax/picker": "^1.1.8"
+    "@skax/picker": "^2.0.0-alpha.1"
   },
   "devDependencies": {},
   "publishConfig": {

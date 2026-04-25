@@ -16,12 +16,26 @@ test.describe("Web Components E2E", () => {
     const result = await page.evaluate(() => {
       return {
         hasButton: !!customElements.get("wc-button"),
+        hasPicker: !!customElements.get("wc-picker"),
         hasPopover: !!customElements.get("wc-popover"),
       };
     });
 
     expect(result.hasButton).toBe(true);
+    expect(result.hasPicker).toBe(true);
     expect(result.hasPopover).toBe(true);
+  });
+
+  test("should open wc-picker from attribute", async ({ page }) => {
+    await page.evaluate(() => {
+      const picker = document.createElement("wc-picker");
+      picker.setAttribute("content", "<div class='picker-panel'>Picker Panel</div>");
+      picker.setAttribute("open", "true");
+      picker.innerHTML = "<span>Trigger</span>";
+      document.body.appendChild(picker);
+    });
+
+    await expect(page.locator(".epicker .picker-panel")).toHaveText("Picker Panel");
   });
 
   test("should render wc-button shadow dom", async ({ page }) => {
