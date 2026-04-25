@@ -110,6 +110,9 @@ importers:
 
   packages/react-ui:
     dependencies:
+      '@skax/picker':
+        specifier: ^2.0.0-alpha.1
+        version: 2.0.0-beta.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -127,8 +130,8 @@ importers:
   packages/store:
     dependencies:
       '@skax/picker':
-        specifier: ^1.1.8
-        version: 1.1.8
+        specifier: ^2.0.0-alpha.1
+        version: 2.0.0-beta.1
 
   packages/web-components:
     dependencies:
@@ -4383,8 +4386,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /@skax/picker@1.1.8:
-    resolution: {integrity: sha512-PY8eefUG2KYheTV4VsToL66JDyFWbNrUQcz4sdEUfdFs5A2JWBYL4tNVEIMUq92m03yXaPtkNXh2RcgKO2Czzg==}
+  /@skax/picker@2.0.0-beta.1:
+    resolution: {integrity: sha512-Ld5SbFRaTSAf18Am1ggsby/IECNksNsWEMR1WDL+Fe7/HHZFBUJWS+jdzplJX/7GqW2nuWCt0GD1fCs4PCIukw==}
     dev: false
 
   /@skax/react-scripts@5.0.1-beta.3(@swc/core@1.15.7)(eslint@9.39.4)(react@18.3.1)(ts-node@10.9.2)(typescript@5.4.5):

@@ -1,6 +1,3 @@
-import { Button, Input } from ".";
+import { Button, Input, Picker } from ".";
 
-export default {
-  Button,
-  Input,
-};
+export default { Button, Input, Picker };
