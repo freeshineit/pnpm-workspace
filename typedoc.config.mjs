@@ -4,6 +4,7 @@ export default {
   packageOptions: {
     entryPoints: ["src/index.ts"],
     readme: "README.md",
+    includeVersion: true,
     exclude: ["**/__tests__/**/*", "**/e2e/**/*", "**/node_modules/**/*"],
   },
   out: "docs",
