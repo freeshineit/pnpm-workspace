@@ -3,6 +3,7 @@ export default {
   entryPoints: ["./packages/react-ui", "./packages/store", "./packages/web-components"],
   packageOptions: {
     entryPoints: ["src/index.ts"],
+    readme: "README.md",
     exclude: ["**/__tests__/**/*", "**/e2e/**/*", "**/node_modules/**/*"],
   },
   out: "docs",
