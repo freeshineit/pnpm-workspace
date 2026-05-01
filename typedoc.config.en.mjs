@@ -1,6 +1,8 @@
 const formatDate = `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, "0")}-${String(new Date().getDate()).padStart(2, "0")}`;
 
 export default {
+  // 这里设置头部标题
+  name: "API Docs",
   entryPointStrategy: "packages",
   entryPoints: ["./packages/react-ui", "./packages/store", "./packages/web-components"],
   packageOptions: {
