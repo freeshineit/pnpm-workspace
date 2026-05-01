@@ -18,7 +18,7 @@ pnpm add @ak2021/react-ui react clsx
 ```tsx
 import React from "react";
 import { Button, Input } from "@ak2021/react-ui";
-import "@ak2021/react-ui/dist/style";
+import "@ak2021/react-ui/dist/style"; // or import "@ak2021/react-ui/dist/style/style.js"
 
 export default function App() {
   return (
