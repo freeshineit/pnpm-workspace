@@ -31,8 +31,17 @@ jobs:
         with:
           version: 10
 
-      - name: pnpm Install dependencies
-        run: pnpm install && pnpm run build
+      - name: Pnpm install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Pnpm build packages
+        run: pnpm run build:packages
+
+      - name: Pnpm install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Pnpm build sites
+        run: pnpm run build:sites
 
       - name: Get Changed Packages and Publish
         # env:
