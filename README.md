@@ -4,6 +4,10 @@
 
 一个基于 pnpm workspace + lerna 的 monorepo 项目模板，包含多个包和示例站点。
 
+[docs en](https://freeshineit.github.io/pnpm-workspace/en)
+
+[docs zh](https://freeshineit.github.io/pnpm-workspace/zh)
+
 ## 特性
 
 - 🚀 pnpm workspace - 快速、节省磁盘空间的包管理器
