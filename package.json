@@ -40,7 +40,7 @@
     "test:pw:headed": "playwright test --headed",
     "test:pw:ui": "playwright test --ui",
     "test:pw:report": "playwright show-report",
-    "docs": "typedoc --options typedoc.config.mjs"
+    "docs": "typedoc --options typedoc.config.zh.mjs && typedoc --options typedoc.config.en.mjs"
   },
   "files": [],
   "keywords": [],
