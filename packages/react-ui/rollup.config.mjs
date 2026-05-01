@@ -6,4 +6,5 @@ const pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 export default generateConfig({
   ...pkg,
   port: 3002,
+  styleOut: "dist/style/style.js",
 });
