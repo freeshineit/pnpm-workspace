@@ -11,8 +11,8 @@
       "require": "./dist/index.cjs",
       "default": "./dist/index.cjs"
     },
-    "./dist/style/css.css": "./dist/style/style.css",
-    "./dist/style/css.js": "./dist/style/style.js",
+    "./dist/style/style.css": "./dist/style/style.css",
+    "./dist/style/style.js": "./dist/style/style.js",
     "./dist/style/index.js": "./dist/style/index.js",
     "./dist/style": "./dist/style/index.js"
   },
