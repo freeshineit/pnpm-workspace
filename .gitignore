@@ -40,7 +40,6 @@ coverage
 .dumi/tmp
 .dumi/tmp-production
 .rollup.cache
-rollup.config-*.cjs
 packages/docs
 
 build
@@ -54,4 +53,3 @@ dist
 playwright-report
 test-results
 test-results.json
-

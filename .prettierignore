@@ -1,13 +1,17 @@
 .DS_Store
 .setting/
+.zed/
 node_modules/
 .idea/
 dist/
 docs/
 build/
+logs/
 coverage/
 pnpm-lock.yaml
+yarn.lock
 playwright-report
 test-results
 test-results.json
 *.umd.js
+*.min.js
