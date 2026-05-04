@@ -24,8 +24,8 @@ importers:
         specifier: ^1.58.2
         version: 1.58.2
       '@skax/rollup-config':
-        specifier: ^1.0.4-beta.1
-        version: 1.0.4-beta.1(eslint@9.39.4)(ts-node@10.9.2)
+        specifier: ^1.0.4
+        version: 1.0.4(eslint@9.39.4)(ts-node@10.9.2)
       '@types/jest':
         specifier: ^30.0.0
         version: 30.0.0
@@ -5297,8 +5297,8 @@ packages:
       - webpack-plugin-serve
     dev: true
 
-  /@skax/rollup-config@1.0.4-beta.1(eslint@9.39.4)(ts-node@10.9.2):
-    resolution: {integrity: sha512-LLlsElkF9aYNls4sQZX/ww/JlbOmTvvZKDUJGDuN+vyg+tqF7ASntVt3J7DJUb8BrodWfYMeYoWObVRz8CSB5Q==}
+  /@skax/rollup-config@1.0.4(eslint@9.39.4)(ts-node@10.9.2):
+    resolution: {integrity: sha512-gg4WM4QzUvjwW8d3LQ2DB+0y5YSfgOjQUdrw2axMMoLfMoHQJmCtKVV5hG1AjlEcyabxqFkldo/xdBrp2f79Zg==}
     engines: {node: '>=16'}
     dependencies:
       '@babel/core': 7.29.0
