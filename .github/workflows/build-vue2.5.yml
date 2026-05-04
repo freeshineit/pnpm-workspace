@@ -1,0 +1,34 @@
+name: build-vue2.5
+
+on:
+  push:
+    branches: ["main", "develop"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+
+    steps:
+      - uses: actions/checkout@v6
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v5
+        with:
+          version: 8
+
+      - name: Build with-vue2.5
+        working-directory: ./site/with-vue2.5
+        run: |
+          rm -rf node_modules
+          yarn --frozen-lockfile
+          yarn run build
+        env:
+          CI: false
