@@ -2,6 +2,9 @@
 import Store from "@ak2021/store";
 
 const store = new Store();
+
+console.warn("Store", store);
+
 store.on("test", (data: unknown) => {
   console.warn("test", data);
 });
